@@ -49,4 +49,10 @@
     <preference name="PageLength" value="0" />
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
+    <feature name="VideoPlayerVLC">
+        <param name="ios-package" value="VideoPlayerVLC" />
+    </feature>
+    <feature name="VideoPlayerVLCViewController">
+        <param name="ios-package" value="VideoPlayerVLCViewController" />
+    </feature>
 </widget>

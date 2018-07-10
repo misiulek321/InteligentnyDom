@@ -25,4 +25,5 @@
     </platform>
     <engine name="android" spec="^7.0.0" />
     <engine name="ios" spec="^4.5.4" />
+    <plugin name="cordova-plugin-rtsp-vlc" spec="^3.0.1" />
 </widget>

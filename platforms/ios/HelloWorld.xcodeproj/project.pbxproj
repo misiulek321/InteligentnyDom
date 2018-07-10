@@ -16,6 +16,21 @@
 		3047A5131AB8059700498E2A /* build-release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3047A5101AB8059700498E2A /* build-release.xcconfig */; };
 		3047A5141AB8059700498E2A /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3047A5111AB8059700498E2A /* build.xcconfig */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
+		F430797EDA1A452E9CEBE395 /* VideoPlayerVLC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3191261C62470C9CE6E263 /* VideoPlayerVLC.m */; };
+		79290FD543654C889371EC6B /* VideoPlayerVLCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7303ADEBBD14F6DA31E65A8 /* VideoPlayerVLCViewController.m */; };
+		7D4CDB80313B495B8BD6B26D /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D67777D143344DE80618E9A /* libbz2.dylib */; };
+		D14A9510BD4C4D11A40BBEC0 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FB3B7CDF514E378B42C7B8 /* libiconv.dylib */; };
+		8CA84E4B59EC43B287B78AB2 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 876EE70A63D043EF9ED4D2CF /* libstdc++.dylib */; };
+		79015CE0C3A843AAB82D9043 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4E5F0ED1754BF0B0B9EDA6 /* libz.dylib */; };
+		8752FC0DF1544AD6B0760D50 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D743DC3E3141388CB92F71 /* Security.framework */; };
+		72C74F4130954E4991E478CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5BA8F2C5F64219A90EF5FB /* QuartzCore.framework */; };
+		EE334BEC3BAE4C08B0AA320A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FFD38D3A6B4254954696BC /* OpenGLES.framework */; };
+		C79CD64550E240BE9F6A1B22 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8137A90B1444879E21B21E /* CoreText.framework */; };
+		8326ADD62E6B40238EAD5359 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A37F55EC984958923D1127 /* CFNetwork.framework */; };
+		74AFBA7A2B9447EAA4B1B6AB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8B911A188748A5A11735CA /* AudioToolbox.framework */; };
+		B0D7072059474E93994AC8C1 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012ED6E0294940279C9409C4 /* CoreAudio.framework */; };
+		0286408D681E4EEDB0B2BAD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D80843E0A74AD08E81924A /* UIKit.framework */; };
+		A398CCB0594541A58CBFE380 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F04757E60144FF4A26AB3FD /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +71,23 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "HelloWorld/config.xml"; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		1A3191261C62470C9CE6E263 /* VideoPlayerVLC.m */ = {isa = PBXFileReference; name = "VideoPlayerVLC.m"; path = "cordova-plugin-rtsp-vlc/VideoPlayerVLC.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F7303ADEBBD14F6DA31E65A8 /* VideoPlayerVLCViewController.m */ = {isa = PBXFileReference; name = "VideoPlayerVLCViewController.m"; path = "cordova-plugin-rtsp-vlc/VideoPlayerVLCViewController.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		2ECF83067FAA482B975831FB /* VideoPlayerVLC.h */ = {isa = PBXFileReference; name = "VideoPlayerVLC.h"; path = "cordova-plugin-rtsp-vlc/VideoPlayerVLC.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		EB5DD56ACCDD4AFDB2B4BD81 /* VideoPlayerVLCViewController.h */ = {isa = PBXFileReference; name = "VideoPlayerVLCViewController.h"; path = "cordova-plugin-rtsp-vlc/VideoPlayerVLCViewController.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		8D67777D143344DE80618E9A /* libbz2.dylib */ = {isa = PBXFileReference; name = "libbz2.dylib"; path = "usr/lib/libbz2.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
+		86FB3B7CDF514E378B42C7B8 /* libiconv.dylib */ = {isa = PBXFileReference; name = "libiconv.dylib"; path = "usr/lib/libiconv.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
+		876EE70A63D043EF9ED4D2CF /* libstdc++.dylib */ = {isa = PBXFileReference; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
+		7F4E5F0ED1754BF0B0B9EDA6 /* libz.dylib */ = {isa = PBXFileReference; name = "libz.dylib"; path = "usr/lib/libz.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
+		90D743DC3E3141388CB92F71 /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		DE5BA8F2C5F64219A90EF5FB /* QuartzCore.framework */ = {isa = PBXFileReference; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		84FFD38D3A6B4254954696BC /* OpenGLES.framework */ = {isa = PBXFileReference; name = "OpenGLES.framework"; path = "System/Library/Frameworks/OpenGLES.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		EA8137A90B1444879E21B21E /* CoreText.framework */ = {isa = PBXFileReference; name = "CoreText.framework"; path = "System/Library/Frameworks/CoreText.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		17A37F55EC984958923D1127 /* CFNetwork.framework */ = {isa = PBXFileReference; name = "CFNetwork.framework"; path = "System/Library/Frameworks/CFNetwork.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		0A8B911A188748A5A11735CA /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		012ED6E0294940279C9409C4 /* CoreAudio.framework */ = {isa = PBXFileReference; name = "CoreAudio.framework"; path = "System/Library/Frameworks/CoreAudio.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		74D80843E0A74AD08E81924A /* UIKit.framework */ = {isa = PBXFileReference; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		1F04757E60144FF4A26AB3FD /* Foundation.framework */ = {isa = PBXFileReference; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +96,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
+				7D4CDB80313B495B8BD6B26D /* libbz2.dylib in Frameworks */,
+				D14A9510BD4C4D11A40BBEC0 /* libiconv.dylib in Frameworks */,
+				8CA84E4B59EC43B287B78AB2 /* libstdc++.dylib in Frameworks */,
+				79015CE0C3A843AAB82D9043 /* libz.dylib in Frameworks */,
+				8752FC0DF1544AD6B0760D50 /* Security.framework in Frameworks */,
+				72C74F4130954E4991E478CA /* QuartzCore.framework in Frameworks */,
+				EE334BEC3BAE4C08B0AA320A /* OpenGLES.framework in Frameworks */,
+				C79CD64550E240BE9F6A1B22 /* CoreText.framework in Frameworks */,
+				8326ADD62E6B40238EAD5359 /* CFNetwork.framework in Frameworks */,
+				74AFBA7A2B9447EAA4B1B6AB /* AudioToolbox.framework in Frameworks */,
+				B0D7072059474E93994AC8C1 /* CoreAudio.framework in Frameworks */,
+				0286408D681E4EEDB0B2BAD4 /* UIKit.framework in Frameworks */,
+				A398CCB0594541A58CBFE380 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +179,19 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8D67777D143344DE80618E9A /* libbz2.dylib */,
+				86FB3B7CDF514E378B42C7B8 /* libiconv.dylib */,
+				876EE70A63D043EF9ED4D2CF /* libstdc++.dylib */,
+				7F4E5F0ED1754BF0B0B9EDA6 /* libz.dylib */,
+				90D743DC3E3141388CB92F71 /* Security.framework */,
+				DE5BA8F2C5F64219A90EF5FB /* QuartzCore.framework */,
+				84FFD38D3A6B4254954696BC /* OpenGLES.framework */,
+				EA8137A90B1444879E21B21E /* CoreText.framework */,
+				17A37F55EC984958923D1127 /* CFNetwork.framework */,
+				0A8B911A188748A5A11735CA /* AudioToolbox.framework */,
+				012ED6E0294940279C9409C4 /* CoreAudio.framework */,
+				74D80843E0A74AD08E81924A /* UIKit.framework */,
+				1F04757E60144FF4A26AB3FD /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,6 +217,10 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				1A3191261C62470C9CE6E263 /* VideoPlayerVLC.m */,
+				F7303ADEBBD14F6DA31E65A8 /* VideoPlayerVLCViewController.m */,
+				2ECF83067FAA482B975831FB /* VideoPlayerVLC.h */,
+				EB5DD56ACCDD4AFDB2B4BD81 /* VideoPlayerVLCViewController.h */,
 			);
 			name = Plugins;
 			path = "HelloWorld/Plugins";
@@ -271,6 +333,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				F430797EDA1A452E9CEBE395 /* VideoPlayerVLC.m in Sources */,
+				79290FD543654C889371EC6B /* VideoPlayerVLCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+        document.addEventListener('deviceready', function() { window.VideoPlayerVLC.play("rtsp://172.16.0.33:554/user=admin_password=xp7eHEBK_channel=1_stream=0.sdp?real_stream", done => {}, error => {});}, false);
     },
 
     // deviceready Event Handler

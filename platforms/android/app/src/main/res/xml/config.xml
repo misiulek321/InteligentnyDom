@@ -21,4 +21,7 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <feature name="VideoPlayerVLC">
+        <param name="android-package" value="com.libVLC.VideoPlayerVLC" />
+    </feature>
 </widget>

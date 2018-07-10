@@ -1,0 +1,97 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-rtsp-vlc",
+      "/media/michal/System/Users/Michal/Desktop/hello"
+    ]
+  ],
+  "_from": "cordova-plugin-rtsp-vlc@latest",
+  "_id": "cordova-plugin-rtsp-vlc@3.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cordova-plugin-rtsp-vlc",
+  "_nodeVersion": "8.9.3",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-rtsp-vlc_3.0.1_1529395679311_0.32119652206898097"
+  },
+  "_npmUser": {
+    "email": "saoron@gmail.com",
+    "name": "saoron"
+  },
+  "_npmVersion": "5.5.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "cordova-plugin-rtsp-vlc",
+    "raw": "cordova-plugin-rtsp-vlc",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-rtsp-vlc/-/cordova-plugin-rtsp-vlc-3.0.1.tgz",
+  "_shasum": "c58cdc6632c358c47a52e25e09f27807167f13bf",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-rtsp-vlc",
+  "_where": "/media/michal/System/Users/Michal/Desktop/hello",
+  "author": {
+    "name": "Saoron"
+  },
+  "bugs": {
+    "url": "https://github.com/dride/cordova-plugin-rtsp-vlc/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-rtsp-vlc",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova RTSP player",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "fileCount": 68,
+    "integrity": "sha512-E+2PLlGyLfmb2HC+WdqgMbN8YE1nEuzj1647mISy3GrSFRObTr/bgAqGwVDeDUewBpXJ4daOfNFxl0S8463NzA==",
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbKLnfCRA9TVsSAnZWagAAzDMQAIbwWqVdnWlQNhD5P07C\nWd+rnAjzmUBf1H/KlupNSOwt/ZLK4qfQD5Bmx7QIstW/mWUGXn5O7L8hVpdi\nd/mBK+ChTkHpseS89anoMxfzqmAD05bDWBT+aQjVLzIMitWBOdtLUCvqAyOG\nxbA1kEpp9hOlp3dzjY44zYTmYpivJdFGYZmtL4TP9BcfUJPPzpc9V2Rq5Vz9\npDrHGKmcUQvHC50PU6Js7Bzup7fvh0Y+K/xNuBzq/h1VdVCAz2orCjKPLU46\nstPwIz+rPZRnpA8HzNBJ/wBkTxJoYMNmF/WQcBOnEEUdUXmErpxIwpkwdiZY\n2KoCjvv/XS1IRmZrKHvpBBBVQX8CjecjowKUYCIEfe9DAzBIwgQpt3KA+k1q\n9qwKSEsD6lXzYNpsE3BdEuF1P0ov56ybZbqf5OsW3ZmVR435zEuHO0Qe5s7Y\n9DwW9+oyhctfocQH1PBTeaOydYBwB9SXTCqFRZ0wFh0jTOMOxzScm/n2tudv\nwISo9TmoUk4zzbB8GKSevzo/sQmSId6V0yr31oQuGluj7HqkiHXGOb3v+dFc\n11ivW/Kk7Wi2z6j/XFj3BxtCzadKskVQx+9N6WBMXqvfVoO40GJ9D6jImYTr\ny5CzfmRh9BgUx7p8CujLOSwB5iPMoQqD9QkfX2hxxGP3Ix8JhJIt3HCvqk7b\nyXa6\r\n=JKfo\r\n-----END PGP SIGNATURE-----\r\n",
+    "shasum": "c58cdc6632c358c47a52e25e09f27807167f13bf",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-rtsp-vlc/-/cordova-plugin-rtsp-vlc-3.0.1.tgz",
+    "unpackedSize": 196983
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "gitHead": "7e932cf94ca4f4b921489297c776eebcc4b8e3c1",
+  "homepage": "https://github.com/dride/cordova-plugin-rtsp-vlc#readme",
+  "keywords": [
+    "cordova",
+    "cordova-android",
+    "cordova-ios",
+    "ecosystem:cordova",
+    "phonegap",
+    "rtsp",
+    "vlc"
+  ],
+  "license": "Apache-2.0",
+  "maintainers": [
+    {
+      "name": "saoron",
+      "email": "saoron@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-rtsp-vlc",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dride/cordova-plugin-rtsp-vlc.git"
+  },
+  "version": "3.0.1"
+}
