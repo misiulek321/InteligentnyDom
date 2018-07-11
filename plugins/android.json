@@ -10,13 +10,9 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.hello.world"
     },
-    "cordova-plugin-rtsp-vlc": {
+    "cordova-plugin-httpd": {
       "PACKAGE_NAME": "com.hello.world"
     }
   },
-  "dependent_plugins": {
-    "es6-promise-plugin": {
-      "PACKAGE_NAME": "com.hello.world"
-    }
-  }
+  "dependent_plugins": {}
 }

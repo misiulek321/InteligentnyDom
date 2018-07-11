@@ -20,7 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-        document.addEventListener('deviceready', function() { window.VideoPlayerVLC.play("rtsp://172.16.0.33:554/user=admin_password=xp7eHEBK_channel=1_stream=0.sdp?real_stream", done => {}, error => {});}, false);
+        setTimeout(function(){ this.start(); }, 2000);
     },
 
     // deviceready Event Handler
@@ -41,6 +41,24 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+
+    start: function()
+    {
+        httpd = ( cordova && cordova.plugins && cordova.plugins.CorHttpd ) ? cordova.plugins.CorHttpd : null;
+
+        httpd.startServer({
+            'www_root' : "",
+            'port' : 8080,
+            'localhost_only' : false
+        }, function( url ){
+          // if server is up, it will return the url of http://<server ip>:port/
+          // the ip is the active network connection
+          // if no wifi or no cell, "127.0.0.1" will be returned.
+            alert("Start: "+url);
+        }, function( error ){
+            alert("Błąd: "+error);
+        });
     }
 };
 
