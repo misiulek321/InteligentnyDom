@@ -20,7 +20,6 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-        setTimeout(function(){ this.start(); }, 2000);
     },
 
     // deviceready Event Handler
@@ -43,8 +42,7 @@ var app = {
         console.log('Received Event: ' + id);
     },
 
-    start: function()
-    {
+    start: function() {
         httpd = ( cordova && cordova.plugins && cordova.plugins.CorHttpd ) ? cordova.plugins.CorHttpd : null;
 
         httpd.startServer({
@@ -63,3 +61,4 @@ var app = {
 };
 
 app.initialize();
+setTimeout(function(){ app.start(); }, 2000);
