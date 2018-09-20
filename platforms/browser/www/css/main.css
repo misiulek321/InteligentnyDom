@@ -1,0 +1,63 @@
+#topBar
+{
+    background-color: rgb(50, 50, 50);
+    padding: 1pt;
+}
+
+#menuIconBar1, #menuIconBar2, #menuIconBar3
+{
+    position: relative;
+    border-radius: 2pt;
+    height: 4pt;
+    background-color: white;
+    margin: 6pt;
+    width: 40pt;
+    -webkit-transition: width 0.5s, transform 0.5s, top 0.5s, bottom 0.5s, left 0.5s, opacity 0.5s;
+    transition: width 0.5s, transform 0.5s, top 0.5s, bottom 0.5s, left 0.5s, opacity 0.5s;
+}
+
+#menuIcon.open #menuIconBar1
+{
+    transform: rotate(45deg);
+    top: 10pt;
+    left: 7pt;
+    width: 25pt;
+}
+
+#menuIcon.open #menuIconBar2
+{
+    opacity: 0;
+    left: 7pt;
+    width: 25pt;
+}
+
+#menuIcon.open #menuIconBar3
+{
+    transform: rotate(-45deg);
+    bottom: 10pt;
+    left: 7pt;
+    width: 25pt;
+}
+
+
+#menu
+{
+    background-color: rgb(70, 70, 70);
+    color: white;
+}
+
+#menu1
+{
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.menu1_
+{
+    padding: 6pt 4pt;
+}
+
+.menu1_:hover
+{
+    background-color: rgb(100, 100, 100);
+}

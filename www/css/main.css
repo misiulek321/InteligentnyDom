@@ -1,0 +1,139 @@
+.clear
+{
+    clear: both;
+}
+
+#topBar
+{
+    background-color: rgb(50, 50, 50);
+    padding: 1pt;
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+#menuIconBar1, #menuIconBar2, #menuIconBar3
+{
+    position: relative;
+    border-radius: 2pt;
+    height: 4pt;
+    background-color: white;
+    margin: 6pt;
+    width: 40pt;
+    -webkit-transition: width 0.5s, transform 0.5s, top 0.5s, bottom 0.5s, left 0.5s, opacity 0.5s;
+    transition: width 0.5s, transform 0.5s, top 0.5s, bottom 0.5s, left 0.5s, opacity 0.5s;
+}
+
+#menuIcon.open #menuIconBar1
+{
+    transform: rotate(45deg);
+    top: 10pt;
+    left: 7pt;
+    width: 25pt;
+}
+
+#menuIcon.open #menuIconBar2
+{
+    opacity: 0;
+    left: 7pt;
+    width: 25pt;
+}
+
+#menuIcon.open #menuIconBar3
+{
+    transform: rotate(-45deg);
+    bottom: 10pt;
+    left: 7pt;
+    width: 25pt;
+}
+
+
+#menu
+{
+    color: white;
+}
+
+#menu1
+{
+    font-size: 20pt;
+    font-weight: bold;
+    background-color: rgb(50, 50, 50);
+    width: 100%;
+
+    position: absolute;
+    transition: left 0.5s, top 0.5s;
+
+    overflow: auto;
+}
+
+.menu1_.active
+{
+    background-color: rgb(80, 80, 80);
+}
+
+.menu1_ img
+{
+    height: 24pt;
+    margin: 5pt 5pt;
+}
+
+.menu1_text_portrait, .menu1_text_landscape
+{
+    margin: 3pt 5pt;
+}
+
+.menu1_text_portrait
+{
+    margin-bottom: 12pt;
+}
+
+.menu1_text_portrait div
+{
+    transform: rotate(-90deg);
+    line-height: 17pt;
+}
+
+@media all and (orientation:portrait)
+{
+    #menu1
+    {
+        white-space: nowrap;
+    }
+
+    .menu1_
+    {
+        display: inline-block;
+    }
+
+    .menu1_text_landscape
+    {
+        display: none;
+    }
+
+    .menu1_ img, .menu1_text_portrait
+    {
+        display: block;
+    }
+}
+
+@media screen and (orientation:landscape)
+{
+    .menu1_ img, .menu1_text_landscape
+    {
+        float: right;
+    }
+
+    .menu1_text_portrait
+    {
+        display: none;
+    }
+
+    .menu1_
+    {
+        clear: both;
+    }
+}

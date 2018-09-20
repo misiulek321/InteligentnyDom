@@ -40,7 +40,25 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+
+    start: function() {
+        httpd = ( cordova && cordova.plugins && cordova.plugins.CorHttpd ) ? cordova.plugins.CorHttpd : null;
+
+        httpd.startServer({
+            'www_root' : "",
+            'port' : 8080,
+            'localhost_only' : false
+        }, function( url ){
+          // if server is up, it will return the url of http://<server ip>:port/
+          // the ip is the active network connection
+          // if no wifi or no cell, "127.0.0.1" will be returned.
+            alert("Start: "+url);
+        }, function( error ){
+            alert("Błąd: "+error);
+        });
     }
 };
 
 app.initialize();
+setTimeout(function(){ app.start(); }, 2000);
