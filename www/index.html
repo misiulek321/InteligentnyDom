@@ -41,12 +41,137 @@
                 <div class="menu1_" id="menu1_sensors">         <div class="menu1_text_portrait"></div>   <img src="img/menu/sensors.png" />      <span class="menu1_text_landscape">Czujniki</span>      <div class="clear"></div>   </div>
             </div>
             <div id="menu2">
-                <div class="menu2_" id="menu2_oswietlenie"> <h1>Oświetlenie</h1>    </div>
-                <div class="menu2_" id="menu2_przekazniki"> <h1>Przekaźniki</h1>    </div>
-                <div class="menu2_" id="menu2_rolety">      <h1>Rolety</h1>         </div>
-                <div class="menu2_" id="menu2_termostaty">  <h1>Termostaty</h1>     </div>
-                <div class="menu2_" id="menu2_partycje">    <h1>Partycje</h1>       </div>
-                <div class="menu2_" id="menu2_czujniki">    <h1>Czujniki</h1>       </div>
+
+                <div class="menu2_" id="menu2_lights">
+                    <div class="menu2_title">
+                        <h1>Oświetlenie</h1>
+                        <img class="menu2_close" src="img/menu/close.svg" />
+                    </div>
+                    <div class="groups">
+                        <div class="actions">
+                            <img id="action_lights_on" class="action" src="img/menu/lights/on.svg" />
+                            <img id="action_lights_off" class="action" src="img/menu/lights/off.svg" />
+                            <img id="action_lights_switch" class="action" src="img/menu/lights/switch.svg" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="tiles">
+                        <div class="tile light template">
+                            <input type="checkbox" />
+                            <div class="name">Korytarz</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu2_" id="menu2_switches">
+                    <div class="menu2_title">
+                        <h1>Przekaźniki</h1>
+                        <img class="menu2_close" src="img/menu/close.svg" />
+                    </div>
+                    <div class="groups">
+                        <div class="actions">
+                            <img id="action_switches_on" class="action" src="img/menu/switches/on.svg" />
+                            <img id="action_switches_off" class="action" src="img/menu/switches/off.svg" />
+                            <img id="action_switches_switch" class="action" src="img/menu/switches/switch.svg" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="tiles">
+                        <div class="tile switch template">
+                            <input type="checkbox" />
+                            <div class="name">Brama wjazdowa</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu2_" id="menu2_blinds">
+                    <div class="menu2_title">
+                        <h1>Rolety</h1>
+                        <img class="menu2_close" src="img/menu/close.svg" />
+                    </div>
+                    <div class="groups">
+                        <div class="actions">
+                            <img id="action_blinds_up" class="action" src="img/menu/blinds/up.svg" />
+                            <img id="action_blinds_stop" class="action" src="img/menu/blinds/stop.svg" />
+                            <img id="action_blinds_down" class="action" src="img/menu/blinds/down.svg" />
+                            <img id="action_blinds_uncheck" class="action" src="img/menu/blinds/uncheck.svg" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="tiles">
+                        <div class="tile blind template">
+                            <input type="checkbox" />
+                            <img class="arrow up" src="img/menu/blinds/up.svg" />
+                            <img class="arrow down" src="img/menu/blinds/down.svg" />
+                            <div class="name">Salon 1</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu2_" id="menu2_thermostates">
+                    <div class="menu2_title">
+                        <h1>Termostaty</h1>
+                        <img class="menu2_close" src="img/menu/close.svg" />
+                    </div>
+                    <div class="groups">
+                        <div class="actions">
+                            <img id="action_thermostates_active" class="action" src="img/menu/thermostates/active.svg" />
+                            <img id="action_thermostates_inactive" class="action" src="img/menu/thermostates/inactive.svg" />
+                            <img id="action_thermostates_set" class="action" src="img/menu/thermostates/set.svg" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="tiles">
+                        <div class="tile thermostate template">
+                            <input type="checkbox" />
+                            <div class="on_and_temp">
+                                <img class="on" src="img/menu/thermostates/on.svg" />
+                                <img class="off" src="img/menu/thermostates/off.svg" />
+                                <div class="temp">23.5</div>
+                            </div>
+                            <div class="set">28.2</div>
+                            <div class="name">Kuchnia</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="menu2_" id="menu2_partitions">
+                    <div class="menu2_title">
+                        <h1>Partycje</h1>
+                        <img class="menu2_close" src="img/menu/close.svg" />
+                    </div>
+                    <div class="groups">
+                        <div class="actions">
+                            <img id="action_partitions_arm" class="action" src="img/menu/partitions/arm.svg" />
+                            <img id="action_partitions_disarm" class="action" src="img/menu/partitions/disarm.svg" />
+                            <img id="action_partitions_clear_alarm" class="action" src="img/menu/partitions/clear_alarm.svg" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="tiles">
+                        <div class="tile partition template">
+                            <input type="checkbox" />
+                            <div class="name">Cały dom</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="menu2_" id="menu2_sensors">
+                    <div class="menu2_title">
+                        <h1>Czujniki</h1>
+                        <img class="menu2_close" src="img/menu/close.svg" />
+                    </div>
+                    <div class="groups">
+                        <div class="actions">
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                                
+            </div>
+            <div id="menu3">
+
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>

@@ -1,7 +1,19 @@
+.clear
+{
+    clear: both;
+}
+
 #topBar
 {
     background-color: rgb(50, 50, 50);
     padding: 1pt;
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
 }
 
 #menuIconBar1, #menuIconBar2, #menuIconBar3
@@ -42,22 +54,355 @@
 
 #menu
 {
-    background-color: rgb(70, 70, 70);
     color: white;
 }
+
+
+
+#menu3
+{
+    position: absolute;
+    background-color: rgb(50, 50, 50);
+    bottom: 0px;
+}
+
+@media all and (orientation:portrait)
+{
+    #menu3
+    {
+        left: 0px;
+    }
+}
+
+@media all and (orientation:landscape)
+{
+    #menu3
+    {
+        right: 0px;
+    }
+}
+
+
 
 #menu1
 {
     font-size: 20pt;
     font-weight: bold;
+    background-color: rgb(50, 50, 50);
+    width: 100%;
+
+    position: absolute;
+    -webkit-transition: left 0.5s, top 0.5s;
+    transition: left 0.5s, top 0.5s;
+
+    overflow: auto;
+
+    z-index: 2;
 }
 
 .menu1_
 {
-    padding: 6pt 4pt;
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
 }
 
-.menu1_:hover
+.menu1_.active
 {
+    background-color: rgb(80, 80, 80);
+}
+
+.menu1_ img
+{
+    height: 30pt;
+    margin: 5pt 5pt;
+}
+
+.menu1_text_portrait, .menu1_text_landscape
+{
+    margin: 3pt 5pt;
+}
+
+.menu1_text_portrait
+{
+    margin-bottom: 12pt;
+}
+
+.menu1_text_portrait div
+{
+    transform: rotate(-90deg);
+    line-height: 17pt;
+}
+
+@media all and (orientation:portrait)
+{
+    #menu1
+    {
+        white-space: nowrap;
+    }
+
+    .menu1_
+    {
+        display: inline-block;
+    }
+
+    .menu1_text_landscape
+    {
+        display: none;
+    }
+
+    .menu1_ img, .menu1_text_portrait
+    {
+        display: block;
+    }
+}
+
+@media screen and (orientation:landscape)
+{
+    .menu1_ img, .menu1_text_landscape
+    {
+        float: right;
+    }
+
+    .menu1_text_portrait
+    {
+        display: none;
+    }
+
+    .menu1_
+    {
+        clear: both;
+    }
+}
+
+
+
+
+
+
+
+.menu2_
+{
+    position: absolute;
+    background-color: rgb(80, 80, 80);
+    display: none;
+}
+
+.menu2_title
+{
+    background-color: rgb(60, 60, 60);
+    clear: both;
+}
+
+.menu2_title h1
+{
+    margin: 5pt;
+    display: inline-block;
+    font-size: 23pt;
+}
+
+.menu2_close
+{
+    height: 24pt;
+    float: right;
+    margin: 5pt;
+}
+
+.menu2_ .groups
+{
+    background-color: rgb(70, 70, 70);
+}
+
+.menu2_ .groups .actions
+{
+    background-color: rgb(60, 60, 60);
+    float: right;
+}
+
+.menu2_ .groups .actions .action
+{
+    height: 30pt;
+    margin: 0pt 3pt;
+}
+
+
+
+
+.tiles
+{
+    overflow: auto;
+    text-align: center;
+}
+
+
+.tile
+{
+    display: inline-block;
+    position: relative;
+    width: 100pt;
+    height: 100pt;
+    border: 1px solid rgb(50, 50, 50);
     background-color: rgb(100, 100, 100);
+    border-radius: 7pt;
+    margin: 10pt 10pt 0pt 10pt;
+    box-shadow: 0pt 0pt 10pt 0pt rgb(60, 60, 60);
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    background-size: 60%;
+}
+
+.tile input[type="checkbox"]
+{
+    position: absolute;
+    top: 2pt;
+    left: 2pt;
+    zoom: 2;
+}
+
+.tile .name
+{
+    position: absolute;
+    left: 0px;
+    bottom: 0pt;
+    padding: 5pt;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    text-shadow: 0pt 0pt 4pt black;
+}
+
+
+
+
+.tile.light
+{
+    background-image: url('../img/menu/lights/off.svg');
+}
+
+.tile.light.on
+{
+    background-color: rgb(181, 177, 0);
+    background-image: url('../img/menu/lights/on.svg');
+}
+
+
+
+.tile.switch
+{
+    background-image: url('../img/menu/switches/off.svg');
+}
+
+.tile.switch.on
+{
+    background-color: rgb(181, 177, 0);
+    background-image: url('../img/menu/switches/on.svg');
+}
+
+
+
+.tile.blind.state0
+{
+    background-image: url('../img/menu/blinds/0.svg');
+}
+
+.tile.blind.state25
+{
+    background-image: url('../img/menu/blinds/25.svg');
+}
+
+.tile.blind.state50
+{
+    background-image: url('../img/menu/blinds/50.svg');
+}
+
+.tile.blind.state75
+{
+    background-image: url('../img/menu/blinds/75.svg');
+}
+
+.tile.blind.state100
+{
+    background-image: url('../img/menu/blinds/100.svg');
+}
+
+.tile.blind.up
+{
+    background-color: rgb(181, 177, 0);
+}
+
+.tile.blind.down
+{
+    background-color: rgb(181, 42, 0);
+}
+
+.tile.blind .arrow
+{
+    height: 30pt;
+    position: absolute;
+    left: 50%;
+    margin-left: -15pt;
+    top: 20%;
+    display: none;
+}
+
+.tile.blind.up .arrow.up
+{
+    display: block;
+}
+
+.tile.blind.down .arrow.down
+{
+    display: block;
+}
+
+
+
+
+.tile.thermostate.active
+{
+    background-color: rgb(181, 177, 0);
+}
+
+.tile.thermostate .on_and_temp
+{
+    font-size: 18pt;
+    position: absolute;
+    top: 7%;
+    right: 7%;
+}
+
+.tile.thermostate .on_and_temp .on, .tile.thermostate .on_and_temp .off
+{
+    height: 12pt;
+    display: none;
+}
+
+.tile.thermostate.on .on_and_temp .on
+{
+    display: inline;
+}
+
+.tile.thermostate.off .on_and_temp .off
+{
+    display: inline;
+}
+
+.tile.thermostate .set
+{
+    font-size: 26pt;
+    font-weight: bold;
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    width: 100%;
+    text-align: center;
+}
+
+.tile.thermostate .temp
+{
+    display: inline-block;
+}
+
+.tile.thermostate .temp::after, .tile.thermostate .set::after
+{
+    content:"\00b0";
 }
