@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.hello.world;
+package com.inteligentny.dom;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

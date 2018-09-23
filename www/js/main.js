@@ -1,4 +1,26 @@
+var sse;
+var server;
+var session;
 var ss;
+
+function myAlert(text, title, button)
+{
+    if(!!window.cordova)
+    {
+        if (typeof title === 'undefined')
+            title = 'Informacja';
+        
+        if (typeof button === 'undefined')
+            button = 'OK';
+
+        navigator.notification.alert(text, null, title, button);
+    }
+    else
+    {
+        alert(text);
+    }
+}
+
 var secure_starage_init = function () {
     ss = new cordova.plugins.SecureStorage(
         function () {
@@ -153,9 +175,22 @@ function clickOnMenu(m)
 }
 
 
+
+
 $(document).ready(function ()
 {
     $('.menu1_text_landscape').each(function(){addLettersToPortrait($(this))});
+
+    $('.groups_template *').clone().prependTo('.menu2_ .groups');
+
+    $('.groups .group.checkAll').click(function()
+    {
+        $(this).parent().parent().children('.tiles').children('.tile').children('input[type="checkbox"]').prop('checked', true);
+    });
+    $('.groups .group.uncheckAll').click(function()
+    {
+        $(this).parent().parent().children('.tiles').children('.tile').children('input[type="checkbox"]').prop('checked', false);
+    });
 
     onResize();
     $(window).resize(function(){ onResize(); });

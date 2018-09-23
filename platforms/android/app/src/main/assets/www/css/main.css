@@ -218,10 +218,15 @@
     float: right;
 }
 
-.menu2_ .groups .actions .action
+.menu2_ .groups .group, .menu2_ .groups .actions .action
 {
     height: 30pt;
     margin: 0pt 3pt;
+}
+
+.groups_template
+{
+    display: none;
 }
 
 
@@ -231,6 +236,8 @@
 {
     overflow: auto;
     text-align: center;
+    padding-bottom: 7pt;
+    box-sizing: border-box;
 }
 
 
@@ -243,7 +250,7 @@
     border: 1px solid rgb(50, 50, 50);
     background-color: rgb(100, 100, 100);
     border-radius: 7pt;
-    margin: 10pt 10pt 0pt 10pt;
+    margin: 7pt 7pt 0pt 7pt;
     box-shadow: 0pt 0pt 10pt 0pt rgb(60, 60, 60);
     background-repeat: no-repeat;
     background-position: 50% 20%;

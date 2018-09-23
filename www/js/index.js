@@ -29,6 +29,7 @@ var app = {
     onDeviceReady: function()
     {
         secure_starage_init();
+        authenticate_user();
         this.receivedEvent('deviceready');
     },
 

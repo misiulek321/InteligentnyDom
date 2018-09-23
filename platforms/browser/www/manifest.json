@@ -1,11 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "HelloWorld",
-  "short_name": "HelloWorld",
-  "version": "com.hello.world",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "author": "Apache Cordova Team",
+  "name": "Inteligentny Dom",
+  "short_name": "Inteligentny Dom",
+  "version": "com.inteligentny.dom",
+  "description": "Aplikacja do obsługi inteligentnego domu",
+  "author": "Michał Piotrowski",
   "icons": [],
   "start_url": "index.html"
 }
