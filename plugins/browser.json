@@ -9,6 +9,9 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.hello.world"
+    },
+    "cordova-plugin-secure-storage": {
+      "PACKAGE_NAME": "com.hello.world"
     }
   },
   "dependent_plugins": {

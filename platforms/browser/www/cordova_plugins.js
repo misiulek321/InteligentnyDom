@@ -7,13 +7,28 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.CorHttpd"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-secure-storage/www/securestorage.js",
+        "id": "cordova-plugin-secure-storage.SecureStorage",
+        "pluginId": "cordova-plugin-secure-storage",
+        "clobbers": [
+            "SecureStorage"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-secure-storage/www/sjcl_ss.js",
+        "id": "cordova-plugin-secure-storage.sjcl_ss",
+        "pluginId": "cordova-plugin-secure-storage",
+        "runs": true
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "com.rjfun.cordova.httpd": "0.9.2",
-    "cordova-plugin-whitelist": "1.3.3"
+    "cordova-plugin-whitelist": "1.3.3",
+    "cordova-plugin-secure-storage": "2.6.8"
 }
 // BOTTOM OF METADATA
 });

@@ -406,3 +406,35 @@
 {
     content:"\00b0";
 }
+
+
+
+
+.tile.partition
+{
+    background-image: url('../img/menu/partitions/disarm.svg');
+}
+
+.tile.partition.armed
+{
+    background-image: url('../img/menu/partitions/arm.svg');
+    background-color: rgb(181, 177, 0);
+}
+
+.tile.partition.alarm
+{
+    background-color: rgb(181, 42, 0);
+}
+
+
+
+.tile.sensor
+{
+    background-image: url('../img/menu/sensors/off.png');
+}
+
+.tile.sensor.on
+{
+    background-image: url('../img/menu/sensors/on.png');
+    background-color: rgb(181, 177, 0);
+}

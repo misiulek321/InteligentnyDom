@@ -46,6 +46,10 @@
 		DA76E8F1BFBE4BF197F6D0FE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05832DE5F06447BA7C742A3 /* CFNetwork.framework */; };
 		9248B9D5B2E84CFF9E8E2D14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4ECC3D37F242BAB870F433 /* Foundation.framework */; };
 		507602198CD647929DEDB72E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B9EBEA494545A49FFF8AF0 /* Security.framework */; };
+		5E39B9AC33D144BEB48F8252 /* SecureStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2AB3B1DC5D47688A5D65BA /* SecureStorage.m */; };
+		3B5DBD04EE6643369979B4C2 /* SAMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FC42272EF80744939FD2236A /* SAMKeychain.m */; };
+		98C8EFD0384641B598D6A073 /* SAMKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EB170097054D2386A669C7 /* SAMKeychainQuery.m */; };
+		01E9EAF2CD424FEEAA52BA84 /* SAMKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C98128C2C16B45C68A2BF307 /* SAMKeychain.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +146,13 @@
 		E05832DE5F06447BA7C742A3 /* CFNetwork.framework */ = {isa = PBXFileReference; name = "CFNetwork.framework"; path = "System/Library/Frameworks/CFNetwork.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		CE4ECC3D37F242BAB870F433 /* Foundation.framework */ = {isa = PBXFileReference; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		93B9EBEA494545A49FFF8AF0 /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		DD2AB3B1DC5D47688A5D65BA /* SecureStorage.m */ = {isa = PBXFileReference; name = "SecureStorage.m"; path = "cordova-plugin-secure-storage/SecureStorage.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		FC42272EF80744939FD2236A /* SAMKeychain.m */ = {isa = PBXFileReference; name = "SAMKeychain.m"; path = "cordova-plugin-secure-storage/SAMKeychain.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F1EB170097054D2386A669C7 /* SAMKeychainQuery.m */ = {isa = PBXFileReference; name = "SAMKeychainQuery.m"; path = "cordova-plugin-secure-storage/SAMKeychainQuery.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		9BC7CDA0FD2141839982057C /* SecureStorage.h */ = {isa = PBXFileReference; name = "SecureStorage.h"; path = "cordova-plugin-secure-storage/SecureStorage.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		017B17766D6047B8B49C9A08 /* SAMKeychain.h */ = {isa = PBXFileReference; name = "SAMKeychain.h"; path = "cordova-plugin-secure-storage/SAMKeychain.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		C5A52D46AC4D4AFF940B2D34 /* SAMKeychainQuery.h */ = {isa = PBXFileReference; name = "SAMKeychainQuery.h"; path = "cordova-plugin-secure-storage/SAMKeychainQuery.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		C98128C2C16B45C68A2BF307 /* SAMKeychain.bundle */ = {isa = PBXFileReference; name = "SAMKeychain.bundle"; path = "SAMKeychain.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +226,7 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* HelloWorld-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
+				C98128C2C16B45C68A2BF307 /* SAMKeychain.bundle */,
 			);
 			name = Resources;
 			path = "HelloWorld/Resources";
@@ -304,6 +316,12 @@
 				B38CFBC1159244649DA32988 /* DDLog.h */,
 				32D32C6A7E224A7894DC72DD /* ContextFilterLogFormatter.h */,
 				C01B06B2691A420281E9E82C /* DispatchQueueLogFormatter.h */,
+				DD2AB3B1DC5D47688A5D65BA /* SecureStorage.m */,
+				FC42272EF80744939FD2236A /* SAMKeychain.m */,
+				F1EB170097054D2386A669C7 /* SAMKeychainQuery.m */,
+				9BC7CDA0FD2141839982057C /* SecureStorage.h */,
+				017B17766D6047B8B49C9A08 /* SAMKeychain.h */,
+				C5A52D46AC4D4AFF940B2D34 /* SAMKeychainQuery.h */,
 			);
 			name = Plugins;
 			path = "HelloWorld/Plugins";
@@ -385,6 +403,7 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
+				01E9EAF2CD424FEEAA52BA84 /* SAMKeychain.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +462,9 @@
 				7F714A94859E436E85D2E683 /* DDLog.m in Sources */,
 				4754DDC47CA64CF0AC7CD335 /* ContextFilterLogFormatter.m in Sources */,
 				669C2B0DA76B4533956D4FB8 /* DispatchQueueLogFormatter.m in Sources */,
+				5E39B9AC33D144BEB48F8252 /* SecureStorage.m in Sources */,
+				3B5DBD04EE6643369979B4C2 /* SAMKeychain.m in Sources */,
+				98C8EFD0384641B598D6A073 /* SAMKeychainQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

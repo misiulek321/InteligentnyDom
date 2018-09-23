@@ -1,3 +1,34 @@
+var ss;
+var secure_starage_init = function () {
+    ss = new cordova.plugins.SecureStorage(
+        function () {
+            console.log('Secure Storage OK');
+        },
+        function () {
+            navigator.notification.alert(
+                'Musisz włączyć zabezpieczenie ekranu blokady. Ta aplikacja nie może inaczej działać bezpiecznie.',
+                function () {
+                    ss.secureDevice(
+                        function () {
+                            _init();
+                        },
+                        function () {
+                            _init();
+                        }
+                    );
+                },
+                'Blkoada ekranu jest wyłączona'
+            );
+        },
+        'InteligentnyDom');
+};
+
+
+function replaceAt(string, index, replace)
+{
+    return string.substring(0, index) + replace + string.substring(index + 1);
+}
+
 function onResize()
 {
     adjustMenu();
@@ -30,9 +61,18 @@ function adjustMenu()
         }
 
 
-        $('.menu2_').each(function()
+        $('.menu2_').each(function(t)
         {
             $(this).css({top: topBarHeight+$('.menu1_ img').outerHeight(true), left: 0, width: '100%', height: $(window).height()-(topBarHeight+$('.menu1_ img').outerHeight(true)+$('#menu3').outerHeight(true))})
+
+            $(this).show();
+            var menu_title = $(this).children('.menu2_title').outerHeight(true);
+            var groups = $(this).children('.groups').outerHeight(true);
+            
+            if($('#'+replaceAt($(this).attr('id'), 4, '1')).hasClass('active') != true)
+                $(this).hide();
+            
+            $(this).children('.tiles').css({height: $(this).height()-menu_title-groups});
         });
     }
     else
@@ -56,9 +96,19 @@ function adjustMenu()
             $('#menu1').css({top: topBarHeight, left: -$('#menu1').outerWidth() + $('.menu1_ img').outerWidth(true), height: $(window).height()-topBarHeight});
         }
 
+
         $('.menu2_').each(function()
         {
             $(this).css({top: topBarHeight, left: $('.menu1_ img').outerHeight(true), width: $(window).width()-$('.menu1_ img').outerWidth(true)-$('#menu3').outerWidth(true), height: $(window).height()-topBarHeight})
+
+            $(this).show();
+            var menu_title = $(this).children('.menu2_title').outerHeight(true);
+            var groups = $(this).children('.groups').outerHeight(true);
+
+            if($('#'+replaceAt($(this).attr('id'), 4, '1')).hasClass('active') != true)
+                $(this).hide();
+            
+            $(this).children('.tiles').css({height: $(this).height()-menu_title-groups});
         });
     }
 }

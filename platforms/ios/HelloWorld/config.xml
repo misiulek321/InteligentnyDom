@@ -22,6 +22,9 @@
     <feature name="CorHttpd">
         <param name="ios-package" value="CorHttpd" />
     </feature>
+    <feature name="SecureStorage">
+        <param name="ios-package" value="SecureStorage" />
+    </feature>
     <name>HelloWorld</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
