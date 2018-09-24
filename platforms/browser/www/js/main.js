@@ -1,11 +1,12 @@
-var sse;
+var resourcesState;
 var server;
+var port;
 var session;
 var ss;
 
 function myAlert(text, title, button)
 {
-    if(!!window.cordova)
+    /*if(typeof window.cordova !== 'undefined')
     {
         if (typeof title === 'undefined')
             title = 'Informacja';
@@ -13,12 +14,12 @@ function myAlert(text, title, button)
         if (typeof button === 'undefined')
             button = 'OK';
 
-        navigator.notification.alert(text, null, title, button);
+        navigator.notification.alert(text, function(){}, title, button);
     }
     else
-    {
+    {*/
         alert(text);
-    }
+    //}
 }
 
 var secure_starage_init = function () {

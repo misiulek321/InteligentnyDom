@@ -45,8 +45,9 @@ function authenticate_user()
                 myAlert('Wewnętrzny błąd serwera podczas uwierzytelniania', 'Błąd podczas uwierzytelniania');
             else if (data.status == 'OK')
             {
-                session = data.session;
-                myAlert('Uwierzytelnienie OK');
+                //session = data.session;
+                server = cred.server;
+                port = cred.port;
             }
             else
                 myAlert('Nieznany status podczas uwierzytelniania: '+data.status, 'Błąd podczas uwierzytelniania');
