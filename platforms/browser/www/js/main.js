@@ -3,7 +3,8 @@ var global = {
     server: null,
     port: null,
     session: null,
-    ss: null
+    ss: null,
+    thermometers: Array()
 }
 
 function myAlert(text, title, button)
@@ -200,7 +201,15 @@ $(document).ready(function ()
 
     $('#menuIcon').click(function() {$(this).toggleClass('open'); adjustMenu();});
 
-    $('.menu1_').click(function(){clickOnMenu($(this))});
+    $('.menu1_').click(function()
+    {
+        clickOnMenu($(this));
+        if($('#menuIcon').hasClass('open') == true)
+        {
+            $('#menuIcon').removeClass('open');
+            adjustMenu();
+        }
+    });
 
     $('.menu2_close').click(function(){closeMenu($(this).parent().parent())});
 

@@ -46,7 +46,7 @@ var app = {
     },
 
     start: function() {
-        httpd = ( cordova && cordova.plugins && cordova.plugins.CorHttpd ) ? cordova.plugins.CorHttpd : null;
+        /*httpd = ( cordova && cordova.plugins && cordova.plugins.CorHttpd ) ? cordova.plugins.CorHttpd : null;
 
         httpd.startServer({
             'www_root' : "",
@@ -59,7 +59,7 @@ var app = {
             alert("Start: "+url);
         }, function( error ){
             alert("Błąd: "+error);
-        });
+        });*/
     }
 };
 
