@@ -1,6 +1,6 @@
 function getCredentials()
 {
-    return {server: '172.16.0.100', port: 1234, username: 'tablet', password: 'tablet'};
+    return {server: '172.16.1.176', port: 1234, username: 'tablet', password: 'tablet'};
 }
 
 function authenticate_user()
@@ -31,7 +31,7 @@ function authenticate_user()
         return;
     }
 
-
+    
     $.ajax({
         url: 'http://'+cred.server+':'+cred.port+'/action',
         dataType: 'json',
@@ -45,9 +45,8 @@ function authenticate_user()
                 myAlert('Wewnętrzny błąd serwera podczas uwierzytelniania', 'Błąd podczas uwierzytelniania');
             else if (data.status == 'OK')
             {
-                //session = data.session;
-                server = cred.server;
-                port = cred.port;
+                global.session = data.session;
+                global.resourcesState.start();
             }
             else
                 myAlert('Nieznany status podczas uwierzytelniania: '+data.status, 'Błąd podczas uwierzytelniania');
@@ -55,5 +54,8 @@ function authenticate_user()
         error: function( jqXhr, textStatus, errorThrown ){
             myAlert( "Błąd sieci podczas uwierzytelniania: "+textStatus+": "+jqXhr.status+": "+jqXhr.textStatus, 'Błąd podczas uwierzytelniania');
         }
-        }); 
+        });
+
+        global.server = cred.server;
+        global.port = cred.port;
 }

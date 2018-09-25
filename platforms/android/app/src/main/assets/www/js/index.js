@@ -30,7 +30,6 @@ var app = {
     {
         secure_starage_init();
         authenticate_user();
-        resourcesState.start();
         this.receivedEvent('deviceready');
     },
 

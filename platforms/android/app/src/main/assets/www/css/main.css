@@ -6,7 +6,6 @@
 #topBar
 {
     background-color: rgb(50, 50, 50);
-    padding: 1pt;
     box-sizing: border-box;
 
     position: absolute;
@@ -16,14 +15,19 @@
     z-index: 3;
 }
 
+#menuIcon
+{
+    float: left;
+}
+
 #menuIconBar1, #menuIconBar2, #menuIconBar3
 {
     position: relative;
-    border-radius: 2pt;
-    height: 4pt;
+    border-radius: 1pt;
+    height: 3pt;
     background-color: white;
-    margin: 6pt;
-    width: 40pt;
+    margin: 4pt;
+    width: 30pt;
     -webkit-transition: width 0.5s, transform 0.5s, top 0.5s, bottom 0.5s, left 0.5s, opacity 0.5s;
     transition: width 0.5s, transform 0.5s, top 0.5s, bottom 0.5s, left 0.5s, opacity 0.5s;
 }
@@ -32,24 +36,56 @@
 {
     transform: rotate(45deg);
     top: 10pt;
-    left: 7pt;
+    left: 0pt;
     width: 25pt;
 }
 
 #menuIcon.open #menuIconBar2
 {
     opacity: 0;
-    left: 7pt;
+    left: 0pt;
     width: 25pt;
 }
 
 #menuIcon.open #menuIconBar3
 {
     transform: rotate(-45deg);
-    bottom: 10pt;
-    left: 7pt;
+    bottom: 5pt;
+    left: 0pt;
     width: 25pt;
 }
+
+
+
+
+.connectionState
+{
+    float: right;
+}
+
+.connectionState *
+{
+    height: 20pt;
+    margin-top: 2.5pt;
+    margin-left: 4pt;
+    margin-right: 4pt;
+}
+
+.connectionState .connected
+{
+    display: none;
+}
+
+.connectionState.connected .connected
+{
+    display: inline;
+}
+
+.connectionState.connected .disconnected
+{
+    display: none;
+}
+
 
 
 #menu
@@ -104,6 +140,7 @@
 {
     -webkit-transition: background-color 0.3s;
     transition: background-color 0.3s;
+    display: none;
 }
 
 .menu1_.active
@@ -255,6 +292,11 @@
     background-repeat: no-repeat;
     background-position: 50% 20%;
     background-size: 60%;
+}
+
+.tile.template
+{
+    display: none;
 }
 
 .tile input[type="checkbox"]

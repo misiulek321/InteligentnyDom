@@ -1,8 +1,10 @@
-var resourcesState;
-var server;
-var port;
-var session;
-var ss;
+var global = {
+    resourcesState: null,
+    server: null,
+    port: null,
+    session: null,
+    ss: null
+}
 
 function myAlert(text, title, button)
 {
@@ -23,7 +25,7 @@ function myAlert(text, title, button)
 }
 
 var secure_starage_init = function () {
-    ss = new cordova.plugins.SecureStorage(
+    global.ss = new cordova.plugins.SecureStorage(
         function () {
             console.log('Secure Storage OK');
         },
@@ -33,10 +35,10 @@ var secure_starage_init = function () {
                 function () {
                     ss.secureDevice(
                         function () {
-                            _init();
+                            secure_starage_init();
                         },
                         function () {
-                            _init();
+                            secure_starage_init();
                         }
                     );
                 },
@@ -201,4 +203,7 @@ $(document).ready(function ()
     $('.menu1_').click(function(){clickOnMenu($(this))});
 
     $('.menu2_close').click(function(){closeMenu($(this).parent().parent())});
+
+
+    setInterval(function(){global.resourcesState.updateState();}, 100);
 });
