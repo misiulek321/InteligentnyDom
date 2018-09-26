@@ -21,7 +21,7 @@ function showTermostatesSet()
     var elem = $('#thermostatesSet');
 
     elem.find('input.temp').val(temp);
-    elem.find('.switch input[type="checkbox"]').prop('checked', on);
+    elem.find('.toggleButton input[type="checkbox"]').prop('checked', on);
 
     elem.show('puff', {}, 300);
 }
@@ -56,13 +56,14 @@ $(document).ready(function()
         {
             var temp = parseFloat($('#thermostatesSet input.temp').val());
 
-            controlResource({id: $(this).attr('id'), action: 'setTempAndActivation', temp: parseInt(temp*10), activation: $('#thermostatesSet .switch input[type="checkbox"]').prop('checked')},
+            controlResource({id: $(this).attr('id'), action: 'setTempAndActivation', temp: parseInt(temp*10), activation: $('#thermostatesSet .toggleButton input[type="checkbox"]').prop('checked')},
             function( data, textStatus, jQxhr ){ successCallback(data, textStatus, jQxhr); },
             function( jqXhr, textStatus, errorThrown ){ failCallback(jqXhr, textStatus, errorThrown); }
             );
         });
 
         hideTermostatesSet();
+        uncheckAll($('#menu2_thermostates'));
     });
 });
 
@@ -123,5 +124,6 @@ $(document).ready(function()
 
         $('#partitionKeypad .password').val("");
         hidePartitionKeypad();
+        uncheckAll($('#menu2_partitions'));
     });
 });

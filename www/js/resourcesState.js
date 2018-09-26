@@ -43,19 +43,19 @@ global.resourcesState = {
                     //Akcje po kliknięciu
                     if (type == 'lights' || type == 'switches')
                     {
-                        elem.click(function(){clickLightSwitch($(this))});
+                        elem.click(function(){clickLightSwitch($(this))}).children('input[type="checkbox"]').click(function(e){e.stopPropagation();});
                     }
                     else if(type == 'blinds')
                     {
-                        elem.click(function(){clickBlind($(this))});
+                        elem.click(function(){clickBlind($(this))}).children('input[type="checkbox"]').click(function(e){e.stopPropagation();});
                     }
                     else if(type == 'thermostates')
                     {
-                        elem.click(function(){clickThermostate($(this))});
+                        elem.click(function(){clickThermostate($(this))}).children('input[type="checkbox"]').click(function(e){e.stopPropagation();});
                     }
                     else if(type == 'partitions')
                     {
-                        elem.click(function(){clickPartition($(this))});
+                        elem.click(function(){clickPartition($(this))}).children('input[type="checkbox"]').click(function(e){e.stopPropagation();});
                     }
 
                     elem.appendTo('#menu2_' + type + ' .tiles');

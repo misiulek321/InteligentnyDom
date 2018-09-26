@@ -189,7 +189,7 @@ $(document).ready(function ()
 
     $('.groups .group.checkAll').click(function()
     {
-        $(this).parent().parent().children('.tiles').children('.tile').children('input[type="checkbox"]').prop('checked', true);
+        $(this).parent().parent().children('.tiles').children(':not(.template).tile').children('input[type="checkbox"]').prop('checked', true);
     });
     $('.groups .group.uncheckAll').click(function()
     {
