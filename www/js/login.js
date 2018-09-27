@@ -1,6 +1,6 @@
 function getCredentials()
 {
-    return {server: '172.16.1.176', port: 1234, username: 'tablet', password: 'tablet'};
+    return {server: '10.0.0.1', port: 1234, username: 'tablet', password: 'tablet'};
 }
 
 function authenticate_user()
