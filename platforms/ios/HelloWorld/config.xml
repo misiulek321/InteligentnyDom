@@ -25,6 +25,9 @@
     <feature name="SecureStorage">
         <param name="ios-package" value="SecureStorage" />
     </feature>
+    <feature name="Insomnia">
+        <param name="ios-package" value="Insomnia" />
+    </feature>
     <name>Inteligentny Dom</name>
     <description>
         Aplikacja do obsługi inteligentnego domu

@@ -19,7 +19,6 @@ function authenticate_user()
             use_authenticate_user_2(a, cred);
         },
         function (error) {
-            alert(error);
             if(error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu adresu serwera: '+error, 'error', 5000);
             a[0] = 1;

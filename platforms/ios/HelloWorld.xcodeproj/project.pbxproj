@@ -50,6 +50,7 @@
 		3B5DBD04EE6643369979B4C2 /* SAMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FC42272EF80744939FD2236A /* SAMKeychain.m */; };
 		98C8EFD0384641B598D6A073 /* SAMKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EB170097054D2386A669C7 /* SAMKeychainQuery.m */; };
 		01E9EAF2CD424FEEAA52BA84 /* SAMKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C98128C2C16B45C68A2BF307 /* SAMKeychain.bundle */; };
+		B297E727A79F470D959FFF7D /* Insomnia.m in Sources */ = {isa = PBXBuildFile; fileRef = A72F95AF070A48DA80E5F99E /* Insomnia.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,8 @@
 		017B17766D6047B8B49C9A08 /* SAMKeychain.h */ = {isa = PBXFileReference; name = "SAMKeychain.h"; path = "cordova-plugin-secure-storage/SAMKeychain.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		C5A52D46AC4D4AFF940B2D34 /* SAMKeychainQuery.h */ = {isa = PBXFileReference; name = "SAMKeychainQuery.h"; path = "cordova-plugin-secure-storage/SAMKeychainQuery.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		C98128C2C16B45C68A2BF307 /* SAMKeychain.bundle */ = {isa = PBXFileReference; name = "SAMKeychain.bundle"; path = "SAMKeychain.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
+		A72F95AF070A48DA80E5F99E /* Insomnia.m */ = {isa = PBXFileReference; name = "Insomnia.m"; path = "cordova-plugin-insomnia/Insomnia.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		A6CE60ECF13344C1B70CD9E7 /* Insomnia.h */ = {isa = PBXFileReference; name = "Insomnia.h"; path = "cordova-plugin-insomnia/Insomnia.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +325,8 @@
 				9BC7CDA0FD2141839982057C /* SecureStorage.h */,
 				017B17766D6047B8B49C9A08 /* SAMKeychain.h */,
 				C5A52D46AC4D4AFF940B2D34 /* SAMKeychainQuery.h */,
+				A72F95AF070A48DA80E5F99E /* Insomnia.m */,
+				A6CE60ECF13344C1B70CD9E7 /* Insomnia.h */,
 			);
 			name = Plugins;
 			path = "HelloWorld/Plugins";
@@ -465,6 +470,7 @@
 				5E39B9AC33D144BEB48F8252 /* SecureStorage.m in Sources */,
 				3B5DBD04EE6643369979B4C2 /* SAMKeychain.m in Sources */,
 				98C8EFD0384641B598D6A073 /* SAMKeychainQuery.m in Sources */,
+				B297E727A79F470D959FFF7D /* Insomnia.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
