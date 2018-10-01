@@ -5,7 +5,7 @@ function getCredentials()
     global.ss.get(
         function (value) {cred.server = value},
         function (error) {
-            if(error != 'Error: Key "serverAddress" not found.')
+            if(error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu adresu serwera: '+error, 'error', 5000);
             },
         'serverAddress'
@@ -15,7 +15,7 @@ function getCredentials()
         function (value) {cred.port = value},
         function (error)
         {
-            if (error != 'Error: Key "serverPort" not found.')
+            if (error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu portu serwera: '+error, 'error', 5000);
         },
         'serverPort'
@@ -24,7 +24,7 @@ function getCredentials()
     global.ss.get(
         function (value) {cred.username = value},
         function (error) {
-            if(error != 'Error: Key "username" not found.')
+            if(error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu nazwy użytkownika: '+error, 'error', 5000);
             },
         'username'
@@ -34,7 +34,7 @@ function getCredentials()
         function (value) {cred.password = value},
         function (error)
         {
-            if(error != 'Error: Key "password" not found.')
+            if(error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu hasła użytkownika: '+error, 'error', 5000);
         },
         'password'

@@ -7,12 +7,12 @@ var partitionKeypadAction;
 function showConfiguration()
 {
     messages.closeMessage();
-    
+
     global.ss.get(
         function (value) {$('#configuration_server_address').css('fontStyle', 'normal').val(value)},
         function (error) {
-            if(error != 'Error: Key "serverAddress" not found.')
-                $('#configuration_server_address').css('fontStyle', 'italic').val('Błąd: '+error);
+            if(error.indexOf('not found') == -1)
+                $('#configuration_server_address').css('fontStyle', 'italic').val(error);
             else
                 $('#configuration_server_address').css('fontStyle', 'normal').val('');
             },
@@ -23,8 +23,8 @@ function showConfiguration()
         function (value) {$('#configuration_server_port').prop('type', 'number').css('fontStyle', 'normal').val(value)},
         function (error)
         {
-            if (error != 'Error: Key "serverPort" not found.')
-                $('#configuration_server_port').prop('type', 'text').css('fontStyle', 'italic').val('Błąd: '+error);
+            if(error.indexOf('not found') == -1)
+                $('#configuration_server_port').prop('type', 'text').css('fontStyle', 'italic').val(error);
             else
                 $('#configuration_server_port').prop('type', 'number').css('fontStyle', 'normal').val('');
         },
@@ -34,8 +34,8 @@ function showConfiguration()
     global.ss.get(
         function (value) {$('#configuration_username').css('fontStyle', 'normal').val(value)},
         function (error) {
-            if(error != 'Error: Key "username" not found.')
-                $('#configuration_username').css('fontStyle', 'italic').val('Błąd: '+error);
+            if(error.indexOf('not found') == -1)
+                $('#configuration_username').css('fontStyle', 'italic').val(error);
             else
                 $('#configuration_username').css('fontStyle', 'normal').val('');
             },
@@ -46,8 +46,8 @@ function showConfiguration()
         function (value) {$('#configuration_password').prop('type', 'password').css('fontStyle', 'normal').val('********')},
         function (error)
         {
-            if(error != 'Error: Key "password" not found.')
-                $('#configuration_password').prop('type', 'text').css('fontStyle', 'italic').val('Błąd: '+error);
+            if(error.indexOf('not found') == -1)
+                $('#configuration_password').prop('type', 'text').css('fontStyle', 'italic').val(error);
             else
                 $('#configuration_password').prop('type', 'password').css('fontStyle', 'normal').val('');
         },
@@ -72,7 +72,7 @@ $(document).ready(function()
 
     $('#configuration .configuration_save').click(function()
     {
-        if($('#configuration_server_address').css('fontStyle') != 'italic')
+        if($('#configuration_server_address').val().indexOf('not found') == -1)
         {
             global.ss.set(
                 function(){},
@@ -82,7 +82,7 @@ $(document).ready(function()
             );
         }
 
-        if($('#configuration_server_port').css('fontStyle') != 'italic')
+        if($('#configuration_server_port').val().indexOf('not found') == -1)
         {
             global.ss.set(
                 function(){},
@@ -92,7 +92,7 @@ $(document).ready(function()
             );
         }
 
-        if($('#configuration_username').css('fontStyle') != 'italic')
+        if($('#configuration_username').val().indexOf('not found') == -1)
         {
             global.ss.set(
                 function(){},
@@ -102,7 +102,7 @@ $(document).ready(function()
             );
         }
 
-        if($('#configuration_password').css('fontStyle') != 'italic' && $('#configuration_password').val() != '********')
+        if($('#configuration_password').val().indexOf('not found') == -1 && $('#configuration_password').val() != '********')
         {
             global.ss.set(
                 function(){},
@@ -112,7 +112,8 @@ $(document).ready(function()
             );
         }
 
-        myAlert('Aby zastosować nową konfigurację uruchom ponownie aplikację!', 'Informacja');
+        //myAlert('Aby zastosować nową konfigurację uruchom ponownie aplikację!', 'Informacja');
+        resourcesStates.stop();
 
         closeConfiguration();
     });

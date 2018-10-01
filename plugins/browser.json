@@ -12,9 +12,6 @@
     },
     "cordova-plugin-secure-storage": {
       "PACKAGE_NAME": "com.hello.world"
-    },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
   "dependent_plugins": {
