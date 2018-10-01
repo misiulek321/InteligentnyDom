@@ -1,58 +1,89 @@
-function getCredentials()
+function use_authenticate_user_2(a, c)
+{
+    if(a[0]+a[1]+a[2]+a[3] >= 4)
+        authenticate_user_2(c);
+}
+
+
+function authenticate_user()
 {
     cred = {};
+    a = Array(0, 0, 0, 0);
 
     global.ss.get(
-        function (value) {cred.server = value},
+        function (value)
+        {
+            cred.server = value
+            a[0] = 1;
+            use_authenticate_user_2(a, cred);
+        },
         function (error) {
             alert(error);
             if(error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu adresu serwera: '+error, 'error', 5000);
+            a[0] = 1;
+                use_authenticate_user_2(a, cred);
             },
         'serverAddress'
     );
     
     global.ss.get(
-        function (value) {cred.port = value},
+        function (value)
+        {
+            cred.port = value
+            a[1] = 1;
+            use_authenticate_user_2(a, cred);
+        },
         function (error)
         {
             if (error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu portu serwera: '+error, 'error', 5000);
+            a[1] = 1;
+            use_authenticate_user_2(a, cred);
         },
         'serverPort'
     );
 
     global.ss.get(
-        function (value) {cred.username = value},
+        function (value)
+        {
+            cred.username = value
+            a[2] = 1;
+            use_authenticate_user_2(a, cred);
+        },
         function (error) {
             if(error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu nazwy użytkownika: '+error, 'error', 5000);
+            a[2] = 1;
+            use_authenticate_user_2(a, cred);
             },
         'username'
     );
 
     global.ss.get(
-        function (value) {cred.password = value},
+        function (value)
+        {
+            cred.password = value
+            a[3] = 1;
+            use_authenticate_user_2(a, cred);
+        },
         function (error)
         {
             if(error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu hasła użytkownika: '+error, 'error', 5000);
+            a[3] = 1;
+            use_authenticate_user_2(a, cred);
         },
         'password'
     );
 
-    return cred;
 }
 
 
 
 
-
-
-function authenticate_user()
+function authenticate_user_2(cred)
 {
-    var cred = getCredentials();
-
     if(typeof cred.server === 'undefined' || cred.server == '')
     {
         //myAlert('Nie ustawiono adresu serwera', 'Brak konfiguracji', 'Rozumiem');
