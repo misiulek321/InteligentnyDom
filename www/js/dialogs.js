@@ -113,7 +113,8 @@ $(document).ready(function()
         }
 
         //myAlert('Aby zastosować nową konfigurację uruchom ponownie aplikację!', 'Informacja');
-        resourcesStates.stop();
+        global.resourcesState.stop();
+        messages.message('Czekaj...', 'info', 0);
 
         closeConfiguration();
     });
