@@ -1,3 +1,9 @@
+html, body
+{
+    background-image: url('../img/background.png');
+}
+
+
 .clear
 {
     clear: both;

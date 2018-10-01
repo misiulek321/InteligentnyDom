@@ -178,7 +178,7 @@ global.resourcesState = {
                 {
                     this.stop();
                     messages.message('Rozłączono z serwerem!', 'warning', '7000');
-                    setTimeout(function(){authenticate_user();}, 5000);
+                    setTimeout(function(){authenticate_user();}, 1000);
                 }
                 this.updateStateLast = 'disconected';
             }

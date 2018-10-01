@@ -114,7 +114,7 @@ $(document).ready(function()
 
         //myAlert('Aby zastosować nową konfigurację uruchom ponownie aplikację!', 'Informacja');
         global.resourcesState.stop();
-        messages.message('Czekaj...', 'info', 0);
+        messages.message('Czekaj...', 'info', 10000);
 
         closeConfiguration();
     });

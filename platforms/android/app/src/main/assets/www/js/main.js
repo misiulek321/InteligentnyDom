@@ -217,5 +217,10 @@ $(document).ready(function ()
 
     $('.configuration').click(function(){showConfiguration();});
 
+    $('#topBar .connectionState').click(function()
+    {
+        global.resourcesState.stop();
+    });
+
     setInterval(function(){global.resourcesState.updateState();}, 100);
 });
