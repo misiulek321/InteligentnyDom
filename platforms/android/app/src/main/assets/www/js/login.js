@@ -5,6 +5,7 @@ function getCredentials()
     global.ss.get(
         function (value) {cred.server = value},
         function (error) {
+            alert(error);
             if(error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu adresu serwera: '+error, 'error', 5000);
             },
