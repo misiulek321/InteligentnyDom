@@ -21,6 +21,14 @@ module.exports = [
     "file": "plugins/cordova-plugin-secure-storage/www/sjcl_ss.js",
     "pluginId": "cordova-plugin-secure-storage",
     "runs": true
+  },
+  {
+    "id": "cordova-plugin-splashscreen.SplashScreen",
+    "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+    "pluginId": "cordova-plugin-splashscreen",
+    "clobbers": [
+      "navigator.splashscreen"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -28,7 +36,8 @@ module.exports.metadata =
 {
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-httpd": "0.9.3",
-  "cordova-plugin-secure-storage": "2.6.8"
+  "cordova-plugin-secure-storage": "2.6.8",
+  "cordova-plugin-splashscreen": "5.0.2"
 };
 // BOTTOM OF METADATA
 });

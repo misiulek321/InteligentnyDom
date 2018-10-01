@@ -20,6 +20,7 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/ui.css">
         <link rel="stylesheet" type="text/css" href="css/dialogs.css">
+        <link rel="stylesheet" type="text/css" href="css/messages.css">
 
         <script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
         <script type="text/javascript" src="js/jquery-ui.min.js" ></script>
@@ -28,10 +29,16 @@
         <script type="text/javascript" src="js/resourcesState.js" ></script>
         <script type="text/javascript" src="js/login.js" ></script>
         <script type="text/javascript" src="js/dialogs.js" ></script>
+        <script type="text/javascript" src="js/messages.js" ></script>
 
         <title>Inteligentny dom</title>
     </head>
     <body>
+
+        <span id="message" class="message"></span>
+
+<!------------------------------------------------------------------->
+
         <div id="topBar">
             <div id="menuIcon">
                 <div id="menuIconBar1"></div>
@@ -44,7 +51,35 @@
                 <img class="disconnected" src="img/connectionState/disconnected.svg" />
             </div>
 
+            <img class="configuration" src="img/others/settings.svg" />
+
             <div class="clear"></div>
+        </div>
+
+<!------------------------------------------------------------------->
+
+        <div id="configuration">
+            <div class="clear">
+                <h1>Konfiguracja</h1>
+                <img class="configuration_close" src="img/menu/close.svg" />
+                <img class="configuration_save" src="img/menu/save.svg" />
+            </div>
+            <hr/>
+            <h2>Dane do połączenia z serwerem</h2>
+            <div class="form">
+                <div>
+                    <div>Adres serwera</div> <div><input type="text" id="configuration_server_address" /></div>
+                </div>
+                <div>
+                    <div>Port serwera</div> <div><input type="number" min="1" id="configuration_server_port" /></div>
+                </div>
+                <div>
+                    <div>Nazwa użytkownika</div> <div><input type="text" id="configuration_username" /></div>
+                </div>
+                <div>
+                    <div>Hasło użytkownika</div> <div><input type="text" id="configuration_password" /></div>
+                </div>
+            </div>
         </div>
 
 <!------------------------------------------------------------------->

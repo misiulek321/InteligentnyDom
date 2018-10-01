@@ -77,6 +77,8 @@ function adjustMenu()
         $('#menu3').css({width: $(window).width(), height: ''});
 
 
+        //$('#menu1').css('display', 'inline-block');
+
         if($('#menuIcon').hasClass('open') == true)
         {
             $('#menu1').css({top: topBarHeight, left: 0, height: $('.menu1_ img').outerHeight(true) + max_text});
@@ -213,6 +215,7 @@ $(document).ready(function ()
 
     $('.menu2_close').click(function(){closeMenu($(this).parent().parent())});
 
+    $('.configuration').click(function(){showConfiguration();});
 
     setInterval(function(){global.resourcesState.updateState();}, 100);
 });

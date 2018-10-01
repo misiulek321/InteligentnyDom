@@ -225,3 +225,29 @@
 	-webkit-transition: all .5s ease;
 	transition: all .5s ease;
   }
+
+
+
+
+
+  .form
+  {
+	  display: table;
+  }
+
+  .form > div
+  {
+	  display: table-row;
+  }
+
+  .form > div > div
+  {
+	  display: table-cell;
+	  padding: 3pt 5pt;
+  }
+
+  .form > div > div:first-child
+  {
+	  text-align: right;
+	  font-weight: bold;
+  }

@@ -2,6 +2,124 @@ var thermostatesSetElements;
 var partitionKeypadElements;
 var partitionKeypadAction;
 
+
+
+function showConfiguration()
+{
+    messages.closeMessage();
+    
+    global.ss.get(
+        function (value) {$('#configuration_server_address').css('fontStyle', 'normal').val(value)},
+        function (error) {
+            if(error != 'Error: Key "serverAddress" not found.')
+                $('#configuration_server_address').css('fontStyle', 'italic').val('Błąd: '+error);
+            else
+                $('#configuration_server_address').css('fontStyle', 'normal').val('');
+            },
+        'serverAddress'
+    );
+    
+    global.ss.get(
+        function (value) {$('#configuration_server_port').prop('type', 'number').css('fontStyle', 'normal').val(value)},
+        function (error)
+        {
+            if (error != 'Error: Key "serverPort" not found.')
+                $('#configuration_server_port').prop('type', 'text').css('fontStyle', 'italic').val('Błąd: '+error);
+            else
+                $('#configuration_server_port').prop('type', 'number').css('fontStyle', 'normal').val('');
+        },
+        'serverPort'
+    );
+
+    global.ss.get(
+        function (value) {$('#configuration_username').css('fontStyle', 'normal').val(value)},
+        function (error) {
+            if(error != 'Error: Key "username" not found.')
+                $('#configuration_username').css('fontStyle', 'italic').val('Błąd: '+error);
+            else
+                $('#configuration_username').css('fontStyle', 'normal').val('');
+            },
+        'username'
+    );
+
+    global.ss.get(
+        function (value) {$('#configuration_password').prop('type', 'password').css('fontStyle', 'normal').val('********')},
+        function (error)
+        {
+            if(error != 'Error: Key "password" not found.')
+                $('#configuration_password').prop('type', 'text').css('fontStyle', 'italic').val('Błąd: '+error);
+            else
+                $('#configuration_password').prop('type', 'password').css('fontStyle', 'normal').val('');
+        },
+        'password'
+    );
+
+
+    $('#configuration').fadeIn(300);
+}
+
+
+function closeConfiguration()
+{
+    $('#configuration_password').val('');
+    $('#configuration').fadeOut(300);
+}
+
+
+$(document).ready(function()
+{
+    $('#configuration .configuration_close').click(function(){closeConfiguration()});
+
+    $('#configuration .configuration_save').click(function()
+    {
+        if($('#configuration_server_address').css('fontStyle') != 'italic')
+        {
+            global.ss.set(
+                function(){},
+                function (error) {myAlert('Błąd podczas zapisu adresu serwera: '+error), 'Błąd podczas zapisu ustawień'},
+                'serverAddress',
+                $('#configuration_server_address').val()
+            );
+        }
+
+        if($('#configuration_server_port').css('fontStyle') != 'italic')
+        {
+            global.ss.set(
+                function(){},
+                function (error) {myAlert('Błąd podczas zapisu portu serwera: '+error), 'Błąd podczas zapisu ustawień'},
+                'serverPort',
+                $('#configuration_server_port').val()
+            );
+        }
+
+        if($('#configuration_username').css('fontStyle') != 'italic')
+        {
+            global.ss.set(
+                function(){},
+                function (error) {myAlert('Błąd podczas zapisu nazwy użytkownika: '+error), 'Błąd podczas zapisu ustawień'},
+                'username',
+                $('#configuration_username').val()
+            );
+        }
+
+        if($('#configuration_password').css('fontStyle') != 'italic' && $('#configuration_password').val() != '********')
+        {
+            global.ss.set(
+                function(){},
+                function (error) {myAlert('Błąd podczas zapisu hasła użytkownika: '+error), 'Błąd podczas zapisu ustawień'},
+                'password',
+                $('#configuration_password').val()
+            );
+        }
+
+        myAlert('Aby zastosować nową konfigurację uruchom ponownie aplikację!', 'Informacja');
+
+        closeConfiguration();
+    });
+});
+
+
+
 function showTermostatesSet()
 {
     var temp = 0;

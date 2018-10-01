@@ -1,5 +1,7 @@
 global.resourcesState = {
     sse: null,
+    updateStateLast: null,
+    updateStateFirstConnection: false,
     start: function () {
         this.sse = new EventSource('http://' + global.server + ':' + global.port + '/state?session=' + global.session);
 
@@ -162,10 +164,25 @@ global.resourcesState = {
     },
     updateState: function () {
         if (this.sse != null)
+        {
             if (this.sse.readyState == 1)
+            {
                 $('.connectionState').addClass('connected');
+                this.updateStateFirstConnection = true;
+                this.updateStateLast = 'connected';
+            }
             else
+            {
                 $('.connectionState').removeClass('connected');
+                if(this.updateStateFirstConnection == true && this.updateStateLast == 'connected')
+                {
+                    this.stop();
+                    messages.message('Rozłączono z serwerem!', 'warning', '7000');
+                    setTimeout(function(){authenticate_user();}, 5000);
+                }
+                this.updateStateLast = 'disconected';
+            }
+        }
     },
     stop: function () {
         if (this.sse != null)

@@ -50,6 +50,8 @@
 		3B5DBD04EE6643369979B4C2 /* SAMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FC42272EF80744939FD2236A /* SAMKeychain.m */; };
 		98C8EFD0384641B598D6A073 /* SAMKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EB170097054D2386A669C7 /* SAMKeychainQuery.m */; };
 		01E9EAF2CD424FEEAA52BA84 /* SAMKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C98128C2C16B45C68A2BF307 /* SAMKeychain.bundle */; };
+		95958D333A764F57A2951786 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE17EE9BDEC4D698E67DC44 /* CDVSplashScreen.m */; };
+		04F024DE521C4FACAA6C4371 /* CDVViewController+SplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D436D2DFEA2C468BAC9F9B08 /* CDVViewController+SplashScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,10 @@
 		017B17766D6047B8B49C9A08 /* SAMKeychain.h */ = {isa = PBXFileReference; name = "SAMKeychain.h"; path = "cordova-plugin-secure-storage/SAMKeychain.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		C5A52D46AC4D4AFF940B2D34 /* SAMKeychainQuery.h */ = {isa = PBXFileReference; name = "SAMKeychainQuery.h"; path = "cordova-plugin-secure-storage/SAMKeychainQuery.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		C98128C2C16B45C68A2BF307 /* SAMKeychain.bundle */ = {isa = PBXFileReference; name = "SAMKeychain.bundle"; path = "SAMKeychain.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
+		FAE17EE9BDEC4D698E67DC44 /* CDVSplashScreen.m */ = {isa = PBXFileReference; name = "CDVSplashScreen.m"; path = "cordova-plugin-splashscreen/CDVSplashScreen.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		D436D2DFEA2C468BAC9F9B08 /* CDVViewController+SplashScreen.m */ = {isa = PBXFileReference; name = "CDVViewController+SplashScreen.m"; path = "cordova-plugin-splashscreen/CDVViewController+SplashScreen.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		83439C25470845279F9ED64E /* CDVSplashScreen.h */ = {isa = PBXFileReference; name = "CDVSplashScreen.h"; path = "cordova-plugin-splashscreen/CDVSplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		CC97FF981EEA4EFCBBA61537 /* CDVViewController+SplashScreen.h */ = {isa = PBXFileReference; name = "CDVViewController+SplashScreen.h"; path = "cordova-plugin-splashscreen/CDVViewController+SplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +328,10 @@
 				9BC7CDA0FD2141839982057C /* SecureStorage.h */,
 				017B17766D6047B8B49C9A08 /* SAMKeychain.h */,
 				C5A52D46AC4D4AFF940B2D34 /* SAMKeychainQuery.h */,
+				FAE17EE9BDEC4D698E67DC44 /* CDVSplashScreen.m */,
+				D436D2DFEA2C468BAC9F9B08 /* CDVViewController+SplashScreen.m */,
+				83439C25470845279F9ED64E /* CDVSplashScreen.h */,
+				CC97FF981EEA4EFCBBA61537 /* CDVViewController+SplashScreen.h */,
 			);
 			name = Plugins;
 			path = "HelloWorld/Plugins";
@@ -465,6 +475,8 @@
 				5E39B9AC33D144BEB48F8252 /* SecureStorage.m in Sources */,
 				3B5DBD04EE6643369979B4C2 /* SAMKeychain.m in Sources */,
 				98C8EFD0384641B598D6A073 /* SAMKeychainQuery.m in Sources */,
+				95958D333A764F57A2951786 /* CDVSplashScreen.m in Sources */,
+				04F024DE521C4FACAA6C4371 /* CDVViewController+SplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +560,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 			};
 			name = Debug;
 		};
@@ -573,6 +586,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 			};
 			name = Release;
 		};

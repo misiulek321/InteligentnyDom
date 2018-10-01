@@ -88,6 +88,18 @@
 
 
 
+
+.configuration
+{
+    float: right;
+    height: 20pt;
+    margin-top: 2.5pt;
+    margin-left: 4pt;
+    margin-right: 4pt;
+}
+
+
+
 #menu
 {
     color: white;
@@ -137,12 +149,10 @@
 }
 
 .menu1_
-
-.menu1_
 {
     -webkit-transition: background-color 0.3s;
     transition: background-color 0.3s;
-    display: none;
+    /*display: none;*/
 }
 
 .menu1_.active
