@@ -157,6 +157,7 @@ function authenticate_user_2(cred)
             messages.message("Błąd sieci podczas łączenia z serwerem w celu uwierzytelnienia: <b>"+textStatus+": "+jqXhr.status+": "+jqXhr.textStatus+'</b>. Oznacza to przeważnie że serwer jest wyłączony lub niedostępny.', 'error', 6500);
         }
     });
+    
 
     if(ok == false)
         setTimeout(function(){authenticate_user();}, 7000)
