@@ -15,6 +15,9 @@
     },
     "cordova-plugin-insomnia": {
       "PACKAGE_NAME": "com.inteligentny.dom"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
   "dependent_plugins": {
