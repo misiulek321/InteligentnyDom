@@ -3,7 +3,7 @@ global.resourcesState = {
     updateStateLast: null,
     updateStateFirstConnection: false,
     start: function () {
-        this.sse = new EventSource('http://' + global.server + ':' + global.port + '/state?session=' + global.session);
+        this.sse = new EventSource('http'+(global.noCrypto == true ? '' : 's')+'://' + global.server + ':' + global.port + '/state?session=' + global.session);
 
         /*this.sse.onerror = function(e)
         {

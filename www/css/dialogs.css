@@ -52,11 +52,11 @@
     background-color: rgb(70, 70, 70);
     border: 2pt ridge white;
     width: 200pt;
-    height: 150pt;
+    height: 170pt;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -85pt;
+    margin-top: -95pt;
     margin-left: -110pt;
     text-align: center;
     padding: 10pt;
@@ -65,6 +65,11 @@
     max-width: 100%;
     max-height: 100%;
     overflow: auto;
+}
+
+#thermostatesSet .thermostatesSetDelete
+{
+    text-align: center;
 }
 
 #thermostatesSet .inline

@@ -2,6 +2,7 @@ var global = {
     resourcesState: null,
     server: null,
     port: null,
+    noCrypto: null,
     session: null,
     ss: null,
     thermometers: Array()

@@ -1,7 +1,7 @@
 function controlResource(values, success, fail)
 {
     $.ajax({
-    url: 'http://'+global.server+':'+global.port+'/action?session='+global.session,
+    url: 'http'+(global.noCrypto == true ? '' : 's')+'://'+global.server+':'+global.port+'/action?session='+global.session,
     dataType: 'json',
     type: 'post',
     contentType: 'application/x-www-form-urlencoded',

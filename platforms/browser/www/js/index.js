@@ -30,6 +30,7 @@ var app = {
     {
         secure_starage_init();
         authenticate_user();
+        window.plugins.insomnia.keepAwake();
         this.receivedEvent('deviceready');
     },
 

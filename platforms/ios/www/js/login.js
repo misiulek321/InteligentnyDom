@@ -1,6 +1,6 @@
 function use_authenticate_user_2(a, c)
 {
-    if(a[0]+a[1]+a[2]+a[3] >= 4)
+    if(a[2]+a[3] >= 2)
         authenticate_user_2(c);
 }
 
@@ -11,7 +11,7 @@ function authenticate_user()
     cred = {};
     a = Array(0, 0, 0, 0);
 
-    global.ss.get(
+    /*global.ss.get(
         function (value)
         {
             cred.server = value
@@ -22,12 +22,14 @@ function authenticate_user()
             if(error.indexOf('not found') == -1)
                 messages.message('Błąd odczytu adresu serwera: '+error, 'error', 5000);
             a[0] = 1;
-                use_authenticate_user_2(a, cred);
+            use_authenticate_user_2(a, cred);
             },
         'serverAddress'
-    );
+    );*/
+
+    cred.server = window.localStorage.getItem('serverAddress');
     
-    global.ss.get(
+    /*global.ss.get(
         function (value)
         {
             cred.port = value
@@ -42,7 +44,11 @@ function authenticate_user()
             use_authenticate_user_2(a, cred);
         },
         'serverPort'
-    );
+    );*/
+
+    cred.port = window.localStorage.getItem('serverPort');
+
+    cred.noCrypto = window.localStorage.getItem('noCrypto') == 'true' ? true : false;
 
     global.ss.get(
         function (value)
@@ -118,7 +124,7 @@ function authenticate_user_2(cred)
     logout();
 
     $.ajax({
-        url: 'http://'+cred.server+':'+cred.port+'/action',
+        url: 'http'+(cred.noCrypto == true ? '' : 's')+'://'+cred.server+':'+cred.port+'/action',
         dataType: 'json',
         type: 'post',
         async: false,
@@ -136,18 +142,19 @@ function authenticate_user_2(cred)
                 messages.message('Użytkownik połączony z serwerem i uwierzytelniony', 'confirmation', 3500);
                 global.server = cred.server;
                 global.port = cred.port;
+                global.noCrypto = cred.noCrypto;
                 global.session = data.session;
                 global.resourcesState.start();
                 ok = true;
             }
             else
                 //myAlert('Nieznany status podczas uwierzytelniania: '+data.status, 'Błąd podczas uwierzytelniania');
-                messages.message('Nieznany status podczas łączenia z serwerem w celu uwierzytelnienia: '+data.status, 'warning', 6500);
+                messages.message('Nieznany status podczas łączenia z serwerem w celu uwierzytelnienia: <b>'+data.status+'</b>', 'warning', 6500);
         },
         error: function( jqXhr, textStatus, errorThrown )
         {
             //myAlert( "Błąd sieci podczas uwierzytelniania: "+textStatus+": "+jqXhr.status+": "+jqXhr.textStatus, 'Błąd podczas uwierzytelniania');
-            messages.message("Błąd sieci podczas łączenia z serwerem w celu uwierzytelnienia: "+textStatus+": "+jqXhr.status+": "+jqXhr.textStatus+'. Oznacza to przeważnie że serwer jest wyłączony lub niedostępny.', 'error', 6500);
+            messages.message("Błąd sieci podczas łączenia z serwerem w celu uwierzytelnienia: <b>"+textStatus+": "+jqXhr.status+": "+jqXhr.textStatus+'</b>. Oznacza to przeważnie że serwer jest wyłączony lub niedostępny.', 'error', 6500);
         }
     });
 
@@ -161,7 +168,7 @@ function logout()
     if(global.session != null)
     {
         $.ajax({
-            url: 'http://'+cred.server+':'+cred.port+'/action',
+            url: 'http'+(global.noCrypto == true ? '' : 's')+'://'+global.server+':'+global.port+'/action',
             dataType: 'json',
             type: 'post',
             async: false,

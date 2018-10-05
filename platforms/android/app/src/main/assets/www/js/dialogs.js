@@ -8,7 +8,7 @@ function showConfiguration()
 {
     messages.closeMessage();
 
-    global.ss.get(
+    /*global.ss.get(
         function (value) {$('#configuration_server_address').css('fontStyle', 'normal').val(value)},
         function (error) {
             if(error.indexOf('not found') == -1)
@@ -17,9 +17,11 @@ function showConfiguration()
                 $('#configuration_server_address').css('fontStyle', 'normal').val('');
             },
         'serverAddress'
-    );
+    );*/
+
+    $('#configuration_server_address').css('fontStyle', 'normal').val(window.localStorage.getItem('serverAddress'));
     
-    global.ss.get(
+    /*global.ss.get(
         function (value) {$('#configuration_server_port').prop('type', 'number').css('fontStyle', 'normal').val(value)},
         function (error)
         {
@@ -29,7 +31,13 @@ function showConfiguration()
                 $('#configuration_server_port').prop('type', 'number').css('fontStyle', 'normal').val('');
         },
         'serverPort'
-    );
+    );*/
+
+    $('#configuration_server_port').prop('type', 'number').css('fontStyle', 'normal').val(window.localStorage.getItem('serverPort'));
+
+
+    $('#configuration_no_crypto').prop('checked', window.localStorage.getItem('noCrypto') == 'true' ? true : false);
+
 
     global.ss.get(
         function (value) {$('#configuration_username').css('fontStyle', 'normal').val(value)},
@@ -72,51 +80,69 @@ $(document).ready(function()
 
     $('#configuration .configuration_save').click(function()
     {
-        if($('#configuration_server_address').val().indexOf('not found') == -1)
-        {
-            global.ss.set(
+        //if($('#configuration_server_address').val().indexOf('not found') == -1)
+        //{
+            /*global.ss.set(
                 function(){},
                 function (error) {myAlert('Błąd podczas zapisu adresu serwera: '+error), 'Błąd podczas zapisu ustawień'},
                 'serverAddress',
                 $('#configuration_server_address').val()
-            );
-        }
+            );*/
 
-        if($('#configuration_server_port').val().indexOf('not found') == -1)
-        {
-            global.ss.set(
+            window.localStorage.setItem('serverAddress', $('#configuration_server_address').val());
+        //}
+
+        //if($('#configuration_server_port').val().indexOf('not found') == -1)
+        //{
+            /*global.ss.set(
                 function(){},
                 function (error) {myAlert('Błąd podczas zapisu portu serwera: '+error), 'Błąd podczas zapisu ustawień'},
                 'serverPort',
                 $('#configuration_server_port').val()
-            );
-        }
+            );*/
+
+            window.localStorage.setItem('serverPort', $('#configuration_server_port').val());
+        //}
+
+        window.localStorage.setItem('noCrypto', $('#configuration_no_crypto').prop('checked'));
 
         if($('#configuration_username').val().indexOf('not found') == -1)
         {
             global.ss.set(
-                function(){},
-                function (error) {myAlert('Błąd podczas zapisu nazwy użytkownika: '+error), 'Błąd podczas zapisu ustawień'},
+                function()
+                {
+                    if($('#configuration_password').val().indexOf('not found') == -1 && $('#configuration_password').val() != '********')
+                    {
+                        global.ss.set(
+                            function()
+                            {
+                                global.resourcesState.stop();
+                                messages.message('Czekaj...', 'info', 10000);
+                                closeConfiguration();
+                            },
+                            function (error)
+                            {
+                                myAlert('Błąd podczas szyfrowania i zapisu hasła użytkownika: '+error, 'Błąd podczas zapisu ustawień');
+                                closeConfiguration();
+                            },
+                            'password',
+                            $('#configuration_password').val()
+                        );
+                    }
+                },
+                function (error)
+                {
+                    myAlert('Błąd podczas szyfrowania i zapisu nazwy użytkownika: '+error, 'Błąd podczas zapisu ustawień');
+                    closeConfiguration();
+                },
                 'username',
                 $('#configuration_username').val()
             );
         }
 
-        if($('#configuration_password').val().indexOf('not found') == -1 && $('#configuration_password').val() != '********')
-        {
-            global.ss.set(
-                function(){},
-                function (error) {myAlert('Błąd podczas zapisu hasła użytkownika: '+error), 'Błąd podczas zapisu ustawień'},
-                'password',
-                $('#configuration_password').val()
-            );
-        }
 
         //myAlert('Aby zastosować nową konfigurację uruchom ponownie aplikację!', 'Informacja');
-        global.resourcesState.stop();
-        messages.message('Czekaj...', 'info', 10000);
-
-        closeConfiguration();
+        
     });
 });
 
@@ -168,6 +194,12 @@ $(document).ready(function()
     $('#thermostatesSet .mmm').click(function(){ addToTempThermostatesSet(-5); });
     $('#thermostatesSet .mm').click(function(){ addToTempThermostatesSet(-1); });
     $('#thermostatesSet .m').click(function(){ addToTempThermostatesSet(-0.1); });
+
+    $('#thermostatesSet .thermostatesSetDelete .x').click(function()
+    {
+        $('#thermostatesSet input.temp').val('');
+        $('#thermostatesSet input.temp').focus();
+    });
 
     $('#thermostatesSet .close').click(function() { hideTermostatesSet(); });
     $('#thermostatesSet .apply').click(function()
