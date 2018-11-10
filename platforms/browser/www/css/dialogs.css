@@ -46,7 +46,7 @@
 }
 
 
-#thermostatesSet
+#thermostatesSet, #thermostatesPlusMinus
 {
     display: none;
     background-color: rgb(70, 70, 70);
@@ -72,13 +72,13 @@
     text-align: center;
 }
 
-#thermostatesSet .inline
+#thermostatesSet .inline, #thermostatesPlusMinus .inline
 {
     display: inline-block;
     vertical-align: middle;
 }
 
-#thermostatesSet .inline button
+#thermostatesSet .inline button, #thermostatesPlusMinus .inline button
 {
     display: block;
     width: 30pt;
@@ -86,7 +86,7 @@
     padding: 6px 6px;
 }
 
-#thermostatesSet input.temp
+#thermostatesSet input.temp, #thermostatesPlusMinus input.temp
 {
     font-family: 'lcdmonobold';
     width: 110pt;
@@ -99,9 +99,26 @@
     color: red;
 }
 
-#thermostatesSet .buttonRed, #thermostatesSet .buttonGreen
+#thermostatesSet .buttonRed, #thermostatesSet .buttonGreen, #thermostatesPlusMinus .buttonRed, #thermostatesPlusMinus .buttonGreen
 {
     margin: 0pt 10pt;
+}
+
+#thermostatesSet .mmm, #thermostatesSet .mm, #thermostatesSet .m, #thermostatesSet .ppp, #thermostatesSet .pp, #thermostatesSet .p, #thermostatesPlusMinus .mmm, #thermostatesPlusMinus .mm, #thermostatesPlusMinus .m, #thermostatesPlusMinus .ppp, #thermostatesPlusMinus .pp, #thermostatesPlusMinus .p
+{
+    margin: 5pt;
+}
+
+#thermostatesSet .toggleButton
+{
+    margin: 0pt auto 12pt auto;
+}
+
+
+#thermostatesPlusMinus
+{
+    height: 120pt;
+    margin-top: -60pt;
 }
 
 

@@ -255,6 +255,27 @@ $(document).ready(function()
         }
     });
 
+    $('#menu2_thermostates img.plusMinus').click(function()
+    {
+        thermostatesSetElements = null;
+
+        $('#menu2_thermostates .tile').each(function()
+        {
+            if($(this).children('input[type="checkbox"]').prop('checked') == true)
+            {
+                if(thermostatesSetElements == null)
+                    thermostatesSetElements = $(this);
+                else
+                thermostatesSetElements = thermostatesSetElements.add($(this));
+            }
+        });
+
+        if(thermostatesSetElements != null)
+        {
+            showTermostatesPlusMinus();
+        }
+    });
+
 
 
     //Partitions

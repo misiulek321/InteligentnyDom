@@ -76,6 +76,8 @@ global.resourcesState = {
         this.sse.addEventListener('resourceState', function (e) {
             var data = JSON.parse(e.data);
 
+            //console.log(data);
+
             if (typeof global.thermometers[data.id] !== 'undefined' && global.thermometers[data.id] == 1) {
                 elem = $('.thermometer_id_' + data.id);
                 type = 'thermometer';

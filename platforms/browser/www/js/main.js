@@ -26,6 +26,13 @@ function myAlert(text, title, button)
     //}
 }
 
+
+function setBackground(number)
+{
+    document.body.className = 'background'+number;
+}
+
+
 var secure_starage_init = function () {
     global.ss = new cordova.plugins.SecureStorage(
         function () {
@@ -96,7 +103,7 @@ function adjustMenu()
 
             $(this).show();
             var menu_title = $(this).children('.menu2_title').outerHeight(true);
-            var groups = $(this).children('.groups').outerHeight(true);
+            var groups = ($(this).children('.groups').length > 0 ? $(this).children('.groups').outerHeight(true) : 0);
             
             if($('#'+replaceAt($(this).attr('id'), 4, '1')).hasClass('active') != true)
                 $(this).hide();
@@ -132,7 +139,7 @@ function adjustMenu()
 
             $(this).show();
             var menu_title = $(this).children('.menu2_title').outerHeight(true);
-            var groups = $(this).children('.groups').outerHeight(true);
+            var groups = ($(this).children('.groups').length > 0 ? $(this).children('.groups').outerHeight(true) : 0);
 
             if($('#'+replaceAt($(this).attr('id'), 4, '1')).hasClass('active') != true)
                 $(this).hide();
@@ -214,7 +221,11 @@ $(document).ready(function ()
         }
     });
 
-    $('.menu2_close').click(function(){closeMenu($(this).parent().parent())});
+    $('.menu2_close').click(function()
+    {
+        closeMenu($(this).parent().parent())
+        $('.tile').find('input[type="checkbox"]').prop('checked', false);
+    });
 
     $('.configuration').click(function(){showConfiguration();});
 
@@ -224,4 +235,6 @@ $(document).ready(function ()
     });
 
     setInterval(function(){global.resourcesState.updateState();}, 100);
+
+    setBackground(window.localStorage.getItem('background') == null ? 1 : window.localStorage.getItem('background'));
 });

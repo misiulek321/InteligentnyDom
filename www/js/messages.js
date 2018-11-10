@@ -8,11 +8,12 @@ var messages =
             clearTimeout(this.timer);
         $('#message').removeClass('error').removeClass('warning').removeClass('confirmation').removeClass('info');
         $('#message').addClass(type).html(text).show().css({left: 0, marginLeft: 0}).css('marginLeft', -$('#message').outerWidth()/2).hide().css('left', '50%').fadeIn(300);
+        var thisObj = this;
         if(duration > 0)
         {
-            var thisObj = this;
             this.timer = setTimeout(function(){thisObj.closeMessage();}, duration);
         }
+        $('#message').click(function(){thisObj.closeMessage()});
     },
     closeMessage: function()
     {

@@ -6,8 +6,16 @@
     top: 0px;
     left: 0px;
     text-align: center;
+}
+
+.background1 #date_time
+{
     color: rgb(0, 131, 218);
-    /*padding-left: 40pt;*/
+}
+
+.background2 #date_time
+{
+    color: rgb(113, 63, 0);
 }
 
 

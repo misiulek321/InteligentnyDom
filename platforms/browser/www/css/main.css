@@ -1,6 +1,13 @@
-html, body
+.background1
 {
-    background-image: url('../img/background.png');
+    background-image: url('../img/background1.png');
+    background-size: auto;
+}
+
+.background2
+{
+    background-image: url('../img/background2.jpg');
+    background-size: cover;
 }
 
 

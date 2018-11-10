@@ -58,7 +58,7 @@ function authenticate_user()
             use_authenticate_user_2(a, cred);
         },
         function (error) {
-            if(error.indexOf('not found') == -1)
+            if(error.search('not found') == -1)
                 messages.message('Błąd odczytu nazwy użytkownika: '+error, 'error', 5000);
             a[2] = 1;
             use_authenticate_user_2(a, cred);
@@ -75,7 +75,7 @@ function authenticate_user()
         },
         function (error)
         {
-            if(error.indexOf('not found') == -1)
+            if(error.search('not found') == -1)
                 messages.message('Błąd odczytu hasła użytkownika: '+error, 'error', 5000);
             a[3] = 1;
             use_authenticate_user_2(a, cred);
@@ -169,7 +169,7 @@ function logout()
     if(global.session != null)
     {
         $.ajax({
-            url: 'http'+(global.noCrypto == true ? '' : 's')+'://'+global.server+':'+global.port+'/action',
+            url: 'http'+(global.noCrypto == true ? '' : 's')+'://'+global.server+':'+global.port+'/action?session='+global.session,
             dataType: 'json',
             type: 'post',
             async: false,
