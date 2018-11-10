@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'lcdmonobold';
-    src: url('../fonts/lcd.woff2') format('woff2'),
-         url('../fonts/lcd.woff') format('woff'),
-         url('../fonts/lcd.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-
-}
