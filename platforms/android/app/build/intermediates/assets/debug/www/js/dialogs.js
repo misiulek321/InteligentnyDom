@@ -3,7 +3,6 @@ var partitionKeypadElements;
 var partitionKeypadAction;
 
 
-
 function showConfiguration()
 {
     messages.closeMessage();
@@ -42,7 +41,7 @@ function showConfiguration()
     global.ss.get(
         function (value) {$('#configuration_username').css('fontStyle', 'normal').val(value)},
         function (error) {
-            if(error.indexOf('not found') == -1)
+            if(error.search('not found') == -1)
                 $('#configuration_username').css('fontStyle', 'italic').val(error);
             else
                 $('#configuration_username').css('fontStyle', 'normal').val('');
@@ -54,13 +53,21 @@ function showConfiguration()
         function (value) {$('#configuration_password').prop('type', 'password').css('fontStyle', 'normal').val('********')},
         function (error)
         {
-            if(error.indexOf('not found') == -1)
+            if(error.search('not found') == -1)
                 $('#configuration_password').prop('type', 'text').css('fontStyle', 'italic').val(error);
             else
                 $('#configuration_password').prop('type', 'password').css('fontStyle', 'normal').val('');
         },
         'password'
     );
+
+
+
+    $('#configuration_always_on_display').prop('checked', window.localStorage.getItem('alwaysOnDisplay') == 'true' ? true : false);
+
+    var background = (window.localStorage.getItem('background') == null ? 1 : window.localStorage.getItem('background'));
+    $('#configuration_background input[value="'+background+'"]').prop('checked', true);
+
 
 
     $('#configuration').fadeIn(300);
@@ -80,6 +87,7 @@ $(document).ready(function()
 
     $('#configuration .configuration_save').click(function()
     {
+        var ok = true;
         //if($('#configuration_server_address').val().indexOf('not found') == -1)
         //{
             /*global.ss.set(
@@ -122,7 +130,9 @@ $(document).ready(function()
                             },
                             function (error)
                             {
-                                myAlert('Błąd podczas szyfrowania i zapisu hasła użytkownika: '+error, 'Błąd podczas zapisu ustawień');
+                                //myAlert('Błąd podczas szyfrowania i zapisu hasła użytkownika: '+error, 'Błąd podczas zapisu ustawień');
+                                messages.message('Błąd podczas szyfrowania i zapisu hasła użytkownika: '+error, 'error', 5000);
+                                ok = false;
                                 closeConfiguration();
                             },
                             'password',
@@ -132,7 +142,9 @@ $(document).ready(function()
                 },
                 function (error)
                 {
-                    myAlert('Błąd podczas szyfrowania i zapisu nazwy użytkownika: '+error, 'Błąd podczas zapisu ustawień');
+                    //myAlert('Błąd podczas szyfrowania i zapisu nazwy użytkownika: '+error, 'Błąd podczas zapisu ustawień');
+                    messages.message('Błąd podczas szyfrowania i zapisu nazwy użytkownika: '+error, 'error', 5000);
+                    ok = false;
                     closeConfiguration();
                 },
                 'username',
@@ -140,6 +152,22 @@ $(document).ready(function()
             );
         }
 
+
+
+        window.localStorage.setItem('alwaysOnDisplay', $('#configuration_always_on_display').prop('checked'));
+        if(window.localStorage.getItem('alwaysOnDisplay') == true)
+            window.plugins.insomnia.keepAwake();
+        else
+            window.plugins.insomnia.allowSleepAgain();
+
+
+        
+        var background = $("#configuration_background input[type='radio']:checked").val();
+        window.localStorage.setItem('background', background);
+        setBackground(background);
+
+        if(ok == true)
+            messages.message('Konfiguracja zapisana', 'information', 2500);
 
         //myAlert('Aby zastosować nową konfigurację uruchom ponownie aplikację!', 'Informacja');
         
@@ -186,6 +214,30 @@ function addToTempThermostatesSet(value)
 }
 
 
+function showTermostatesPlusMinus()
+{
+    $('#blackout').fadeIn(300);
+
+    var elem = $('#thermostatesPlusMinus');
+
+    elem.show('puff', {}, 300);
+
+    elem.find('input.temp').val('').focus();
+}
+
+function hideTermostatesPlusMinus()
+{
+    $('#blackout').fadeOut(300);
+    $('#thermostatesPlusMinus').hide('drop', {}, 300);
+}
+
+function addToTempThermostatesPlusMinus(value)
+{
+    var temp = $('#thermostatesPlusMinus input.temp');
+    temp.val((parseFloat(temp.val() == '' ? 0 : temp.val())+value).toFixed(1));
+}
+
+
 $(document).ready(function()
 {
     $('#thermostatesSet .ppp').click(function(){ addToTempThermostatesSet(5); });
@@ -215,6 +267,33 @@ $(document).ready(function()
         });
 
         hideTermostatesSet();
+        uncheckAll($('#menu2_thermostates'));
+    });
+
+
+
+    $('#thermostatesPlusMinus .ppp').click(function(){ addToTempThermostatesPlusMinus(5); });
+    $('#thermostatesPlusMinus .pp').click(function(){ addToTempThermostatesPlusMinus(1); });
+    $('#thermostatesPlusMinus .p').click(function(){ addToTempThermostatesPlusMinus(0.1); });
+    $('#thermostatesPlusMinus .mmm').click(function(){ addToTempThermostatesPlusMinus(-5); });
+    $('#thermostatesPlusMinus .mm').click(function(){ addToTempThermostatesPlusMinus(-1); });
+    $('#thermostatesPlusMinus .m').click(function(){ addToTempThermostatesPlusMinus(-0.1); });
+
+
+    $('#thermostatesPlusMinus .close').click(function() { hideTermostatesPlusMinus(); });
+    $('#thermostatesPlusMinus .apply').click(function()
+    {
+        thermostatesSetElements.each(function()
+        {
+            var temp = parseFloat($('#thermostatesPlusMinus input.temp').val());
+
+            controlResource({id: $(this).attr('id'), action: 'setTempAndActivation', temp: (parseFloat($(this).find('.set').text())*10)+parseInt(temp*10), activation: $(this).hasClass('active')},
+            function( data, textStatus, jQxhr ){ successCallback(data, textStatus, jQxhr); },
+            function( jqXhr, textStatus, errorThrown ){ failCallback(jqXhr, textStatus, errorThrown); }
+            );
+        });
+
+        hideTermostatesPlusMinus();
         uncheckAll($('#menu2_thermostates'));
     });
 });

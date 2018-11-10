@@ -87,6 +87,7 @@ $(document).ready(function()
 
     $('#configuration .configuration_save').click(function()
     {
+        var ok = true;
         //if($('#configuration_server_address').val().indexOf('not found') == -1)
         //{
             /*global.ss.set(
@@ -129,7 +130,9 @@ $(document).ready(function()
                             },
                             function (error)
                             {
-                                myAlert('Błąd podczas szyfrowania i zapisu hasła użytkownika: '+error, 'Błąd podczas zapisu ustawień');
+                                //myAlert('Błąd podczas szyfrowania i zapisu hasła użytkownika: '+error, 'Błąd podczas zapisu ustawień');
+                                messages.message('Błąd podczas szyfrowania i zapisu hasła użytkownika: '+error, 'error', 5000);
+                                ok = false;
                                 closeConfiguration();
                             },
                             'password',
@@ -139,7 +142,9 @@ $(document).ready(function()
                 },
                 function (error)
                 {
-                    myAlert('Błąd podczas szyfrowania i zapisu nazwy użytkownika: '+error, 'Błąd podczas zapisu ustawień');
+                    //myAlert('Błąd podczas szyfrowania i zapisu nazwy użytkownika: '+error, 'Błąd podczas zapisu ustawień');
+                    messages.message('Błąd podczas szyfrowania i zapisu nazwy użytkownika: '+error, 'error', 5000);
+                    ok = false;
                     closeConfiguration();
                 },
                 'username',
@@ -161,6 +166,8 @@ $(document).ready(function()
         window.localStorage.setItem('background', background);
         setBackground(background);
 
+        if(ok == true)
+            messages.message('Konfiguracja zapisana', 'information', 2500);
 
         //myAlert('Aby zastosować nową konfigurację uruchom ponownie aplikację!', 'Informacja');
         
