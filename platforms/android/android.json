@@ -21,11 +21,11 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"Insomnia\"><param name=\"android-package\" value=\"nl.xservices.plugins.Insomnia\" /></feature>",
+              "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
               "count": 1
             },
             {
-              "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "xml": "<feature name=\"Insomnia\"><param name=\"android-package\" value=\"nl.xservices.plugins.Insomnia\" /></feature>",
               "count": 1
             }
           ]
@@ -59,10 +59,10 @@
     "cordova-plugin-secure-storage": {
       "PACKAGE_NAME": "com.hello.world"
     },
-    "cordova-plugin-insomnia": {
+    "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.inteligentny.dom"
     },
-    "cordova-plugin-splashscreen": {
+    "cordova-plugin-insomnia": {
       "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
@@ -91,19 +91,19 @@
       "runs": true
     },
     {
-      "id": "cordova-plugin-insomnia.Insomnia",
-      "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
-      "pluginId": "cordova-plugin-insomnia",
-      "clobbers": [
-        "window.plugins.insomnia"
-      ]
-    },
-    {
       "id": "cordova-plugin-splashscreen.SplashScreen",
       "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
       "pluginId": "cordova-plugin-splashscreen",
       "clobbers": [
         "navigator.splashscreen"
+      ]
+    },
+    {
+      "id": "cordova-plugin-insomnia.Insomnia",
+      "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
+      "pluginId": "cordova-plugin-insomnia",
+      "clobbers": [
+        "window.plugins.insomnia"
       ]
     }
   ],
@@ -111,7 +111,7 @@
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-httpd": "0.9.3",
     "cordova-plugin-secure-storage": "2.6.8",
-    "cordova-plugin-insomnia": "4.3.0",
-    "cordova-plugin-splashscreen": "5.0.2"
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-insomnia": "4.3.0"
   }
 }

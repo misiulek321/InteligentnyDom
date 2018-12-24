@@ -23,19 +23,19 @@ module.exports = [
     "runs": true
   },
   {
-    "id": "cordova-plugin-insomnia.Insomnia",
-    "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
-    "pluginId": "cordova-plugin-insomnia",
-    "clobbers": [
-      "window.plugins.insomnia"
-    ]
-  },
-  {
     "id": "cordova-plugin-splashscreen.SplashScreen",
     "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
     "pluginId": "cordova-plugin-splashscreen",
     "clobbers": [
       "navigator.splashscreen"
+    ]
+  },
+  {
+    "id": "cordova-plugin-insomnia.Insomnia",
+    "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
+    "pluginId": "cordova-plugin-insomnia",
+    "clobbers": [
+      "window.plugins.insomnia"
     ]
   }
 ];
@@ -45,8 +45,8 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-httpd": "0.9.3",
   "cordova-plugin-secure-storage": "2.6.8",
-  "cordova-plugin-insomnia": "4.3.0",
-  "cordova-plugin-splashscreen": "5.0.2"
+  "cordova-plugin-splashscreen": "5.0.2",
+  "cordova-plugin-insomnia": "4.3.0"
 };
 // BOTTOM OF METADATA
 });
