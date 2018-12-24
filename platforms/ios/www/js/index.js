@@ -30,10 +30,13 @@ var app = {
     {
         secure_starage_init();
         authenticate_user();
-        if(window.localStorage.getItem('alwaysOnDisplay') == true)
+        if(window.localStorage.getItem('alwaysOnDisplay') == 'true')
+        {
             window.plugins.insomnia.keepAwake();
-        else
-            window.plugins.insomnia.allowSleepAgain();
+            global.alwaysOnDisplayTimer = setInterval(function(){window.plugins.insomnia.keepAwake();}, 20000);
+        }
+        //else
+            //window.plugins.insomnia.allowSleepAgain();
         this.receivedEvent('deviceready');
     },
 

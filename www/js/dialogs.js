@@ -155,10 +155,16 @@ $(document).ready(function()
 
 
         window.localStorage.setItem('alwaysOnDisplay', $('#configuration_always_on_display').prop('checked'));
-        if(window.localStorage.getItem('alwaysOnDisplay') == true)
+        if(window.localStorage.getItem('alwaysOnDisplay') == 'true')
+        {
             window.plugins.insomnia.keepAwake();
+            global.alwaysOnDisplayTimer = setInterval(function(){window.plugins.insomnia.keepAwake();}, 20000);
+        }
         else
+        {
+            clearInterval(global.alwaysOnDisplayTimer);
             window.plugins.insomnia.allowSleepAgain();
+        }
 
 
         

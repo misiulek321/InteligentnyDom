@@ -5,7 +5,8 @@ var global = {
     noCrypto: null,
     session: null,
     ss: null,
-    thermometers: Array()
+    thermometers: Array(),
+    alwaysOnDisplayTimer: null
 }
 
 function myAlert(text, title, button)

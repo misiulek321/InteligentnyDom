@@ -19,6 +19,9 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Insomnia">
+        <param name="ios-package" value="Insomnia" />
+    </feature>
     <name>Inteligentny Dom</name>
     <description>
         Aplikacja do obsługi inteligentnego domu
@@ -75,7 +78,4 @@
     <preference name="PageLength" value="0" />
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
-    <feature name="Insomnia">
-        <param name="ios-package" value="Insomnia" />
-    </feature>
 </widget>
