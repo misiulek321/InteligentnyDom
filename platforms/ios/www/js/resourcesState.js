@@ -13,6 +13,9 @@ global.resourcesState = {
 
         this.sse.addEventListener('addResource', function (e) {
             var data = JSON.parse(e.data);
+
+            console.log(data);
+
             var type;
             if (data.type == 'sensor')
                 type = 'sensors';
@@ -30,7 +33,8 @@ global.resourcesState = {
                 type = 'thermostates';
 
             //Dodawanie kafelka
-            if (type != 'thermometer') {
+            if (type != 'thermometer')
+            {
                 if ($('#' + data.id).length < 1) {
                     var elem = $('#menu2_' + type + ' .tiles .tile.template').clone();
                     elem.removeClass('template');
@@ -60,12 +64,29 @@ global.resourcesState = {
                         elem.click(function(){clickPartition($(this))}).children('input[type="checkbox"]').click(function(e){e.stopPropagation();});
                     }
 
-                    elem.appendTo('#menu2_' + type + ' .tiles');
+                    elem.data('order', data.order);
+
+                    var inserted = false;
+                    $('#menu2_' + type + ' .tiles .tile').each(function()
+                    {
+                        //alert(data.id+": "+parseInt($(this).data('order')));
+                        if(parseInt($(this).data('order')) > data.order)
+                        {
+                            elem.insertBefore($(this));
+                            inserted = true;
+                        }
+                    });
+
+                    if(inserted == false)
+                        $('#menu2_' + type + ' .tiles').append(elem);
+
+                    //elem.appendTo('#menu2_' + type + ' .tiles');
 
                     $('#menu1_' + type).show();
                 }
             }
-            else {
+            else
+            {
                 global.thermometers[data.id] = 1;
             }
 
