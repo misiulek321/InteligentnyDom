@@ -14,7 +14,7 @@ global.resourcesState = {
         this.sse.addEventListener('addResource', function (e) {
             var data = JSON.parse(e.data);
 
-            console.log(data);
+            //console.log(data);
 
             var type;
             if (data.type == 'sensor')
@@ -69,18 +69,18 @@ global.resourcesState = {
                     var inserted = false;
                     $('#menu2_' + type + ' .tiles .tile').each(function()
                     {
-                        //alert(data.id+": "+parseInt($(this).data('order')));
                         if(parseInt($(this).data('order')) > data.order)
                         {
                             elem.insertBefore($(this));
                             inserted = true;
+                            return false;
                         }
                     });
 
                     if(inserted == false)
+                    {
                         $('#menu2_' + type + ' .tiles').append(elem);
-
-                    //elem.appendTo('#menu2_' + type + ' .tiles');
+                    }
 
                     $('#menu1_' + type).show();
                 }

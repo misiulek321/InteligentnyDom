@@ -23,20 +23,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-        "id": "cordova-plugin-splashscreen.SplashScreen",
-        "pluginId": "cordova-plugin-splashscreen",
-        "clobbers": [
-            "navigator.splashscreen"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-splashscreen/src/browser/SplashScreenProxy.js",
-        "id": "cordova-plugin-splashscreen.SplashScreenProxy",
-        "pluginId": "cordova-plugin-splashscreen",
-        "runs": true
-    },
-    {
         "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
         "id": "cordova-plugin-insomnia.Insomnia",
         "pluginId": "cordova-plugin-insomnia",
@@ -59,7 +45,6 @@ module.exports.metadata =
     "com.rjfun.cordova.httpd": "0.9.2",
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-secure-storage": "2.6.8",
-    "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-insomnia": "4.3.0"
 }
 // BOTTOM OF METADATA

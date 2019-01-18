@@ -41,7 +41,7 @@ function showConfiguration()
     global.ss.get(
         function (value) {$('#configuration_username').css('fontStyle', 'normal').val(value)},
         function (error) {
-            if(error.search('not found') == -1)
+            if(error != 'Error: "Key "username" not found."')
                 $('#configuration_username').css('fontStyle', 'italic').val(error);
             else
                 $('#configuration_username').css('fontStyle', 'normal').val('');
@@ -53,7 +53,7 @@ function showConfiguration()
         function (value) {$('#configuration_password').prop('type', 'password').css('fontStyle', 'normal').val('********')},
         function (error)
         {
-            if(error.search('not found') == -1)
+            if(error != 'Error: "Key "password" not found."')
                 $('#configuration_password').prop('type', 'text').css('fontStyle', 'italic').val(error);
             else
                 $('#configuration_password').prop('type', 'password').css('fontStyle', 'normal').val('');

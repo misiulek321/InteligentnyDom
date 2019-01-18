@@ -57,12 +57,13 @@ function authenticate_user()
             a[2] = 1;
             use_authenticate_user_2(a, cred);
         },
-        function (error) {
-            if(error.search('not found') == -1)
+        function (error)
+        {
+            if(error != 'Error: "Key "username" not found."')
                 messages.message('Błąd odczytu nazwy użytkownika: '+error, 'error', 5000);
             a[2] = 1;
             use_authenticate_user_2(a, cred);
-            },
+        },
         'username'
     );
 
@@ -75,7 +76,7 @@ function authenticate_user()
         },
         function (error)
         {
-            if(error.search('not found') == -1)
+            if(error != 'Error: "Key "password" not found."')
                 messages.message('Błąd odczytu hasła użytkownika: '+error, 'error', 5000);
             a[3] = 1;
             use_authenticate_user_2(a, cred);
