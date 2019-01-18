@@ -173,7 +173,7 @@ $(document).ready(function()
         setBackground(background);
 
         if(ok == true)
-            messages.message('Konfiguracja zapisana', 'information', 2500);
+            messages.message('Konfiguracja zapisana', 'info', 2500);
 
         //myAlert('Aby zastosować nową konfigurację uruchom ponownie aplikację!', 'Informacja');
         
