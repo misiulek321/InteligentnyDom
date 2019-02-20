@@ -31,18 +31,18 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-insomnia": {
-    "source": {
-      "type": "registry",
-      "id": "https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-rtsp-vlc": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-rtsp-vlc"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-insomnia": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git"
     },
     "is_top_level": true,
     "variables": {}

@@ -13,10 +13,10 @@
     "cordova-plugin-secure-storage": {
       "PACKAGE_NAME": "com.hello.world"
     },
-    "cordova-plugin-insomnia": {
+    "cordova-plugin-rtsp-vlc": {
       "PACKAGE_NAME": "com.inteligentny.dom"
     },
-    "cordova-plugin-rtsp-vlc": {
+    "cordova-plugin-insomnia": {
       "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },

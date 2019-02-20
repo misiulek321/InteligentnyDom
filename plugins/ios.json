@@ -7,10 +7,10 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-insomnia": {
+    "cordova-plugin-rtsp-vlc": {
       "PACKAGE_NAME": "com.inteligentny.dom"
     },
-    "cordova-plugin-rtsp-vlc": {
+    "cordova-plugin-insomnia": {
       "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
