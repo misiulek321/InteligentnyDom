@@ -31,7 +31,7 @@
 		9C58BF4CDD7A48C897C49234 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F01FFC46FA4FDD8E5BAB43 /* CoreAudio.framework */; };
 		E90D6E29C1BC43DEAD0C1256 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5890F22ABA6497995749124 /* UIKit.framework */; };
 		1155785DA23D485BB34CE893 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02324428299D4A54BC26394E /* Foundation.framework */; };
-		8529BDFE325C49D69B7766B2 /* Insomnia.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7DCD20B44C51BA405A4A /* Insomnia.m */; };
+		98415D2228F74A4188FE98FD /* Insomnia.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EB90B5F9C34966A8399408 /* Insomnia.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +89,8 @@
 		08F01FFC46FA4FDD8E5BAB43 /* CoreAudio.framework */ = {isa = PBXFileReference; name = "CoreAudio.framework"; path = "System/Library/Frameworks/CoreAudio.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		B5890F22ABA6497995749124 /* UIKit.framework */ = {isa = PBXFileReference; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		02324428299D4A54BC26394E /* Foundation.framework */ = {isa = PBXFileReference; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		FA9B7DCD20B44C51BA405A4A /* Insomnia.m */ = {isa = PBXFileReference; name = "Insomnia.m"; path = "cordova-plugin-insomnia/Insomnia.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		F1C62D438D984416BA5FC340 /* Insomnia.h */ = {isa = PBXFileReference; name = "Insomnia.h"; path = "cordova-plugin-insomnia/Insomnia.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		92EB90B5F9C34966A8399408 /* Insomnia.m */ = {isa = PBXFileReference; name = "Insomnia.m"; path = "cordova-plugin-insomnia/Insomnia.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		EB8CFCFA099648718107B0F0 /* Insomnia.h */ = {isa = PBXFileReference; name = "Insomnia.h"; path = "cordova-plugin-insomnia/Insomnia.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,8 +224,8 @@
 				AA61EA8F341B470C99CA4694 /* VideoPlayerVLCViewController.m */,
 				0143E0629418423D9B7DE867 /* VideoPlayerVLC.h */,
 				AD4F79A9D73C4F778C02CEB8 /* VideoPlayerVLCViewController.h */,
-				FA9B7DCD20B44C51BA405A4A /* Insomnia.m */,
-				F1C62D438D984416BA5FC340 /* Insomnia.h */,
+				92EB90B5F9C34966A8399408 /* Insomnia.m */,
+				EB8CFCFA099648718107B0F0 /* Insomnia.h */,
 			);
 			name = Plugins;
 			path = "Inteligentny Dom/Plugins";
@@ -340,7 +340,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				F2B84AC9C3E34EC4B23903DC /* VideoPlayerVLC.m in Sources */,
 				9E4A1A1740EB40F3B4A65D2D /* VideoPlayerVLCViewController.m in Sources */,
-				8529BDFE325C49D69B7766B2 /* Insomnia.m in Sources */,
+				98415D2228F74A4188FE98FD /* Insomnia.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
