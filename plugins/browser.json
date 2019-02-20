@@ -15,11 +15,17 @@
     },
     "cordova-plugin-insomnia": {
       "PACKAGE_NAME": "com.inteligentny.dom"
+    },
+    "cordova-plugin-rtsp-vlc": {
+      "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
   "dependent_plugins": {
     "com.rjfun.cordova.httpd": {
       "PACKAGE_NAME": "com.hello.world"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.inteligentny.dom"
     }
   }
 }

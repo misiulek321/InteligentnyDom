@@ -22,6 +22,12 @@
     <feature name="Insomnia">
         <param name="ios-package" value="Insomnia" />
     </feature>
+    <feature name="VideoPlayerVLC">
+        <param name="ios-package" value="VideoPlayerVLC" />
+    </feature>
+    <feature name="VideoPlayerVLCViewController">
+        <param name="ios-package" value="VideoPlayerVLCViewController" />
+    </feature>
     <name>Inteligentny Dom</name>
     <description>
         Aplikacja do obsługi inteligentnego domu

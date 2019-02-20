@@ -1,0 +1,8 @@
+{
+    "MobileVLCKit": {
+        "name": "MobileVLCKit",
+        "type": "podspec",
+        "spec": ">3.1.0",
+        "count": 1
+    }
+}
