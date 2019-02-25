@@ -19,12 +19,6 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="VideoPlayerVLC">
-        <param name="ios-package" value="VideoPlayerVLC" />
-    </feature>
-    <feature name="VideoPlayerVLCViewController">
-        <param name="ios-package" value="VideoPlayerVLCViewController" />
-    </feature>
     <feature name="Insomnia">
         <param name="ios-package" value="Insomnia" />
     </feature>

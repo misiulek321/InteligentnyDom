@@ -16,16 +16,9 @@
     "cordova-plugin-secure-storage": {
       "PACKAGE_NAME": "com.hello.world"
     },
-    "cordova-plugin-rtsp-vlc": {
-      "PACKAGE_NAME": "com.inteligentny.dom"
-    },
     "cordova-plugin-insomnia": {
       "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
-  "dependent_plugins": {
-    "es6-promise-plugin": {
-      "PACKAGE_NAME": "com.inteligentny.dom"
-    }
-  }
+  "dependent_plugins": {}
 }
