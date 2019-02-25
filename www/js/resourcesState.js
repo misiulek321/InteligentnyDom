@@ -46,6 +46,11 @@ global.resourcesState = {
                         elem.children('.on_and_temp').children('.temp').addClass('thermometer_id_' + data.thermometer);
                     }
 
+                    if(type == 'sensors')
+                    {
+                        elem.addClass('sensorType-'+data.sensorType);
+                    }
+
                     //Akcje po kliknięciu
                     if (type == 'lights' || type == 'switches')
                     {
