@@ -14,7 +14,7 @@ global.resourcesState = {
         this.sse.addEventListener('addResource', function (e) {
             var data = JSON.parse(e.data);
 
-            //console.log(data);
+            console.log(data);
 
             var type;
             if (data.type == 'sensor')
@@ -44,6 +44,11 @@ global.resourcesState = {
 
                     if (type == 'thermostates') {
                         elem.children('.on_and_temp').children('.temp').addClass('thermometer_id_' + data.thermometer);
+                    }
+
+                    if(type == 'sensors')
+                    {
+                        elem.addClass('sensorType-'+data.sensorType);
                     }
 
                     //Akcje po kliknięciu
@@ -97,7 +102,7 @@ global.resourcesState = {
         this.sse.addEventListener('resourceState', function (e) {
             var data = JSON.parse(e.data);
 
-            //console.log(data);
+            console.log(data);
 
             if (typeof global.thermometers[data.id] !== 'undefined' && global.thermometers[data.id] == 1) {
                 elem = $('.thermometer_id_' + data.id);
@@ -109,11 +114,16 @@ global.resourcesState = {
             }
 
 
-            if (type == 'lights' || type == 'switches') {
-                if (data.value > 1)
+            if (type == 'lights' || type == 'switches')
+            {
+                if (parseInt(data.value) > 0)
+                {
                     elem.addClass('on');
+                }
                 else
+                {
                     elem.removeClass('on');
+                }
             }
             else if (type == 'blinds') {
                 elem.removeClass('up');
