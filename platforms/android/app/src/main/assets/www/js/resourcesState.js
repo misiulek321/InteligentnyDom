@@ -14,7 +14,7 @@ global.resourcesState = {
         this.sse.addEventListener('addResource', function (e) {
             var data = JSON.parse(e.data);
 
-            console.log(data);
+            //console.log(data);
 
             var type;
             if (data.type == 'sensor')
@@ -49,6 +49,14 @@ global.resourcesState = {
                     if(type == 'sensors')
                     {
                         elem.addClass('sensorType-'+data.sensorType);
+                        elem.data('inTime', data.inTime);
+                    }
+
+                    if(type == 'partitions')
+                    {
+                        elem.data('sensorsInPartition', data.sensorsInPartition);
+                        elem.data('outTime', data.outTime);
+                        elem.data('firstArmed', false);
                     }
 
                     //Akcje po kliknięciu
@@ -102,7 +110,7 @@ global.resourcesState = {
         this.sse.addEventListener('resourceState', function (e) {
             var data = JSON.parse(e.data);
 
-            console.log(data);
+            //console.log(data);
 
             if (typeof global.thermometers[data.id] !== 'undefined' && global.thermometers[data.id] == 1) {
                 elem = $('.thermometer_id_' + data.id);
@@ -167,23 +175,83 @@ global.resourcesState = {
             else if (type == 'thermometer') {
                 elem.text(Math.floor(data.temp / 10) + '.' + (data.temp % 10));
             }
-            else if (type == 'partitions') {
+            else if (type == 'partitions')
+            {
                 if (data.isArmed == true)
+                {
                     elem.addClass('armed');
+
+                    if(elem.data('firstArmed') == true && global.outTimeState == -1)
+                    {
+                        elem.data('firstArmed', false);
+                        document.getElementById('audioBeep'+global.soundCounter).play();
+                        global.soundCounter = (global.soundCounter + 1) % 2;
+                        global.outTimeTimeout = Date.now() + (elem.data('outTime')-16)*1000;
+                        global.outTimeState = 1;
+                        if(global.soundTimer != null)
+                            clearInterval(global.soundTimer);
+                        global.soundTimer = setInterval(function()
+                        {
+                            document.getElementById('audioBeep'+global.soundCounter).play();
+                            global.soundCounter = (global.soundCounter + 1) % 2;
+                            if(global.outTimeTimeout <= Date.now())
+                            {
+                                clearInterval(global.soundTimer);
+                                global.outTimeTimeout = Date.now() + 10*1000;
+                                global.outTimeState = 2;
+                                global.soundTimer = setInterval(function()
+                                {
+                                    document.getElementById('audioBeep'+global.soundCounter).play();
+                                    global.soundCounter = (global.soundCounter + 1) % 2;
+                                    if(global.outTimeTimeout <= Date.now())
+                                    {
+                                        clearInterval(global.soundTimer);
+                                        global.outTimeTimeout = Date.now() + 5*1000;
+                                        global.outTimeState = 3;
+                                        global.soundTimer = setInterval(function()
+                                        {
+                                            document.getElementById('audioBeep'+global.soundCounter).play();
+                                            global.soundCounter = (global.soundCounter + 1) % 2;
+                                            if(global.outTimeTimeout <= Date.now())
+                                            {
+                                                clearInterval(global.soundTimer);
+                                                global.outTimeState = -1;
+                                            }
+                                        }, 250);
+                                    }
+                                }, 500);
+                            }
+                        }, 1000);
+                    }
+                }
                 else
+                {
                     elem.removeClass('armed');
 
+                    if(global.soundTimer != null)
+                        clearInterval(global.soundTimer);
+
+                    elem.data('firstArmed', true);
+                }
+
                 if (data.isAlarm == true)
+                {
                     elem.addClass('alarm');
+                    clickOnMenu($('#menu1_partitions'));
+                }
                 else
                     elem.removeClass('alarm');
 
                 if (data.isSabotaged == true)
+                {
                     elem.addClass('sabotaged');
+                    clickOnMenu($('#menu1_partitions'));
+                }
                 else
                     elem.removeClass('sabotaged');
             }
-            else if (type == 'sensors') {
+            else if (type == 'sensors')
+            {
                 elem.removeClass('on').removeClass('sabotaged').removeClass('blocked');
 
                 if (data.value == 102)
@@ -192,6 +260,55 @@ global.resourcesState = {
                     elem.addClass('sabotaged');
                 else if (data.value == 254)
                     elem.addClass('blocked');
+
+                if (data.value == 102)
+                {
+                    var isInArmedPartition = false;
+                    
+                    $('#menu2_partitions .tiles .tile.armed').each(function()
+                    {
+                        if($(this).data('sensorsInPartition') !== undefined)
+                        {
+                            $(this).data('sensorsInPartition').forEach(function(elem, index, array)
+                            {
+                                if (elem == data.id)
+                                {
+                                    isInArmedPartition = true;
+                                }
+                            })
+                        }
+                    });
+
+                    if(isInArmedPartition == true)
+                    {
+                        clickOnMenu($('#menu1_partitions'));
+
+                        if(global.outTimeState == -1)
+                        {
+                            if(global.inTimeState == -1 || (global.inTimeState == 1 && global.inTimeTimeout > Date.now() + (elem.data('inTime'))*1000))
+                            {
+                                global.inTimeState = 1;
+                                global.inTimeTimeout = Date.now() + (elem.data('inTime'))*1000;
+                                global.soundTimer = setInterval(function()
+                                {
+                                    document.getElementById('audioBeep'+global.soundCounter).play();
+                                    global.soundCounter = (global.soundCounter + 1) % 2;
+                                    setTimeout(function()
+                                    {
+                                        document.getElementById('audioBeep'+global.soundCounter).play();
+                                        global.soundCounter = (global.soundCounter + 1) % 2;
+                                    }, 150);
+
+                                    if(global.inTimeTimeout <= Date.now())
+                                    {
+                                        clearInterval(global.soundTimer);
+                                        global.inTimeState = -1;
+                                    }
+                                }, 1000);
+                            }
+                        }
+                    }
+                }
             }
         });
     },

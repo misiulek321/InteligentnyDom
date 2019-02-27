@@ -6,7 +6,13 @@ var global = {
     session: null,
     ss: null,
     thermometers: Array(),
-    alwaysOnDisplayTimer: null
+    alwaysOnDisplayTimer: null,
+    soundTimer: null,
+    soundCounter: 0,
+    outTimeTimeout: -1,
+    outTimeState: -1,
+    inTimeTimeout: -1,
+    inTimeState: -1
 }
 
 function myAlert(text, title, button)
