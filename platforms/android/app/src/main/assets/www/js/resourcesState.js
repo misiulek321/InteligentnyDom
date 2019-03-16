@@ -110,7 +110,7 @@ global.resourcesState = {
         this.sse.addEventListener('resourceState', function (e) {
             var data = JSON.parse(e.data);
 
-            //console.log(data);
+            console.log(data);
 
             if (typeof global.thermometers[data.id] !== 'undefined' && global.thermometers[data.id] == 1) {
                 elem = $('.thermometer_id_' + data.id);
@@ -138,9 +138,9 @@ global.resourcesState = {
                 elem.removeClass('down');
 
                 if (data.state == 1)
-                    elem.addClass('up');
-                else if (data.state == 2)
                     elem.addClass('down');
+                else if (data.state == 2)
+                    elem.addClass('up');
 
 
                 elem.removeClass('state0').removeClass('state25').removeClass('state50').removeClass('state75').removeClass('state100');
