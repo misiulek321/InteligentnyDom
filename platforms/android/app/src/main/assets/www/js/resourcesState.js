@@ -110,7 +110,7 @@ global.resourcesState = {
         this.sse.addEventListener('resourceState', function (e) {
             var data = JSON.parse(e.data);
 
-            console.log(data);
+            //console.log(data);
 
             if (typeof global.thermometers[data.id] !== 'undefined' && global.thermometers[data.id] == 1) {
                 elem = $('.thermometer_id_' + data.id);
@@ -181,7 +181,7 @@ global.resourcesState = {
                 {
                     elem.addClass('armed');
 
-                    if(elem.data('firstArmed') == true && global.outTimeState == -1)
+                    if(window.localStorage.getItem('onArmingDisarmingSound') == 'true' && elem.data('firstArmed') == true && global.outTimeState == -1)
                     {
                         elem.data('firstArmed', false);
                         document.getElementById('audioBeep'+global.soundCounter).play();
@@ -265,19 +265,22 @@ global.resourcesState = {
                 {
                     var isInArmedPartition = false;
                     
-                    $('#menu2_partitions .tiles .tile.armed').each(function()
+                    if (window.localStorage.getItem('onArmingDisarmingSound') == 'true')
                     {
-                        if($(this).data('sensorsInPartition') !== undefined)
+                        $('#menu2_partitions .tiles .tile.armed').each(function()
                         {
-                            $(this).data('sensorsInPartition').forEach(function(elem, index, array)
+                            if($(this).data('sensorsInPartition') !== undefined)
                             {
-                                if (elem == data.id)
+                                $(this).data('sensorsInPartition').forEach(function(elem, index, array)
                                 {
-                                    isInArmedPartition = true;
-                                }
-                            })
-                        }
-                    });
+                                    if (elem == data.id)
+                                    {
+                                        isInArmedPartition = true;
+                                    }
+                                })
+                            }
+                        });
+                    }
 
                     if(isInArmedPartition == true)
                     {

@@ -65,6 +65,8 @@ function showConfiguration()
 
     $('#configuration_always_on_display').prop('checked', window.localStorage.getItem('alwaysOnDisplay') == 'true' ? true : false);
 
+    $('#configuration_on_arming_disarming_sound').prop('checked', window.localStorage.getItem('onArmingDisarmingSound') == 'true' ? true : false);
+
     var background = (window.localStorage.getItem('background') == null ? 1 : window.localStorage.getItem('background'));
     $('#configuration_background input[value="'+background+'"]').prop('checked', true);
 
@@ -166,6 +168,7 @@ $(document).ready(function()
             window.plugins.insomnia.allowSleepAgain();
         }
 
+        window.localStorage.setItem('onArmingDisarmingSound', $('#configuration_on_arming_disarming_sound').prop('checked'));
 
         
         var background = $("#configuration_background input[type='radio']:checked").val();
