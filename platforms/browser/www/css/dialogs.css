@@ -144,6 +144,11 @@
     overflow: auto;
 }
 
+#partitionKeypad.systemKeyboard
+{
+    height: 80pt;
+}
+
 #partitionKeypad .buttonBlue, #partitionKeypad .buttonRed, #partitionKeypad .buttonGreen
 {
     width: 50pt;

@@ -196,6 +196,21 @@ function clickOnMenu(m)
 }
 
 
+function setApplicationOrSystemAlarmKeyboard()
+{
+    if(window.localStorage.getItem('systemKeyboardForPassword') == 'true')
+    {
+        $('.applicationPasswordKeyboard').hide();
+        $('#partitionKeypad').addClass('systemKeyboard');
+    }
+    else
+    {
+        $('.applicationPasswordKeyboard').show();
+        $('#partitionKeypad').removeClass('systemKeyboard');
+    }
+}
+
+
 
 
 $(document).ready(function ()
@@ -244,4 +259,6 @@ $(document).ready(function ()
     setInterval(function(){global.resourcesState.updateState();}, 100);
 
     setBackground(window.localStorage.getItem('background') == null ? 1 : window.localStorage.getItem('background'));
+
+    setApplicationOrSystemAlarmKeyboard();
 });

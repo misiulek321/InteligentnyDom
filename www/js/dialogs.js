@@ -67,6 +67,9 @@ function showConfiguration()
 
     $('#configuration_on_arming_disarming_sound').prop('checked', window.localStorage.getItem('onArmingDisarmingSound') == 'true' ? true : false);
 
+    $('#configuration_system_keyboard_for_password').prop('checked', window.localStorage.getItem('systemKeyboardForPassword') == 'true' ? true : false);
+    
+
     var background = (window.localStorage.getItem('background') == null ? 1 : window.localStorage.getItem('background'));
     $('#configuration_background input[value="'+background+'"]').prop('checked', true);
 
@@ -169,6 +172,9 @@ $(document).ready(function()
         }
 
         window.localStorage.setItem('onArmingDisarmingSound', $('#configuration_on_arming_disarming_sound').prop('checked'));
+
+        window.localStorage.setItem('systemKeyboardForPassword', $('#configuration_system_keyboard_for_password').prop('checked'));
+        setApplicationOrSystemAlarmKeyboard();
 
         
         var background = $("#configuration_background input[type='radio']:checked").val();
@@ -319,6 +325,8 @@ function showPartitionKeypad()
     $('#blackout').fadeIn(300);
 
     $('#partitionKeypad').show('puff', {}, 300);
+
+    $('#partitionKeypad .password').focus();
 }
 
 function hidePartitionKeypad()
