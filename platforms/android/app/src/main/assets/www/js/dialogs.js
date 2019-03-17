@@ -326,7 +326,8 @@ function showPartitionKeypad()
 
     $('#partitionKeypad').show('puff', {}, 300);
 
-    $('#partitionKeypad .password').focus();
+    if(window.localStorage.getItem('systemKeyboardForPassword') == 'true')
+        $('#partitionKeypad .password').focus();
 }
 
 function hidePartitionKeypad()
@@ -373,5 +374,11 @@ $(document).ready(function()
         $('#partitionKeypad .password').val("");
         hidePartitionKeypad();
         uncheckAll($('#menu2_partitions'));
+    });
+
+    $('#partitionKeypad #formPartitionKeypad').submit(function(event)
+    {
+        $('#partitionKeypad .apply').trigger('click');
+        event.preventDefault();
     });
 });

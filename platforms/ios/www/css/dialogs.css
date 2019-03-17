@@ -164,6 +164,7 @@
     margin-right: 4pt;
     vertical-align: middle;
     text-align: center;
+    -webkit-text-security: disc;
 }
 
 #partitionKeypad .keyBack, #partitionKeypad .apply
