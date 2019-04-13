@@ -63,7 +63,7 @@ function showConfiguration()
 
 
 
-    $('#configuration_always_on_display').prop('checked', window.localStorage.getItem('alwaysOnDisplay') == 'true' ? true : false);
+    //$('#configuration_always_on_display').prop('checked', window.localStorage.getItem('alwaysOnDisplay') == 'true' ? true : false);
 
     $('#configuration_on_arming_disarming_sound').prop('checked', window.localStorage.getItem('onArmingDisarmingSound') == 'true' ? true : false);
 
@@ -159,8 +159,8 @@ $(document).ready(function()
 
 
 
-        window.localStorage.setItem('alwaysOnDisplay', $('#configuration_always_on_display').prop('checked'));
-        if(window.localStorage.getItem('alwaysOnDisplay') == 'true')
+        //window.localStorage.setItem('alwaysOnDisplay', $('#configuration_always_on_display').prop('checked'));
+        /*if(window.localStorage.getItem('alwaysOnDisplay') == 'true')
         {
             window.plugins.insomnia.keepAwake();
             global.alwaysOnDisplayTimer = setInterval(function(){window.plugins.insomnia.keepAwake();}, 20000);
@@ -169,7 +169,7 @@ $(document).ready(function()
         {
             clearInterval(global.alwaysOnDisplayTimer);
             window.plugins.insomnia.allowSleepAgain();
-        }
+        }*/
 
         window.localStorage.setItem('onArmingDisarmingSound', $('#configuration_on_arming_disarming_sound').prop('checked'));
 
