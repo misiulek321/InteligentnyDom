@@ -217,7 +217,7 @@ $(document).ready(function ()
 {
     $('.menu1_text_landscape').each(function(){addLettersToPortrait($(this))});
 
-    $('.groups_template *').clone().prependTo('.menu2_ .groups');
+    $('.groups_template *').clone().appendTo('.menu2_ .groups');
 
     $('.groups .group.checkAll').click(function()
     {

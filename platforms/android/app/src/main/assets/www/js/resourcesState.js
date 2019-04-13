@@ -17,7 +17,7 @@ global.resourcesState = {
             //console.log(data);
 
             var type;
-            if (data.type == 'sensor')
+            if (data.type == 'sensor' || data.type == 'sensorAnalog')
                 type = 'sensors';
             else if (data.type == 'partition' || data.type == 'partition24')
                 type = 'partitions';
@@ -35,21 +35,35 @@ global.resourcesState = {
             //Dodawanie kafelka
             if (type != 'thermometer')
             {
-                if ($('#' + data.id).length < 1) {
+                if ($('#' + data.id).length < 1)
+                {
                     var elem = $('#menu2_' + type + ' .tiles .tile.template').clone();
                     elem.removeClass('template');
                     elem.attr('id', data.id);
                     elem.children('.name').text(data.name);
                     elem.data('type', type);
+                    elem.data('dataType', data.type);
 
-                    if (type == 'thermostates') {
+                    if (type == 'thermostates')
+                    {
                         elem.children('.on_and_temp').children('.temp').addClass('thermometer_id_' + data.thermometer);
                     }
 
                     if(type == 'sensors')
                     {
                         elem.addClass('sensorType-'+data.sensorType);
-                        elem.data('inTime', data.inTime);
+
+                        if(data.type == 'sensor')
+                        {
+                            elem.data('inTime', data.inTime);
+                        }
+
+                        if(data.type == 'sensorAnalog')
+                        {
+                            elem.data('min', data.min);
+                            elem.data('max', data.max);
+                            elem.prepend('<div class="percent"></div>');
+                        }
                     }
 
                     if(type == 'partitions')
@@ -254,65 +268,74 @@ global.resourcesState = {
             {
                 elem.removeClass('on').removeClass('sabotaged').removeClass('blocked');
 
-                if (data.value == 102)
-                    elem.addClass('on');
-                else if (data.value == 103)
-                    elem.addClass('sabotaged');
-                else if (data.value == 254)
-                    elem.addClass('blocked');
-
-                if (data.value == 102)
+                if(elem.data('dataType') == 'sensor')
                 {
-                    var isInArmedPartition = false;
-                    
-                    if (window.localStorage.getItem('onArmingDisarmingSound') == 'true')
+                    if (data.value == 102)
+                        elem.addClass('on');
+                    else if (data.value == 103)
+                        elem.addClass('sabotaged');
+                    else if (data.value == 254)
+                        elem.addClass('blocked');
+
+                    if (data.value == 102)
                     {
-                        $('#menu2_partitions .tiles .tile.armed').each(function()
+                        var isInArmedPartition = false;
+
+                        if (window.localStorage.getItem('onArmingDisarmingSound') == 'true')
                         {
-                            if($(this).data('sensorsInPartition') !== undefined)
+                            $('#menu2_partitions .tiles .tile.armed').each(function()
                             {
-                                $(this).data('sensorsInPartition').forEach(function(elem, index, array)
+                                if($(this).data('sensorsInPartition') !== undefined)
                                 {
-                                    if (elem == data.id)
+                                    $(this).data('sensorsInPartition').forEach(function(elem, index, array)
                                     {
-                                        isInArmedPartition = true;
-                                    }
-                                })
-                            }
-                        });
-                    }
+                                        if (elem == data.id)
+                                        {
+                                            isInArmedPartition = true;
+                                        }
+                                    })
+                                }
+                            });
+                        }
 
-                    if(isInArmedPartition == true)
-                    {
-                        clickOnMenu($('#menu1_partitions'));
-
-                        if(global.outTimeState == -1)
+                        if(isInArmedPartition == true)
                         {
-                            if(global.inTimeState == -1 || (global.inTimeState == 1 && global.inTimeTimeout > Date.now() + (elem.data('inTime'))*1000))
+                            clickOnMenu($('#menu1_partitions'));
+
+                            if(global.outTimeState == -1)
                             {
-                                global.inTimeState = 1;
-                                global.inTimeTimeout = Date.now() + (elem.data('inTime'))*1000;
-                                global.soundTimer = setInterval(function()
+                                if(global.inTimeState == -1 || (global.inTimeState == 1 && global.inTimeTimeout > Date.now() + (elem.data('inTime'))*1000))
                                 {
-                                    document.getElementById('audioBeep'+global.soundCounter).play();
-                                    global.soundCounter = (global.soundCounter + 1) % 2;
-                                    setTimeout(function()
+                                    global.inTimeState = 1;
+                                    global.inTimeTimeout = Date.now() + (elem.data('inTime'))*1000;
+                                    global.soundTimer = setInterval(function()
                                     {
                                         document.getElementById('audioBeep'+global.soundCounter).play();
                                         global.soundCounter = (global.soundCounter + 1) % 2;
-                                    }, 150);
+                                        setTimeout(function()
+                                        {
+                                            document.getElementById('audioBeep'+global.soundCounter).play();
+                                            global.soundCounter = (global.soundCounter + 1) % 2;
+                                        }, 150);
 
-                                    if(global.inTimeTimeout <= Date.now())
-                                    {
-                                        clearInterval(global.soundTimer);
-                                        global.inTimeState = -1;
-                                    }
-                                }, 1000);
+                                        if(global.inTimeTimeout <= Date.now())
+                                        {
+                                            clearInterval(global.soundTimer);
+                                            global.inTimeState = -1;
+                                        }
+                                    }, 1000);
+                                }
                             }
                         }
                     }
                 }
-            }
+                else if(elem.data('dataType') == 'sensorAnalog')
+                {
+                    var percent = Math.min(Math.round((Math.max(0, data.value-elem.data('min'))/(elem.data('max')-elem.data('min')))*100), 100);
+                    elem.css('animationDelay', -percent+'s');
+                    elem.children('.percent').text(percent+'%');
+                }
+            }   
         });
     },
     updateState: function () {
