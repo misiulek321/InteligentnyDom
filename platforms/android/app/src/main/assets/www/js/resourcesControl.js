@@ -54,6 +54,15 @@ function clickPartition(elem)
 }
 
 
+function clickGate(elem)
+{
+    controlResource({id: elem.attr('id'), action: elem.hasClass('open') == true ? 'close' : 'open'},
+    function( data, textStatus, jQxhr ){ successCallback(data, textStatus, jQxhr); },
+    function( jqXhr, textStatus, errorThrown ){ failCallback(jqXhr, textStatus, errorThrown); }
+    );
+}
+
+
 
 function uncheckAll(elem)
 {
@@ -155,6 +164,38 @@ $(document).ready(function()
         });
         uncheckAll($('#menu2_switches'));
     });
+
+
+
+    //Gates
+    $('#menu2_gates img.open').click(function()
+    {
+        $('#menu2_gates .tile').each(function()
+        {
+            if($(this).children('input[type="checkbox"]').prop('checked') == true)
+            {
+                controlResource({id: $(this).attr('id'), action: 'open'},
+                function( data, textStatus, jQxhr ){ successCallback(data, textStatus, jQxhr); },
+                function( jqXhr, textStatus, errorThrown ){ failCallback(jqXhr, textStatus, errorThrown); }
+                );
+            }
+        });
+    });
+
+    $('#menu2_gates img.close').click(function()
+    {
+        $('#menu2_gates .tile').each(function()
+        {
+            if($(this).children('input[type="checkbox"]').prop('checked') == true)
+            {
+                controlResource({id: $(this).attr('id'), action: 'close'},
+                function( data, textStatus, jQxhr ){ successCallback(data, textStatus, jQxhr); },
+                function( jqXhr, textStatus, errorThrown ){ failCallback(jqXhr, textStatus, errorThrown); }
+                );
+            }
+        });
+    });
+
 
 
     //Blinds

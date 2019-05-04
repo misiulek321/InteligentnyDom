@@ -343,6 +343,19 @@ function addDigitToPasswordPartitionKeypad(digit)
     elem.val(elem.val()+digit);
 }
 
+
+function delayedOperationsOnPartition(delay, id, action, password)
+{
+    setTimeout(function()
+    {
+        controlResource({id: id, action: action, password: password},
+            function( data, textStatus, jQxhr ){ successCallback(data, textStatus, jQxhr); },
+            function( jqXhr, textStatus, errorThrown ){ failCallback(jqXhr, textStatus, errorThrown); }
+            );
+    }, delay);
+}
+
+
 $(document).ready(function()
 {
     $('#partitionKeypad .key0').click(function() { addDigitToPasswordPartitionKeypad('0'); });
@@ -363,12 +376,11 @@ $(document).ready(function()
     $('#partitionKeypad .cancel').click(function() { hidePartitionKeypad(); });
     $('#partitionKeypad .apply').click(function()
     {
+        var delay = 0;
         partitionKeypadElements.each(function()
         {
-            controlResource({id: $(this).attr('id'), action: partitionKeypadAction, password: $('#partitionKeypad .password').val()},
-            function( data, textStatus, jQxhr ){ successCallback(data, textStatus, jQxhr); },
-            function( jqXhr, textStatus, errorThrown ){ failCallback(jqXhr, textStatus, errorThrown); }
-            );
+            delayedOperationsOnPartition(delay, $(this).attr('id'), partitionKeypadAction, $('#partitionKeypad .password').val());
+            delay = delay + 150;
         });
 
         $('#partitionKeypad .password').val("");

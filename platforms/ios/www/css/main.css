@@ -615,3 +615,73 @@
 {
     background-image: url('../img/menu/sensors/garage_on.svg');
 }
+
+.tile.sensor.sensorType-gate
+{
+    background-image: url('../img/menu/sensors/gate_off.svg');
+}
+
+.tile.sensor.on.sensorType-gate
+{
+    background-image: url('../img/menu/sensors/gate_on.svg');
+}
+
+
+.tile.gate .arrow
+{
+    height: 50pt;
+    position: absolute;
+    left: 50%;
+    margin-left: -25pt;
+    top: 20%;
+    display: none;
+}
+
+.tile.gate.opening .arrow.opening
+{
+    display: block;
+}
+
+.tile.gate.closing .arrow.closing
+{
+    display: block;
+}
+
+
+
+.tile.gate .error
+{
+    height: 30pt;
+    position: absolute;
+    left: 75%;
+    margin-left: -15pt;
+    top: 10%;
+    display: none;
+}
+
+.tile.gate.error .error
+{
+    display: block;
+}
+
+
+
+.tile.gate.gateIcon-garage
+{
+    background-image: url('../img/menu/gates/garage_close.svg');
+}
+
+.tile.gate.open.gateIcon-garage
+{
+    background-image: url('../img/menu/gates/garage_open.svg');
+}
+
+.tile.gate.gateIcon-gate
+{
+    background-image: url('../img/menu/gates/gate_close.svg');
+}
+
+.tile.gate.open.gateIcon-gate
+{
+    background-image: url('../img/menu/gates/gate_open.svg');
+}

@@ -31,6 +31,8 @@ global.resourcesState = {
                 type = 'thermometer';
             else if (data.type == 'thermostate' || data.type == 'thermostateGroup')
                 type = 'thermostates';
+            else if (data.type == 'gate')
+                type = 'gates';
 
             //Dodawanie kafelka
             if (type != 'thermometer')
@@ -73,6 +75,14 @@ global.resourcesState = {
                         elem.data('firstArmed', false);
                     }
 
+                    if(type == 'gates')
+                    {
+                        elem.data('icon', data.icon);
+                        elem.addClass('gateIcon-'+data.icon);
+                    }
+
+                
+
                     //Akcje po kliknięciu
                     if (type == 'lights' || type == 'switches')
                     {
@@ -89,6 +99,10 @@ global.resourcesState = {
                     else if(type == 'partitions')
                     {
                         elem.click(function(){clickPartition($(this))}).children('input[type="checkbox"]').click(function(e){e.stopPropagation();});
+                    }
+                    else if(type == 'gates')
+                    {
+                        elem.click(function(){clickGate($(this))}).children('input[type="checkbox"]').click(function(e){e.stopPropagation();})
                     }
 
                     elem.data('order', data.order);
@@ -124,7 +138,7 @@ global.resourcesState = {
         this.sse.addEventListener('resourceState', function (e) {
             var data = JSON.parse(e.data);
 
-            //console.log(data);
+            console.log(data);
 
             if (typeof global.thermometers[data.id] !== 'undefined' && global.thermometers[data.id] == 1) {
                 elem = $('.thermometer_id_' + data.id);
@@ -335,6 +349,25 @@ global.resourcesState = {
                     elem.css('animationDelay', -percent+'s');
                     elem.children('.percent').text(percent+'%');
                 }
+            }
+            else if (type == 'gates')
+            {
+                elem.removeClass('opening closing error open close unknown');
+
+                if(data.error == true)
+                    elem.addClass('error');
+
+                if(data.realState == 101)
+                    elem.addClass('close');
+                else if (data.realState == 102)
+                    elem.addClass('open');
+                else
+                    elem.addClass('unknown');
+
+                if(data.state == 1)
+                    elem.addClass('opening');
+                else if (data.state == 2)
+                    elem.addClass('closing');
             }   
         });
     },
