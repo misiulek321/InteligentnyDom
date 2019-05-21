@@ -193,7 +193,6 @@ $(document).ready(function()
         window.localStorage.setItem('resourceThatUnlock', $('#configuration_resource_that_unlock').val());
 
         window.localStorage.setItem('screenLockTimeout', $('#configuration_screen_lock_timeout').val());
-        rerunLockScreenTimer();
 
 
         if(ok == true)

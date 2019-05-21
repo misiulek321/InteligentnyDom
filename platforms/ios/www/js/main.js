@@ -238,26 +238,6 @@ function setAppAlwaysActive()
 }
 
 
-function rerunLockScreenTimer()
-{
-    if(global.lockScreenTimer != null)
-    {
-        clearTimeout(global.lockScreenTimer);
-    }
-
-    var time = parseInt(window.localStorage.getItem('lockScreenTimeout'));
-
-    if(time > 0)
-    {
-        setTimeout(function()
-        {
-            global.lockScreenTimer = null;
-            window.screenLocker.lock(function(){}, function(e){alert('Błąd podczas blokowania ekranu! Komunikat błędu: '+e)});
-        }, time*1000);
-    }
-}
-
-
 $(document).ready(function ()
 {
     $('.menu1_text_landscape').each(function(){addLettersToPortrait($(this))});
@@ -312,9 +292,9 @@ $(document).ready(function ()
 
     setApplicationOrSystemAlarmKeyboard();
 
-    $("*").click(function()
+    if(window.localStorage.getItem('screenLockTimeout') == null)
     {
-        rerunLockScreenTimer();
-    })
+        window.localStorage.setItem('screenLockTimeout', 20);
+    }
 
 });

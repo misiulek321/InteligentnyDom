@@ -440,8 +440,7 @@ global.resourcesState = {
                         //cordova.plugins.backgroundMode.wakeUp();
                         //cordova.plugins.backgroundMode.unlock();
                         //alert('Po wybudzam')
-                        //window.screenLocker.unlock(function(){}, function(e){alert('Błąd podczas wybudzania ekranu! Komunikat błędu: '+e)});
-                        window.screenLocker.unlock(function(){}, function(e){alert('Błąd podczas wybudzania ekranu! Komunikat błędu: '+e)}, 10);
+                        window.screenLocker.unlock(function(){}, function(e){alert('Błąd podczas wybudzania ekranu! Komunikat błędu: '+e)}, parseInt(window.localStorage.getItem('screenLockTimeout')));
                     }
 
                     if (data.value == 102)
