@@ -434,6 +434,11 @@ global.resourcesState = {
                     else if (data.value == 254)
                         elem.addClass('blocked');
 
+                    if(data.id == 'PIRholl' && data.value == 102)
+                    {
+                        window.screenLocker.unlock(function(){}, function(e){alert('Błąd podczas wybudzania ekranu! Komunikat błędu: '+e)});
+                    }
+
                     if (data.value == 102)
                     {
                         var isInArmedPartition = false;

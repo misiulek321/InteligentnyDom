@@ -6,6 +6,10 @@
   "config_munge": {
     "files": {}
   },
-  "installed_plugins": {},
+  "installed_plugins": {
+    "cordova-plugin-screen-locker": {
+      "PACKAGE_NAME": "com.inteligentny.dom"
+    }
+  },
   "dependent_plugins": {}
 }
