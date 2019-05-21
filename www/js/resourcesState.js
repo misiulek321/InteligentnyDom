@@ -436,8 +436,10 @@ global.resourcesState = {
 
                     if(data.id == window.localStorage.getItem('resourceThatUnlock') && data.value == 102)
                     {
-                        cordova.plugins.backgroundMode.unlock();
                         alert('Wybudzam!');
+                        cordova.plugins.backgroundMode.wakeUp();
+                        cordova.plugins.backgroundMode.unlock();
+                        alert('Po wybudzam')
                         //window.screenLocker.unlock(function(){}, function(e){alert('Błąd podczas wybudzania ekranu! Komunikat błędu: '+e)});
                     }
 
