@@ -16,6 +16,10 @@
 		3047A5131AB8059700498E2A /* build-release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3047A5101AB8059700498E2A /* build-release.xcconfig */; };
 		3047A5141AB8059700498E2A /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3047A5111AB8059700498E2A /* build.xcconfig */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
+		0AE2F55E42C64AAA8092BAD6 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB5045429E4F8AAEC1203D /* CDVDevice.m */; };
+		70211E528CA94EF6923D86AB /* APPBackgroundMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C5A25F2A8C4F30A4CD85B2 /* APPBackgroundMode.m */; };
+		AAF09E8BB2854F92A58F84D5 /* APPMethodMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2714C3A5BB4D3686897A1E /* APPMethodMagic.m */; };
+		7805A249C44E4549A4EA6E6D /* appbeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1DC123AF3A1247F3955A3D6E /* appbeep.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,13 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Inteligentny Dom/config.xml"; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		5CDB5045429E4F8AAEC1203D /* CDVDevice.m */ = {isa = PBXFileReference; name = "CDVDevice.m"; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		FA9847B8EDCC4F439DD95B9C /* CDVDevice.h */ = {isa = PBXFileReference; name = "CDVDevice.h"; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		32C5A25F2A8C4F30A4CD85B2 /* APPBackgroundMode.m */ = {isa = PBXFileReference; name = "APPBackgroundMode.m"; path = "cordova-plugin-background-mode/APPBackgroundMode.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		1E2714C3A5BB4D3686897A1E /* APPMethodMagic.m */ = {isa = PBXFileReference; name = "APPMethodMagic.m"; path = "cordova-plugin-background-mode/APPMethodMagic.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		D45AB67E5F5140EC8715A100 /* APPBackgroundMode.h */ = {isa = PBXFileReference; name = "APPBackgroundMode.h"; path = "cordova-plugin-background-mode/APPBackgroundMode.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		CB99094636D84AC2BE8FBB21 /* APPMethodMagic.h */ = {isa = PBXFileReference; name = "APPMethodMagic.h"; path = "cordova-plugin-background-mode/APPMethodMagic.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		1DC123AF3A1247F3955A3D6E /* appbeep.wav */ = {isa = PBXFileReference; name = "appbeep.wav"; path = "appbeep.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +137,7 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* Inteligentny Dom-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
+				1DC123AF3A1247F3955A3D6E /* appbeep.wav */,
 			);
 			name = Resources;
 			path = "Inteligentny Dom/Resources";
@@ -159,6 +171,12 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				5CDB5045429E4F8AAEC1203D /* CDVDevice.m */,
+				FA9847B8EDCC4F439DD95B9C /* CDVDevice.h */,
+				32C5A25F2A8C4F30A4CD85B2 /* APPBackgroundMode.m */,
+				1E2714C3A5BB4D3686897A1E /* APPMethodMagic.m */,
+				D45AB67E5F5140EC8715A100 /* APPBackgroundMode.h */,
+				CB99094636D84AC2BE8FBB21 /* APPMethodMagic.h */,
 			);
 			name = Plugins;
 			path = "Inteligentny Dom/Plugins";
@@ -240,6 +258,7 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
+				7805A249C44E4549A4EA6E6D /* appbeep.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +290,9 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				0AE2F55E42C64AAA8092BAD6 /* CDVDevice.m in Sources */,
+				70211E528CA94EF6923D86AB /* APPBackgroundMode.m in Sources */,
+				AAF09E8BB2854F92A58F84D5 /* APPMethodMagic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

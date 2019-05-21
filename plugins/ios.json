@@ -7,9 +7,13 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-screen-locker": {
+    "cordova-plugin-background-mode": {
       "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.inteligentny.dom"
+    }
+  }
 }

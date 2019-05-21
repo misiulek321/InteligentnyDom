@@ -10,8 +10,11 @@
     <feature name="SecureStorage">
         <param name="android-package" value="com.crypho.plugins.SecureStorage" />
     </feature>
-    <feature name="ScreenLocker">
-        <param name="android-package" value="com.applurk.plugin.ScreenLocker" />
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="BackgroundMode">
+        <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundMode" />
     </feature>
     <name>Inteligentny Dom</name>
     <description>
@@ -48,4 +51,6 @@
     <splash qualifier="port-xxhdpi" src="res/screen/android/drawable-port-xxhdpi-screen.png" />
     <splash qualifier="port-xxxhdpi" src="res/screen/android/drawable-port-xxxhdpi-screen.png" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="KeepRunning" value="true" />
+    <preference name="AndroidLaunchMode" value="singleInstance" />
 </widget>

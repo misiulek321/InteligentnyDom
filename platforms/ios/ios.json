@@ -7,28 +7,60 @@
     "files": {
       "config.xml": {
         "parents": {
-          "/*": []
+          "/*": [
+            {
+              "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"BackgroundMode\"><param name=\"ios-package\" value=\"APPBackgroundMode\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*-Info.plist": {
+        "parents": {
+          "UIBackgroundModes": [
+            {
+              "xml": "<array><string>audio</string></array>",
+              "count": 1
+            }
+          ]
         }
       }
     }
   },
   "installed_plugins": {
-    "cordova-plugin-screen-locker": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.inteligentny.dom"
+    },
+    "cordova-plugin-background-mode": {
       "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
   "dependent_plugins": {},
   "modules": [
     {
-      "id": "cordova-plugin-screen-locker.ScreenLocker",
-      "file": "plugins/cordova-plugin-screen-locker/www/ScreenLocker.js",
-      "pluginId": "cordova-plugin-screen-locker",
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
       "clobbers": [
-        "window.screenLocker"
+        "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-background-mode.BackgroundMode",
+      "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+      "pluginId": "cordova-plugin-background-mode",
+      "clobbers": [
+        "cordova.plugins.backgroundMode",
+        "plugin.backgroundMode"
       ]
     }
   ],
   "plugin_metadata": {
-    "cordova-plugin-screen-locker": "0.2.2"
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-background-mode": "0.7.2"
   }
 }

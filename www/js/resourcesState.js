@@ -434,9 +434,10 @@ global.resourcesState = {
                     else if (data.value == 254)
                         elem.addClass('blocked');
 
-                    if(data.id == 'PIRholl' && data.value == 102)
+                    if(data.id == window.localStorage.getItem('resourceThatUnlock') && data.value == 102)
                     {
-                        window.screenLocker.unlock(function(){}, function(e){alert('Błąd podczas wybudzania ekranu! Komunikat błędu: '+e)});
+                        cordova.plugins.backgroundMode.unlock();
+                        //window.screenLocker.unlock(function(){}, function(e){alert('Błąd podczas wybudzania ekranu! Komunikat błędu: '+e)});
                     }
 
                     if (data.value == 102)

@@ -13,13 +13,16 @@
     "cordova-plugin-secure-storage": {
       "PACKAGE_NAME": "com.hello.world"
     },
-    "cordova-plugin-screen-locker": {
+    "cordova-plugin-background-mode": {
       "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
   "dependent_plugins": {
     "com.rjfun.cordova.httpd": {
       "PACKAGE_NAME": "com.hello.world"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.inteligentny.dom"
     }
   }
 }

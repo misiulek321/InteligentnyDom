@@ -72,8 +72,11 @@ function showConfiguration()
 
     var background = (window.localStorage.getItem('background') == null ? 1 : window.localStorage.getItem('background'));
     $('#configuration_background input[value="'+background+'"]').prop('checked', true);
+    
 
+    $('#configuration_app_always_active').prop('checked', window.localStorage.getItem('appAlwaysActive') == 'true' ? true : false);
 
+    $('#configuration_resource_that_unlock').val(window.localStorage.getItem('resourceThatUnlock'));
 
     $('#configuration').fadeIn(300);
 }
@@ -180,6 +183,13 @@ $(document).ready(function()
         var background = $("#configuration_background input[type='radio']:checked").val();
         window.localStorage.setItem('background', background);
         setBackground(background);
+
+
+        window.localStorage.setItem('appAlwaysActive', $('#configuration_app_always_active').prop('checked'));
+        setAppAlwaysActive()
+
+        window.localStorage.setItem('resourceThatUnlock', $('#configuration_resource_that_unlock').val());
+
 
         if(ok == true)
             messages.message('Konfiguracja zapisana', 'info', 2500);

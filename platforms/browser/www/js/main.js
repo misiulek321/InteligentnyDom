@@ -219,6 +219,24 @@ function setApplicationOrSystemAlarmKeyboard()
 }
 
 
+function setAppAlwaysActive()
+{
+    if(window.localStorage.getItem('appAlwaysActive') == 'true')
+    {
+        cordova.plugins.backgroundMode.setDefaults({
+            title: 'Inteligentny Dom',
+            text: 'Działam w tle...',
+            resume: true
+        })
+        cordova.plugins.backgroundMode.enable();
+    }
+    else
+    {
+        cordova.plugins.backgroundMode.disable();
+    }
+}
+
+
 
 
 $(document).ready(function ()
@@ -274,4 +292,6 @@ $(document).ready(function ()
     setBackground(window.localStorage.getItem('background') == null ? 1 : window.localStorage.getItem('background'));
 
     setApplicationOrSystemAlarmKeyboard();
+
+    setAppAlwaysActive();
 });
