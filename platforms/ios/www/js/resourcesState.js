@@ -434,6 +434,12 @@ global.resourcesState = {
                     else if (data.value == 254)
                         elem.addClass('blocked');
 
+                    //Check if unlock screen
+                    if(data.id = 'PIRholl' && data.value == 102)
+                    {
+                        window.screenLocker.unlock(function(){console.log('Successfull screen unlock')}, function(e){console.log('Unsuccessfull screen unlock! Error: '+e)});
+                    }
+
                     if (data.value == 102)
                     {
                         var isInArmedPartition = false;
