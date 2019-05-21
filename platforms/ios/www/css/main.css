@@ -277,18 +277,56 @@
 .menu2_ .groups
 {
     background-color: rgb(70, 70, 70);
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 68pt;
+    overflow: auto;
+    justify-content: space-evenly;
 }
 
-.menu2_ .groups .actions
-{
-    background-color: rgb(60, 60, 60);
-    float: right;
-}
 
-.menu2_ .groups .group, .menu2_ .groups .actions .action
+.menu2_ .group
 {
     height: 30pt;
-    margin: 0pt 3pt;
+    margin: 2pt 3pt;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.menu2_ .groupPermanent.checkAll
+{
+    order: -101;
+}
+
+.menu2_ .groupPermanent.uncheckAll
+{
+    order: -100;
+}
+
+.menu2_ .groups .groupUser
+{
+    background-color: rgb(255, 200, 0);
+    color: rgb(86, 86, 86);
+    border-radius: 5pt;
+    padding: 2pt;
+    width: 70pt;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 3pt solid rgb(255, 200, 0);
+}
+
+.menu2_ .groups .groupUser.allChecked
+{
+    border: 3pt solid rgb(154, 151, 0);
+}
+
+.menu2_ .groups .groupUser.partialChecked
+{
+    border: 3pt dotted rgb(154, 151, 0);
 }
 
 .groups_template
@@ -296,6 +334,47 @@
     display: none;
 }
 
+.menu2_ .actions
+{
+    position: fixed;
+    display: flex;
+    /*flex-wrap: wrap;*/
+    justify-content: space-evenly;
+}
+
+@media (orientation: landscape)
+{
+    .menu2_ .actions
+    {
+        flex-direction: column;
+        bottom: 0px;
+        right: 0px;
+    }
+}
+  
+@media (orientation: portrait)
+{
+    .menu2_ .actions
+    {
+        flex-direction: row;
+        bottom: 0px;
+        left: 0px;
+    }
+}
+
+.menu2_ .action
+{
+    background-color: rgb(60, 60, 60);
+    float: right;
+    line-height: 0;
+    width: 40pt;
+    height: 40pt;
+    margin: 3pt 3pt;
+    border-radius: 20pt;
+    padding: 5pt;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px 0px rgb(60, 60, 60);
+}
 
 
 

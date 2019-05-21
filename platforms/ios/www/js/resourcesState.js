@@ -11,6 +11,57 @@ global.resourcesState = {
             console.log(e);
         }*/
 
+        /*$.fn.changeCheckState = function(id, state)
+        {
+            var e = $(this).data('elements');
+            
+            var notAllChecked = false;
+            var anyChecked = false;
+            for(i=0; i<e.length; i++)
+            {
+                if(e[i].id == id)
+                {
+                    e[i].checkState = state;
+                }
+
+                if(typeof(e[i].checkState) !== 'undefined' && e[i].checkState == true)
+                {
+                    anyChecked = true;
+                }
+                else
+                {
+                    notAllChecked = true;
+                }
+            }
+
+            $(this).data('elements', e);
+
+            $(this).removeClass('allChecked').removeClass('partialChecked');
+
+            if(notAllChecked == false)
+                $(this).addClass('allChecked');
+            else if(anyChecked == true)
+                $(this).addClass('partialChecked');
+
+            return $(this);
+        };*/
+
+        /*$.fn.uncheckAll = function()
+        {
+            var e = $(this).data('elements');
+            
+            for(i=0; i<e.length; i++)
+            {
+                    e[i].checkState = false;
+            }
+
+            $(this).data('elements', e);
+
+            $(this).removeClass('allChecked').removeClass('partialChecked');
+
+            return $(this);
+        };*/
+
         this.sse.addEventListener('addResource', function (e) {
             var data = JSON.parse(e.data);
 
@@ -105,6 +156,49 @@ global.resourcesState = {
                         elem.click(function(){clickGate($(this))}).children('input[type="checkbox"]').click(function(e){e.stopPropagation();})
                     }
 
+                    //AKtualizacja stanu grup
+                    if(type != 'sensors')
+                    {
+                        elem.children('input[type="checkbox"]').change(function()
+                        {
+                            var id = $(this).parent().attr('id');
+                            var state = $(this).is(':checked');
+
+                            $('#menu2_'+type+' .groups .groupUser').each(function()
+                            {
+                                var e = $(this).data('elements');
+            
+                                var notAllChecked = false;
+                                var anyChecked = false;
+                                for(i=0; i<e.length; i++)
+                                {
+                                    if(e[i].id == id)
+                                    {
+                                        e[i].checkState = state;
+                                    }
+                                
+                                    if(typeof(e[i].checkState) !== 'undefined' && e[i].checkState == true)
+                                    {
+                                        anyChecked = true;
+                                    }
+                                    else
+                                    {
+                                        notAllChecked = true;
+                                    }
+                                }
+                                
+                                $(this).data('elements', e);
+                            
+                                $(this).removeClass('allChecked').removeClass('partialChecked');
+                            
+                                if(notAllChecked == false)
+                                    $(this).addClass('allChecked');
+                                else if(anyChecked == true)
+                                    $(this).addClass('partialChecked');
+                            });
+                        });
+                    }
+
                     elem.data('order', data.order);
 
                     var inserted = false;
@@ -135,10 +229,59 @@ global.resourcesState = {
         });
 
 
+        this.sse.addEventListener('addGroup', function (e)
+        {
+            var data = JSON.parse(e.data);
+
+            //console.log(data);
+
+            var menu_id;
+            if(data.type == 'lights')
+                menu_id = 'menu2_lights';
+            else if(data.type == 'outputs')
+                menu_id = 'menu2_switches';
+            else if(data.type == 'gates')
+                menu_id = 'menu2_gates';
+            else if(data.type == 'blinds')
+                menu_id = 'menu2_blinds';
+            else if(data.type == 'thermostates')
+                menu_id = 'menu2_thermostates';
+            else if(data.type == 'partitions')
+                menu_id = 'menu2_partitions';
+
+            var group = $('<div class="group groupUser">'+data.name+'</div>').css({order: data.order}).data('elements', data.elements);
+
+            group.click(function()
+            {
+                var e = $(this).data('elements');
+
+                if($(this).hasClass('allChecked') == false)
+                {
+                    for(var i = 0; i<e.length; i++)
+                    {
+                        $('#'+e[i].id+' input[type="checkbox"]').prop('checked', true).change();
+                    }
+                    $(this).removeClass('partialChecked').addClass('allChecked');
+                }
+                else
+                {
+                    for(var i = 0; i<e.length; i++)
+                    {
+                        $('#'+e[i].id+' input[type="checkbox"]').prop('checked', false).change();
+                    }
+                    $(this).removeClass('partialChecked').removeClass('allChecked');
+                }
+            });
+
+            $('#'+menu_id+' .groups').append(group);
+            adjustMenu();
+        });
+
+
         this.sse.addEventListener('resourceState', function (e) {
             var data = JSON.parse(e.data);
 
-            console.log(data);
+            //console.log(data);
 
             if (typeof global.thermometers[data.id] !== 'undefined' && global.thermometers[data.id] == 1) {
                 elem = $('.thermometer_id_' + data.id);
@@ -393,7 +536,11 @@ global.resourcesState = {
                 {
                     this.stop();
                     messages.message('Rozłączono z serwerem!', 'warning', '7000');
-                    setTimeout(function(){authenticate_user();}, 1000);
+                    setTimeout(function(){authenticate_user();}, 10000);
+
+                    //Usuwanie zasobów
+                    $('.groupUser').remove();
+                    $('.tile:not(.template)').remove();
                 }
                 this.updateStateLast = 'disconected';
             }

@@ -111,11 +111,15 @@ function adjustMenu()
             $(this).show();
             var menu_title = $(this).children('.menu2_title').outerHeight(true);
             var groups = ($(this).children('.groups').length > 0 ? $(this).children('.groups').outerHeight(true) : 0);
+
+            $(this).children('.groups').css({justifyContent: 'space-evenly'});
+
+            $(this).children('.actions').css({width: '100%', height: 'auto', marginBottom: '3pt', marginRight: '0pt'});
+            
+            $(this).children('.tiles').css({height: $(this).height()-menu_title-groups, paddingBottom: $(this).children('.actions').outerHeight(true)+7, paddingRight: 0});
             
             if($('#'+replaceAt($(this).attr('id'), 4, '1')).hasClass('active') != true)
                 $(this).hide();
-            
-            $(this).children('.tiles').css({height: $(this).height()-menu_title-groups});
         });
     }
     else
@@ -148,10 +152,14 @@ function adjustMenu()
             var menu_title = $(this).children('.menu2_title').outerHeight(true);
             var groups = ($(this).children('.groups').length > 0 ? $(this).children('.groups').outerHeight(true) : 0);
 
+            $(this).children('.groups').css({justifyContent: 'left'});
+
+            $(this).children('.actions').css({width: 'auto', height: $(this).height()-menu_title-groups, marginBottom: '0pt', marginRight: '3pt'});
+            
+            $(this).children('.tiles').css({height: $(this).height()-menu_title-groups, paddingRight: $(this).children('.actions').outerWidth(true), paddingBottom: 7});
+            
             if($('#'+replaceAt($(this).attr('id'), 4, '1')).hasClass('active') != true)
                 $(this).hide();
-            
-            $(this).children('.tiles').css({height: $(this).height()-menu_title-groups});
         });
     }
 }
@@ -218,18 +226,23 @@ $(document).ready(function ()
     $('.menu1_text_landscape').each(function(){addLettersToPortrait($(this))});
 
     $('.groups_template *').clone().appendTo('.menu2_ .groups');
+    /*$('<div class="group groupUser">ALa ma kota</div>').appendTo('.menu2_ .groups');
+    $('<div class="group groupUser">Kot ma Alę</div>').appendTo('.menu2_ .groups');
+    $('<div class="group groupUser">Elo alalala</div>').appendTo('.menu2_ .groups');
+    $('<div class="group groupUser">Mama mama mama amam</div>').appendTo('.menu2_ .groups');
+    $('<div style="clear: both"></div>').appendTo('.menu2_ .groups');*/
 
     $('.groups .group.checkAll').click(function()
     {
-        $(this).parent().parent().children('.tiles').children(':not(.template).tile').children('input[type="checkbox"]').prop('checked', true);
+        $(this).parent().parent().children('.tiles').children(':not(.template).tile').children('input[type="checkbox"]').prop('checked', true).change();
     });
     $('.groups .group.uncheckAll').click(function()
     {
-        $(this).parent().parent().children('.tiles').children('.tile').children('input[type="checkbox"]').prop('checked', false);
+        $(this).parent().parent().children('.tiles').children('.tile').children('input[type="checkbox"]').prop('checked', false).change();
     });
 
-    onResize();
     $(window).resize(function(){ onResize(); });
+    onResize();
 
     $('#menuIcon').click(function() {$(this).toggleClass('open'); adjustMenu();});
 
