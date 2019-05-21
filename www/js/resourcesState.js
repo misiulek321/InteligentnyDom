@@ -438,9 +438,10 @@ global.resourcesState = {
                     {
                         //alert('Wybudzam!');
                         //cordova.plugins.backgroundMode.wakeUp();
-                        cordova.plugins.backgroundMode.unlock();
+                        //cordova.plugins.backgroundMode.unlock();
                         //alert('Po wybudzam')
                         //window.screenLocker.unlock(function(){}, function(e){alert('Błąd podczas wybudzania ekranu! Komunikat błędu: '+e)});
+                        window.screenLocker.unlock(function(){}, function(e){alert('Błąd podczas wybudzania ekranu! Komunikat błędu: '+e)});
                     }
 
                     if (data.value == 102)

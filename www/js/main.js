@@ -227,7 +227,7 @@ function setAppAlwaysActive()
             title: 'Inteligentny Dom',
             text: 'Działam w tle...',
             resume: true
-        })
+        });
         cordova.plugins.backgroundMode.enable();
     }
     else
@@ -293,5 +293,4 @@ $(document).ready(function ()
 
     setApplicationOrSystemAlarmKeyboard();
 
-    setAppAlwaysActive();
 });

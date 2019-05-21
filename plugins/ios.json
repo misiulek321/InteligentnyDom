@@ -9,6 +9,9 @@
   "installed_plugins": {
     "cordova-plugin-background-mode": {
       "PACKAGE_NAME": "com.inteligentny.dom"
+    },
+    "cordova-plugin-screen-locker": {
+      "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
   "dependent_plugins": {

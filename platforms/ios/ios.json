@@ -37,6 +37,9 @@
     },
     "cordova-plugin-background-mode": {
       "PACKAGE_NAME": "com.inteligentny.dom"
+    },
+    "cordova-plugin-screen-locker": {
+      "PACKAGE_NAME": "com.inteligentny.dom"
     }
   },
   "dependent_plugins": {},
@@ -57,10 +60,19 @@
         "cordova.plugins.backgroundMode",
         "plugin.backgroundMode"
       ]
+    },
+    {
+      "id": "cordova-plugin-screen-locker.ScreenLocker",
+      "file": "plugins/cordova-plugin-screen-locker/www/ScreenLocker.js",
+      "pluginId": "cordova-plugin-screen-locker",
+      "clobbers": [
+        "window.screenLocker"
+      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-background-mode": "0.7.2"
+    "cordova-plugin-background-mode": "0.7.2",
+    "cordova-plugin-screen-locker": "0.2.2"
   }
 }

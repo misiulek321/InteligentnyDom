@@ -50,6 +50,14 @@ module.exports = [
         "id": "cordova-plugin-background-mode.BackgroundMode.Proxy",
         "pluginId": "cordova-plugin-background-mode",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-screen-locker/www/ScreenLocker.js",
+        "id": "cordova-plugin-screen-locker.ScreenLocker",
+        "pluginId": "cordova-plugin-screen-locker",
+        "clobbers": [
+            "window.screenLocker"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -59,7 +67,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-secure-storage": "2.6.8",
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-background-mode": "0.7.2"
+    "cordova-plugin-background-mode": "0.7.2",
+    "cordova-plugin-screen-locker": "0.2.2"
 }
 // BOTTOM OF METADATA
 });

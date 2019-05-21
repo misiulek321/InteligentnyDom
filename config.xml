@@ -71,4 +71,5 @@
     <plugin name="cordova-plugin-httpd" spec="^0.9.3" />
     <plugin name="cordova-plugin-secure-storage" spec="^2.6.8" />
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
+    <plugin name="cordova-plugin-screen-locker" spec="^0.2.2" />
 </widget>
