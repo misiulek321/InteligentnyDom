@@ -71,4 +71,4 @@ var app = {
 };
 
 app.initialize();
-//setTimeout(function(){ app.start(); }, 2000);
+setTimeout(function(){ app.start(); }, 2000);

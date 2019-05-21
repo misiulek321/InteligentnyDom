@@ -380,7 +380,7 @@ $(document).ready(function()
         partitionKeypadElements.each(function()
         {
             delayedOperationsOnPartition(delay, $(this).attr('id'), partitionKeypadAction, $('#partitionKeypad .password').val());
-            delay = delay + 300;
+            delay = delay + 150;
         });
 
         $('#partitionKeypad .password').val("");

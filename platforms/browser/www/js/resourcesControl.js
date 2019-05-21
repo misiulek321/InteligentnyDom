@@ -66,8 +66,7 @@ function clickGate(elem)
 
 function uncheckAll(elem)
 {
-    elem.find('.tile input[type="checkbox"]').prop('checked', false).change();
-    //elem.find('.groups .groupUser').uncheckAll();
+    elem.find('.tile input[type="checkbox"]').prop('checked', false);
 }
 
 
@@ -216,6 +215,7 @@ $(document).ready(function()
 
     $('#menu2_blinds img.stop').click(function()
     {
+        console.log($('.tile'));
         $('#menu2_blinds .tile').each(function()
         {
             if($(this).children('input[type="checkbox"]').prop('checked') == true)
