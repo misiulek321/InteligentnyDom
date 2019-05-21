@@ -78,6 +78,8 @@ function showConfiguration()
 
     $('#configuration_resource_that_unlock').val(window.localStorage.getItem('resourceThatUnlock'));
 
+    $('#configuration_screen_lock_timeout').val(window.localStorage.getItem('screenLockTimeout'));
+
     $('#configuration').fadeIn(300);
 }
 
@@ -189,6 +191,9 @@ $(document).ready(function()
         setAppAlwaysActive()
 
         window.localStorage.setItem('resourceThatUnlock', $('#configuration_resource_that_unlock').val());
+
+        window.localStorage.setItem('screenLockTimeout', $('#configuration_screen_lock_timeout').val());
+        rerunLockScreenTimer();
 
 
         if(ok == true)

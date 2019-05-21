@@ -12,7 +12,8 @@ var global = {
     outTimeTimeout: -1,
     outTimeState: -1,
     inTimeTimeout: -1,
-    inTimeState: -1
+    inTimeState: -1,
+    lockScreenTimer: null
 }
 
 function myAlert(text, title, button)
@@ -237,6 +238,24 @@ function setAppAlwaysActive()
 }
 
 
+function rerunLockScreenTimer()
+{
+    if(global.lockScreenTimer != null)
+    {
+        clearTimeout(global.lockScreenTimer);
+    }
+
+    var time = parseInt(window.localStorage.getItem('lockScreenTimeout'));
+
+    if(time > 0)
+    {
+        setTimeout(function()
+        {
+            global.lockScreenTimer = null;
+            window.screenLocker.lock(function(){}, function(e){alert('Błąd podczas blokowania ekranu! Komunikat błędu: '+e)});
+        }, time*1000);
+    }
+}
 
 
 $(document).ready(function ()
@@ -292,5 +311,10 @@ $(document).ready(function ()
     setBackground(window.localStorage.getItem('background') == null ? 1 : window.localStorage.getItem('background'));
 
     setApplicationOrSystemAlarmKeyboard();
+
+    $("*").click(function()
+    {
+        rerunLockScreenTimer();
+    })
 
 });
