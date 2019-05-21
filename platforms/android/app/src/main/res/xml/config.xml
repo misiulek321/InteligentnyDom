@@ -10,9 +10,6 @@
     <feature name="SecureStorage">
         <param name="android-package" value="com.crypho.plugins.SecureStorage" />
     </feature>
-    <feature name="ScreenLocker">
-        <param name="android-package" value="com.applurk.plugin.ScreenLocker" />
-    </feature>
     <name>Inteligentny Dom</name>
     <description>
         Aplikacja do obsługi inteligentnego domu

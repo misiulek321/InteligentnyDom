@@ -30,13 +30,5 @@
     },
     "is_top_level": true,
     "variables": {}
-  },
-  "cordova-plugin-screen-locker": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-screen-locker"
-    },
-    "is_top_level": true,
-    "variables": {}
   }
 }

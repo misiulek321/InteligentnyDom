@@ -21,14 +21,6 @@ module.exports = [
         "id": "cordova-plugin-secure-storage.sjcl_ss",
         "pluginId": "cordova-plugin-secure-storage",
         "runs": true
-    },
-    {
-        "file": "plugins/cordova-plugin-screen-locker/www/ScreenLocker.js",
-        "id": "cordova-plugin-screen-locker.ScreenLocker",
-        "pluginId": "cordova-plugin-screen-locker",
-        "clobbers": [
-            "window.screenLocker"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -36,8 +28,7 @@ module.exports.metadata =
 {
     "com.rjfun.cordova.httpd": "0.9.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-secure-storage": "2.6.8",
-    "cordova-plugin-screen-locker": "0.2.2"
+    "cordova-plugin-secure-storage": "2.6.8"
 }
 // BOTTOM OF METADATA
 });

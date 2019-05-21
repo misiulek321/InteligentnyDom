@@ -23,11 +23,11 @@ module.exports = [
     "runs": true
   },
   {
-    "id": "cordova-plugin-screen-locker.ScreenLocker",
-    "file": "plugins/cordova-plugin-screen-locker/www/ScreenLocker.js",
-    "pluginId": "cordova-plugin-screen-locker",
+    "id": "cordova-plugin-insomnia.Insomnia",
+    "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
+    "pluginId": "cordova-plugin-insomnia",
     "clobbers": [
-      "window.screenLocker"
+      "window.plugins.insomnia"
     ]
   }
 ];
@@ -37,7 +37,7 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-httpd": "0.9.3",
   "cordova-plugin-secure-storage": "2.6.8",
-  "cordova-plugin-screen-locker": "0.2.2"
+  "cordova-plugin-insomnia": "4.3.0"
 };
 // BOTTOM OF METADATA
 });
