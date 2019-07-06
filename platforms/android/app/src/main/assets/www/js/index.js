@@ -31,6 +31,8 @@ var app = {
         secure_starage_init();
         authenticate_user();
         setAppAlwaysActive();
+        setThermometerVisible();
+        setLockScreenTImeout();
         /*if(window.localStorage.getItem('alwaysOnDisplay') == 'true')
         {
             window.plugins.insomnia.keepAwake();

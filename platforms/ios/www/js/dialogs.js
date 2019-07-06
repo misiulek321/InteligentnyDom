@@ -80,6 +80,8 @@ function showConfiguration()
 
     $('#configuration_screen_lock_timeout').val(window.localStorage.getItem('screenLockTimeout'));
 
+    $('#configuration_therm_to_permanent_display').val(window.localStorage.getItem('thermToPermanentDisplay') == null ? '' : window.localStorage.getItem('thermToPermanentDisplay'));
+
     $('#configuration').fadeIn(300);
 }
 
@@ -193,6 +195,10 @@ $(document).ready(function()
         window.localStorage.setItem('resourceThatUnlock', $('#configuration_resource_that_unlock').val());
 
         window.localStorage.setItem('screenLockTimeout', $('#configuration_screen_lock_timeout').val());
+
+        window.localStorage.setItem('thermToPermanentDisplay', $('#configuration_therm_to_permanent_display').val());
+
+        setThermometerVisible();
 
 
         if(ok == true)

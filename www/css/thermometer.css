@@ -1,0 +1,34 @@
+#thermometer
+{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40pt;
+}
+
+#thermometer::after
+{
+    content:"\00b0 C";
+}
+
+
+.background1 #thermometer
+{
+    color: rgb(0, 131, 218);
+}
+
+.background2 #thermometer
+{
+    color: rgb(113, 63, 0);
+}
+
+@media screen and (orientation:landscape)
+{
+    #thermometer
+    {
+        top: 70%;
+    }
+}

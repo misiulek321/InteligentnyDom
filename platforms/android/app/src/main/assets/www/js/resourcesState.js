@@ -343,8 +343,14 @@ global.resourcesState = {
 
                 elem.children('.set').text(Math.floor(data.temp / 10) + '.' + (data.temp % 10));
             }
-            else if (type == 'thermometer') {
+            else if (type == 'thermometer')
+            {
                 elem.text(Math.floor(data.temp / 10) + '.' + (data.temp % 10));
+
+                if(window.localStorage.getItem('thermToPermanentDisplay') == data.id)
+                {
+                    $('#thermometer').text(Math.floor(data.temp / 10) + '.' + (data.temp % 10));
+                }
             }
             else if (type == 'partitions')
             {

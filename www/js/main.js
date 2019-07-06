@@ -238,6 +238,35 @@ function setAppAlwaysActive()
 }
 
 
+function setThermometerVisible()
+{
+    var v = window.localStorage.getItem('thermToPermanentDisplay');
+    if(v != '' && v != null)
+    {
+        $('#thermometer').show();
+    }
+    else
+    {
+        $('#thermometer').hide();
+    }
+}
+
+
+function setLockScreenTImeout()
+{
+    if(global.lockScreenTimer != null)
+        clearTimeout(global.lockScreenTimer);
+    
+    global.lockScreenTimer = setTimeout(function()
+    {
+        $('.menu2_').each(function()
+        {
+            closeMenu($(this));
+        });
+    }, window.localStorage.getItem('screenLockTimeout') == null ? 30000 : window.localStorage.getItem('screenLockTimeout')*1000);
+}
+
+
 $(document).ready(function ()
 {
     $('.menu1_text_landscape').each(function(){addLettersToPortrait($(this))});
@@ -296,5 +325,10 @@ $(document).ready(function ()
     {
         window.localStorage.setItem('screenLockTimeout', 20);
     }
+
+    $('*').click(function()
+    {
+        setLockScreenTImeout();
+    })
 
 });
