@@ -119,6 +119,16 @@
 
 
 
+
+#background_image
+{
+    display: none;
+    position: absolute;
+    z-index: -1;
+}
+
+
+
 #menu
 {
     color: white;

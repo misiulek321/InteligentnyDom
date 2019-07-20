@@ -38,6 +38,24 @@ function myAlert(text, title, button)
 function setBackground(number)
 {
     document.body.className = 'background'+number;
+
+    if(number != 100)
+    {
+        $('#background_image').hide();
+    }
+    else
+    {
+        setBackgroundImage((window.localStorage.getItem('background_url') == null ? 'http://10.0.1.1:8888/obrotowa.mjpeg' : window.localStorage.getItem('background_url')));
+        $('#background_image').show();
+
+        setInterval(function(){setBackgroundImage((window.localStorage.getItem('background_url') == null ? 'http://10.0.1.1:8888/obrotowa.mjpeg' : window.localStorage.getItem('background_url')))}, 60000);
+    }
+}
+
+
+function setBackgroundImage(image)
+{
+    $('#background_image').attr('src', image+'?timestamp='+Date.now());
 }
 
 
@@ -162,6 +180,8 @@ function adjustMenu()
             if($('#'+replaceAt($(this).attr('id'), 4, '1')).hasClass('active') != true)
                 $(this).hide();
         });
+
+        $('#background_image').css({width: $(window).width()-($('#menu1').outerWidth(true)+parseInt($('#menu1').css('left')))+1, height: $(window).height()-$('#topBar').outerHeight(true), left: $('#menu1').outerWidth(true)+parseInt($('#menu1').css('left'))-1, top: $('#topBar').outerHeight(true)});
     }
 }
 

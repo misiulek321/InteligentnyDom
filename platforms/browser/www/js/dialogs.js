@@ -71,7 +71,10 @@ function showConfiguration()
     
 
     var background = (window.localStorage.getItem('background') == null ? 1 : window.localStorage.getItem('background'));
-    $('#configuration_background input[value="'+background+'"]').prop('checked', true);
+    $('#configuration_background input[value="'+background+'"][type="radio"]').prop('checked', true);
+
+    var background_url = (window.localStorage.getItem('background_url') == null ? 'http://10.0.1.1:8888/obrotowa.mjpeg' : window.localStorage.getItem('background_url'));
+    $('#configuration_background input[type="url"]').val(background_url);
     
 
     $('#configuration_app_always_active').prop('checked', window.localStorage.getItem('appAlwaysActive') == 'true' ? true : false);

@@ -122,7 +122,12 @@
                     <label><div>Używaj klawiatury systemowej do wpisywania hasła</div> <div><input type="checkbox" id="configuration_system_keyboard_for_password" /></div></label>
                 </div>
                 <div id="configuration_background">
-                    <div>Tło</div> <div> <label><input type="radio" name="background" value="1" /> Wzorek</label> <label><input type="radio" name="background" value="2" /> Drewno</label> </div>
+                    <div>Tło</div>
+                    <div>
+                        <label><input type="radio" name="background" value="1" /> Wzorek</label>
+                        <label><input type="radio" name="background" value="2" /> Drewno</label>
+                        <label><input type="radio" name="background" value="100" /> Obraz <input type="url" name="background_url" value="http://10.0.1.1:8888/obrotowa.mjpeg" /></label>
+                    </div>
                 </div>
                 <div>
                     <label><div>Aplikacja zawsze aktywna</div> <div><input type="checkbox" id="configuration_app_always_active" /></div></label>
@@ -225,6 +230,8 @@
         </div>
 
 <!------------------------------------------------------------------->
+
+        <img id="background_image" />
 
         <div id="menu">
             <div id="menu1">
