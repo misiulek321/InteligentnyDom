@@ -181,7 +181,7 @@ function adjustMenu()
                 $(this).hide();
         });
 
-        $('#background_image').css({width: $(window).width()-($('#menu1').outerWidth(true)+parseInt($('#menu1').css('left')))+1, height: $(window).height()-$('#topBar').outerHeight(true), left: $('#menu1').outerWidth(true)+parseInt($('#menu1').css('left'))-1, top: $('#topBar').outerHeight(true)});
+        $('#background_image').css({width: $(window).width()-($('#menu1').outerWidth(true)+parseInt($('#menu1').css('left')))+1, height: $(window).height()/*-$('#topBar').outerHeight(true)*/, left: $('#menu1').outerWidth(true)+parseInt($('#menu1').css('left'))-1/*, top: $('#topBar').outerHeight(true)*/});
     }
 }
 

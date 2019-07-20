@@ -34,9 +34,16 @@
 }
 
 
+
+.background100 #date_time
+{
+    left: 30%;
+}
+
+
 .background100 #time
 {
-    margin-top: 8%
+    margin-top: 8%;
 }
 
 
