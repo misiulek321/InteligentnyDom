@@ -38,7 +38,11 @@ function showConfiguration()
     $('#configuration_no_crypto').prop('checked', window.localStorage.getItem('noCrypto') == 'true' ? true : false);
 
 
-    global.ss.get(
+    $('#configuration_username').css('fontStyle', 'normal').val(window.localStorage.getItem('username'));
+
+    $('#configuration_password').prop('type', 'password').css('fontStyle', 'normal').val(window.localStorage.getItem('password') != '' && window.localStorage.getItem('password') !== 'undefined' ? '********' : '');
+
+    /*global.ss.get(
         function (value) {$('#configuration_username').css('fontStyle', 'normal').val(value)},
         function (error) {
             if(error != 'Error: "Key "username" not found."')
@@ -59,7 +63,7 @@ function showConfiguration()
                 $('#configuration_password').prop('type', 'password').css('fontStyle', 'normal').val('');
         },
         'password'
-    );
+    );*/
 
 
 
@@ -129,14 +133,18 @@ $(document).ready(function()
 
         window.localStorage.setItem('noCrypto', $('#configuration_no_crypto').prop('checked'));
 
-        if($('#configuration_username').val().indexOf('not found') == -1)
+        window.localStorage.setItem('username', $('#configuration_username').val());
+
+        /*if($('#configuration_username').val().indexOf('not found') == -1)
         {
             global.ss.set(
                 function()
-                {
+                {*/
                     if($('#configuration_password').val().indexOf('not found') == -1 && $('#configuration_password').val() != '********')
                     {
-                        global.ss.set(
+                        window.localStorage.setItem('password', $('#configuration_password').val());
+                        
+                        /*global.ss.set(
                             function()
                             {
                                 global.resourcesState.stop();
@@ -152,9 +160,9 @@ $(document).ready(function()
                             },
                             'password',
                             $('#configuration_password').val()
-                        );
+                        );*/
                     }
-                },
+                /*},
                 function (error)
                 {
                     //myAlert('Błąd podczas szyfrowania i zapisu nazwy użytkownika: '+error, 'Błąd podczas zapisu ustawień');
@@ -165,7 +173,7 @@ $(document).ready(function()
                 'username',
                 $('#configuration_username').val()
             );
-        }
+        }*/
 
 
 

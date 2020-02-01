@@ -7,7 +7,7 @@ function use_authenticate_user_2(a, c)
 
 function authenticate_user()
 {
-    messages.message('Deszyfrowanie danych...', 'info', 10000);
+    messages.message('Łączenie...', 'info', 10000);
     cred = {};
     a = Array(0, 0, 0, 0);
 
@@ -50,7 +50,15 @@ function authenticate_user()
 
     cred.noCrypto = window.localStorage.getItem('noCrypto') == 'true' ? true : false;
 
-    global.ss.get(
+    cred.username = window.localStorage.getItem('username');
+
+    cred.password = window.localStorage.getItem('password');
+
+    a[2] = 1;
+    a[3] = 1;
+    use_authenticate_user_2(a, cred);
+
+    /*global.ss.get(
         function (value)
         {
             cred.username = value
@@ -82,7 +90,7 @@ function authenticate_user()
             use_authenticate_user_2(a, cred);
         },
         'password'
-    );
+    );*/
 
 }
 

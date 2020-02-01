@@ -81,4 +81,5 @@
     <preference name="PageLength" value="0" />
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
+    <preference name="phonegap-version" value="cli-9.0.0" />
 </widget>

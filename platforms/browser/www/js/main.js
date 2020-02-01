@@ -277,13 +277,16 @@ function setLockScreenTImeout()
     if(global.lockScreenTimer != null)
         clearTimeout(global.lockScreenTimer);
     
-    global.lockScreenTimer = setTimeout(function()
+    if(window.localStorage.getItem('screenLockTimeout') != null && window.localStorage.getItem('screenLockTimeout') > 0)
     {
-        $('.menu2_').each(function()
+        global.lockScreenTimer = setTimeout(function()
         {
-            closeMenu($(this));
-        });
-    }, window.localStorage.getItem('screenLockTimeout') == null ? 30000 : window.localStorage.getItem('screenLockTimeout')*1000);
+            $('.menu2_').each(function()
+            {
+                closeMenu($(this));
+            });
+        }, window.localStorage.getItem('screenLockTimeout') == null ? 30000 : window.localStorage.getItem('screenLockTimeout')*1000);
+    }
 }
 
 
@@ -341,10 +344,10 @@ $(document).ready(function ()
 
     setApplicationOrSystemAlarmKeyboard();
 
-    if(window.localStorage.getItem('screenLockTimeout') == null)
+    /*if(window.localStorage.getItem('screenLockTimeout') == null)
     {
         window.localStorage.setItem('screenLockTimeout', 20);
-    }
+    }*/
 
     $('*').click(function()
     {
