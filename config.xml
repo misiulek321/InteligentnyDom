@@ -7,6 +7,9 @@
     <author>
         Michał Piotrowski
     </author>
+
+    <preference name="phonegap-version" value="cli-9.0.0" />
+
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
