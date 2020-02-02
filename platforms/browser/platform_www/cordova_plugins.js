@@ -9,20 +9,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-secure-storage/www/securestorage.js",
-        "id": "cordova-plugin-secure-storage.SecureStorage",
-        "pluginId": "cordova-plugin-secure-storage",
-        "clobbers": [
-            "SecureStorage"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-secure-storage/www/sjcl_ss.js",
-        "id": "cordova-plugin-secure-storage.sjcl_ss",
-        "pluginId": "cordova-plugin-secure-storage",
-        "runs": true
-    },
-    {
         "file": "plugins/cordova-plugin-device/www/device.js",
         "id": "cordova-plugin-device.device",
         "pluginId": "cordova-plugin-device",
@@ -65,7 +51,6 @@ module.exports.metadata =
 {
     "com.rjfun.cordova.httpd": "0.9.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-secure-storage": "2.6.8",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-background-mode": "0.7.2",
     "cordova-plugin-screen-locker": "0.2.2"
